@@ -1,10 +1,26 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'tsurugi-annotations-action'
+description: 'Generate check-run annotations from outputs of static analysis tools'
+author: 'project-tsurugi'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  access-token:
+    description: 'github token'
+    required: true
+  clang-tidy-input:
+    description: 'input file of generating Clang-Tidy annotation'
+    required: true
+    default: 'build/clang-tidy.log'
+  ctest-input:
+    description: 'input file of generating CTest annotation'
+    required: true
+    default: 'build/**/*_gtest_result.xml'
+  doxygen-input:
+    description: 'input file of generating Doxygen annotation'
+    required: true
+    default: 'build/doxygen-error.log'
+  checks-create:
+    description: '[create] or [update] Checks when running on push event'
+    required: true
+    default: 'create'
 runs:
   using: 'node12'
   main: 'dist/index.js'

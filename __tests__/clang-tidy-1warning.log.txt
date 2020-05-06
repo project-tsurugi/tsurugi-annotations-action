@@ -1,0 +1,13 @@
+Enabled checks:
+    boost-use-to-string
+    ...
+
+clang-apply-replacements version 6.0.0
+11796 warnings generated.
+
+clang-tidy -header-filter=/home/tsurugi/actions-runner/_work/sandbox-ghactions/sandbox-ghactions/(include|src)/fpdecimal/.*\\.h$ -export-fixes /tmp/tmpPuGTI_/tmpmNkWWl.yaml -extra-arg=-Wno-unknown-warning-option -p=build -quiet /home/tsurugi/actions-runner/_work/sandbox-ghactions/sandbox-ghactions/src/fpdecimal/decimal.cpp
+/home/tsurugi/actions-runner/_work/sandbox-ghactions/sandbox-ghactions/src/fpdecimal/decimal.cpp:539:5: warning: uninitialized record type: 'buffer' [cppcoreguidelines-pro-type-member-init]
+    std::array<std::uint8_t, DECQUAD_Pmax> buffer;
+    ^
+
+Writing fixes to build/clang-tidy-fix.yaml ...
