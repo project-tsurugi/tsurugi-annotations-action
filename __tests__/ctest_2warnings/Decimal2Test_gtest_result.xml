@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="33" failures="0" disabled="0" errors="0" time="0.002" timestamp="2020-05-29T15:43:23" name="AllTests">
+  <testsuite name="Decimal2Test" tests="33" failures="0" disabled="0" errors="0" time="0.002" timestamp="2020-05-29T15:43:23">
+    <testcase name="simple" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="of" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="as" status="run" result="completed" time="0.001" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="as_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="as_float_overflow" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="zero" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="positive_infinity" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="negative_infinity" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="not_a_number" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="coefficient" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="bcd" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="compare" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="compare_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="plus" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="plus_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="minus" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="minus_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="abs" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="abs_error" status="run" result="completed" time="0.001" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="add" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="add_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="subtract" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="subtract_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="multiply" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="multiply_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="divide" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="divide_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="remainder" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="remainder_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="round" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="round_error" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="parts" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+    <testcase name="status" status="run" result="completed" time="0" timestamp="2020-05-29T15:43:23" classname="Decimal2Test" />
+  </testsuite>
+</testsuites>
