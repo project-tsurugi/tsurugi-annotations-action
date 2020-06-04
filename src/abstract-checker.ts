@@ -8,7 +8,9 @@ abstract class Checker {
   abstract get input(): string
   abstract get result(): string
   abstract get summary(): string
-  public abstract parse(): any /* eslint-disable-line @typescript-eslint/no-explicit-any */
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  abstract async parse(): Promise<any>
+  /* eslint-enable */
 
   async doIf(): Promise<boolean> {
     const patterns = core.getInput(this.input)

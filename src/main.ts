@@ -4,13 +4,15 @@ import Checker from './abstract-checker'
 import ClangTidyChecker from './clang-tidy-checker'
 import CTestChecker from './ctest-checker'
 import DoxygenChecker from './doxygen-checker'
+import JUnitChecker from './junit-checker'
 
 async function main(): Promise<void> {
   try {
     const checkers: Checker[] = [
       new CTestChecker(),
       new ClangTidyChecker(),
-      new DoxygenChecker()
+      new DoxygenChecker(),
+      new JUnitChecker()
     ]
 
     const MAX_ANNOTATIONS_PER_REQUEST = 50
@@ -25,7 +27,7 @@ async function main(): Promise<void> {
     for (const checker of checkers) {
       if (!(await checker.doIf())) continue
 
-      const annotations = checker.parse()
+      const annotations = await checker.parse()
       core.info(checker.result)
 
       if (annotations.length) {

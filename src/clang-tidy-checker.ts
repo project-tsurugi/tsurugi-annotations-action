@@ -17,8 +17,8 @@ class ClangTidyChecker extends Checker {
     return this.resultMessage
   }
 
-  /* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any */
-  parse() {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  async parse(): Promise<any> {
     const annotations: any[] = []
     /* eslint-enable */
 

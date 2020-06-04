@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.nautilus_technologies.image.LineSegmentTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-06-04T05:03:08" hostname="hostname" time="0.003">
+  <properties/>
+  <testcase name="testGetGradients()" classname="com.nautilus_technologies.image.LineSegmentTest" time="0.001"/>
+  <testcase name="testLineSegmentTest()" classname="com.nautilus_technologies.image.LineSegmentTest" time="0.001"/>
+  <testcase name="testGetPerpendicularIntersection()" classname="com.nautilus_technologies.image.LineSegmentTest" time="0.0"/>
+  <testcase name="testGetIntersection()" classname="com.nautilus_technologies.image.LineSegmentTest" time="0.0"/>
+  <testcase name="testGetDistance()" classname="com.nautilus_technologies.image.LineSegmentTest" time="0.0"/>
+  <testcase name="testGetYAxiesIntercepts()" classname="com.nautilus_technologies.image.LineSegmentTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

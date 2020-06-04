@@ -17,6 +17,14 @@ inputs:
     description: 'input file of generating Doxygen annotation'
     required: true
     default: 'build/doxygen-error.log'
+  junit-input:
+    description: 'input file of generating JUnit annotation'
+    required: true
+    default: 'build/test-results/**/TEST-*.xml'
+  junit-test-src-dir:
+    description: 'test source root directory'
+    required: true
+    default: 'src/test/java'
   checks-create:
     description: '[create] or [update] Checks when running on push event'
     required: true

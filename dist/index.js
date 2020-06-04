@@ -437,6 +437,7 @@ class Checker {
     constructor() {
         this.files = [];
     }
+    /* eslint-enable */
     doIf() {
         return __awaiter(this, void 0, void 0, function* () {
             const patterns = core.getInput(this.input);
@@ -4525,6 +4526,7 @@ const github = __importStar(__webpack_require__(469));
 const clang_tidy_checker_1 = __importDefault(__webpack_require__(346));
 const ctest_checker_1 = __importDefault(__webpack_require__(499));
 const doxygen_checker_1 = __importDefault(__webpack_require__(571));
+const junit_checker_1 = __importDefault(__webpack_require__(829));
 function main() {
     var _a, _b;
     return __awaiter(this, void 0, void 0, function* () {
@@ -4532,7 +4534,8 @@ function main() {
             const checkers = [
                 new ctest_checker_1.default(),
                 new clang_tidy_checker_1.default(),
-                new doxygen_checker_1.default()
+                new doxygen_checker_1.default(),
+                new junit_checker_1.default()
             ];
             const MAX_ANNOTATIONS_PER_REQUEST = 50;
             const accessToken = core.getInput('access-token');
@@ -4543,7 +4546,7 @@ function main() {
             for (const checker of checkers) {
                 if (!(yield checker.doIf()))
                     continue;
-                const annotations = checker.parse();
+                const annotations = yield checker.parse();
                 core.info(checker.result);
                 if (annotations.length) {
                     ghaWarningMessage += `${checker.result} `;
@@ -5964,6 +5967,15 @@ function hasLastPage (link) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -5994,33 +6006,35 @@ class ClangTidyChecker extends abstract_checker_1.default {
     get summary() {
         return this.resultMessage;
     }
-    /* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any */
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     parse() {
-        const annotations = [];
-        /* eslint-enable */
-        for (const inputFile of this.files) {
-            const lines = fs.readFileSync(inputFile, 'UTF-8').split(/\r?\n/);
-            for (const line of lines) {
-                const result = line.match(/^\s*(?:\d+%)?([^%]*?):(\d+):(?:(\d+):)?(?:(?:\{\d+:\d+-\d+:\d+\})+:)?\s*(warning|[^[\]]*error):\s*(.*?)(?:\[([^[]*)\])?$/);
-                if (!result) {
-                    continue;
+        return __awaiter(this, void 0, void 0, function* () {
+            const annotations = [];
+            /* eslint-enable */
+            for (const inputFile of this.files) {
+                const lines = fs.readFileSync(inputFile, 'UTF-8').split(/\r?\n/);
+                for (const line of lines) {
+                    const result = line.match(/^\s*(?:\d+%)?([^%]*?):(\d+):(?:(\d+):)?(?:(?:\{\d+:\d+-\d+:\d+\})+:)?\s*(warning|[^[\]]*error):\s*(.*?)(?:\[([^[]*)\])?$/);
+                    if (!result) {
+                        continue;
+                    }
+                    const relativePath = result[1].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
+                    const annotation = {
+                        path: relativePath,
+                        start_line: result[2],
+                        end_line: result[2],
+                        start_column: result[3],
+                        end_column: result[3],
+                        annotation_level: result[4] === 'error' ? 'failure' : result[4],
+                        message: result[5],
+                        title: result[6]
+                    };
+                    annotations.push(annotation);
                 }
-                const relativePath = result[1].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
-                const annotation = {
-                    path: relativePath,
-                    start_line: result[2],
-                    end_line: result[2],
-                    start_column: result[3],
-                    end_column: result[3],
-                    annotation_level: result[4] === 'error' ? 'failure' : result[4],
-                    message: result[5],
-                    title: result[6]
-                };
-                annotations.push(annotation);
             }
-        }
-        this.resultMessage = `[${this.name}] ${annotations.length} warnings`;
-        return annotations;
+            this.resultMessage = `[${this.name}] ${annotations.length} warnings`;
+            return annotations;
+        });
     }
 }
 exports.default = ClangTidyChecker;
@@ -9720,41 +9734,30 @@ exports.RequestError = RequestError;
 
 "use strict";
 
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs = __importStar(__webpack_require__(747));
-const xml_js_1 = __importDefault(__webpack_require__(421));
-const abstract_checker_1 = __importDefault(__webpack_require__(42));
-class CTestChecker extends abstract_checker_1.default {
-    constructor() {
-        super(...arguments);
-        this.resultMessage = '';
-        this.summaryMessage = '';
-    }
+const junit_checker_1 = __importDefault(__webpack_require__(829));
+class CTestChecker extends junit_checker_1.default {
     get name() {
         return 'CTest';
     }
     get input() {
         return 'ctest-input';
     }
-    get result() {
-        return this.resultMessage;
-    }
-    get summary() {
-        return this.summaryMessage;
-    }
-    /* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any */
-    parse() {
-        function testFunction(testcase) {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    createAnnotation(testcase) {
+        return __awaiter(this, void 0, void 0, function* () {
             /* eslint-enable */
             if (testcase.failure) {
                 const message = testcase.failure._attributes.message;
@@ -9770,40 +9773,9 @@ class CTestChecker extends abstract_checker_1.default {
                     message: messageBody,
                     title: `${testcase._attributes.classname}.${testcase._attributes.name}`
                 };
-                annotations.push(annotation);
+                return annotation;
             }
-        }
-        const annotations = []; /* eslint-disable-line @typescript-eslint/no-explicit-any */
-        let numTests = 0;
-        let numErrors = 0;
-        let numFailures = 0;
-        let numDisabled = 0;
-        let testTimes = 0;
-        for (const inputFile of this.files) {
-            const xml = fs.readFileSync(inputFile, 'UTF-8');
-            const xmljsOption = { compact: true, instructionHasAttributes: true };
-            const json = JSON.parse(xml_js_1.default.xml2json(xml, xmljsOption));
-            if (json.testsuites.testsuite) {
-                const testsuite = json.testsuites.testsuite;
-                numTests += Number(testsuite._attributes.tests);
-                numErrors += Number(testsuite._attributes.errors);
-                numFailures += Number(testsuite._attributes.failures);
-                numDisabled += Number(testsuite._attributes.disabled);
-                testTimes += Number(testsuite._attributes.time);
-                if (Array.isArray(testsuite.testcase)) {
-                    for (const testcase of testsuite.testcase) {
-                        testFunction(testcase);
-                    }
-                }
-                else {
-                    testFunction(testsuite.testcase);
-                }
-            }
-        }
-        const numFailureAndError = numFailures + numErrors;
-        this.resultMessage = `[${this.name}] ${numFailureAndError} test failed`;
-        this.summaryMessage = `Tests: ${numTests}, Failures: ${numFailures}, Errors: ${numErrors}, Disabled: ${numDisabled}, Duration: ${testTimes}`;
-        return annotations;
+        });
     }
 }
 exports.default = CTestChecker;
@@ -10749,6 +10721,15 @@ module.exports = parse;
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -10779,32 +10760,34 @@ class DoxygenChecker extends abstract_checker_1.default {
     get summary() {
         return this.resultMessage;
     }
-    /* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-explicit-any */
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     parse() {
-        const annotations = [];
-        /* eslint-enable */
-        for (const inputFile of this.files) {
-            const lines = fs.readFileSync(inputFile, 'UTF-8').split(/\r?\n/);
-            for (const line of lines) {
-                const result = line.match(/^\s*(?:\d+%)?([^%]*?):(\d+):(?:(\d+):)?(?:(?:\{\d+:\d+-\d+:\d+\})+:)?\s*(warning|[^[\]]*error):\s*(.*?)$/);
-                if (!result) {
-                    continue;
+        return __awaiter(this, void 0, void 0, function* () {
+            const annotations = [];
+            /* eslint-enable */
+            for (const inputFile of this.files) {
+                const lines = fs.readFileSync(inputFile, 'UTF-8').split(/\r?\n/);
+                for (const line of lines) {
+                    const result = line.match(/^\s*(?:\d+%)?([^%]*?):(\d+):(?:(\d+):)?(?:(?:\{\d+:\d+-\d+:\d+\})+:)?\s*(warning|[^[\]]*error):\s*(.*?)$/);
+                    if (!result) {
+                        continue;
+                    }
+                    const relativePath = result[1].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
+                    const annotation = {
+                        path: relativePath,
+                        start_line: result[2],
+                        end_line: result[2],
+                        start_column: result[3],
+                        end_column: result[3],
+                        annotation_level: result[4] === 'error' ? 'failure' : result[4],
+                        message: result[5]
+                    };
+                    annotations.push(annotation);
                 }
-                const relativePath = result[1].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
-                const annotation = {
-                    path: relativePath,
-                    start_line: result[2],
-                    end_line: result[2],
-                    start_column: result[3],
-                    end_column: result[3],
-                    annotation_level: result[4] === 'error' ? 'failure' : result[4],
-                    message: result[5]
-                };
-                annotations.push(annotation);
             }
-        }
-        this.resultMessage = `[${this.name}] ${annotations.length} warnings`;
-        return annotations;
+            this.resultMessage = `[${this.name}] ${annotations.length} warnings`;
+            return annotations;
+        });
     }
 }
 exports.default = DoxygenChecker;
@@ -13779,6 +13762,128 @@ module.exports = {
   }
 
 };
+
+
+/***/ }),
+
+/***/ 829:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core = __importStar(__webpack_require__(470));
+const fs = __importStar(__webpack_require__(747));
+const xml_js_1 = __importDefault(__webpack_require__(421));
+const abstract_checker_1 = __importDefault(__webpack_require__(42));
+class JUnitChecker extends abstract_checker_1.default {
+    constructor() {
+        super(...arguments);
+        this.resultMessage = '';
+        this.summaryMessage = '';
+    }
+    get name() {
+        return 'JUnit';
+    }
+    get input() {
+        return 'junit-input';
+    }
+    get result() {
+        return this.resultMessage;
+    }
+    get summary() {
+        return this.summaryMessage;
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    createAnnotation(testcase) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            const message = testcase.failure._attributes.message;
+            const classname = testcase._attributes.classname;
+            const klass = classname.replace(/$.*/g, '').replace(/\./g, '/');
+            const path = `${core.getInput('junit-test-src-dir')}/${klass}.java`;
+            return {
+                path,
+                start_line: 1,
+                end_line: 1,
+                annotation_level: 'failure',
+                message,
+                title: `${classname}.${testcase._attributes.name}`
+            };
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parse() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const annotations = [];
+            /* eslint-enable */
+            let numTests = 0;
+            let numErrors = 0;
+            let numFailures = 0;
+            let numSkipped = 0;
+            let testTimes = 0;
+            for (const inputFile of this.files) {
+                const xml = fs.readFileSync(inputFile, 'UTF-8');
+                const xmljsOption = { compact: true, instructionHasAttributes: true };
+                const json = JSON.parse(xml_js_1.default.xml2json(xml, xmljsOption));
+                let testsuite;
+                if (json.testsuites) {
+                    testsuite = json.testsuites.testsuite;
+                }
+                else if (json.testsuite) {
+                    testsuite = json.testsuite;
+                }
+                else {
+                    continue;
+                }
+                numTests += Number(testsuite._attributes.tests);
+                numErrors += Number(testsuite._attributes.errors);
+                numFailures += Number(testsuite._attributes.failures);
+                numSkipped += testsuite._attributes.skipped
+                    ? Number(testsuite._attributes.skipped)
+                    : Number(testsuite._attributes.disabled);
+                testTimes += Number(testsuite._attributes.time);
+                if (Array.isArray(testsuite.testcase)) {
+                    for (const testcase of testsuite.testcase) {
+                        if (testcase.failure) {
+                            annotations.push(yield this.createAnnotation(testcase));
+                        }
+                    }
+                }
+                else {
+                    const testcase = testsuite.testcase;
+                    if (testcase.failure) {
+                        annotations.push(yield this.createAnnotation(testcase));
+                    }
+                }
+            }
+            const numFailureAndError = numFailures + numErrors;
+            this.resultMessage = `[${this.name}] ${numFailureAndError} test failed`;
+            this.summaryMessage = `Tests: \`${numTests}\` Failures: \`${numFailures}\` Errors: \`${numErrors}\` Skipped: \`${numSkipped}\` Duration: \`${testTimes}\`s`;
+            return annotations;
+        });
+    }
+}
+exports.default = JUnitChecker;
 
 
 /***/ }),
