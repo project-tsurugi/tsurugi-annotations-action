@@ -55,9 +55,10 @@ class JUnitChecker extends Checker {
       let testsuite
       if (json.testsuites) {
         testsuite = json.testsuites.testsuite
-      } else if (json.testsuite) {
-        testsuite = json.testsuite
       } else {
+        testsuite = json.testsuite
+      }
+      if (!testsuite) {
         continue
       }
       numTests += Number(testsuite._attributes.tests)

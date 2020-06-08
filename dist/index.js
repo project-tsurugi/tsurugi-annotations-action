@@ -13849,10 +13849,10 @@ class JUnitChecker extends abstract_checker_1.default {
                 if (json.testsuites) {
                     testsuite = json.testsuites.testsuite;
                 }
-                else if (json.testsuite) {
+                else {
                     testsuite = json.testsuite;
                 }
-                else {
+                if (!testsuite) {
                     continue;
                 }
                 numTests += Number(testsuite._attributes.tests);
