@@ -1,4 +1,4 @@
-# tsurugi-slack-action
+# tsurugi-annotations-action
 
 This GitHub action generates check-run annotations from outputs of static analysis tools.
 
