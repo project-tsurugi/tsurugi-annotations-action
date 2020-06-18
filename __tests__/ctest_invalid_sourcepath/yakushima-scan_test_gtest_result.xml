@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="5" failures="2" disabled="0" errors="0" time="0.939" timestamp="2020-06-18T15:45:08" name="AllTests">
+  <testsuite name="scan_test" tests="5" failures="2" disabled="0" errors="0" time="0.938" timestamp="2020-06-18T15:45:08">
+    <testcase name="single_put_get_to_one_border" status="run" result="completed" time="0.041" timestamp="2020-06-18T15:45:08" classname="scan_test">
+      <failure message="/home/tsurugi/actions-runner/_work/yakushima/yakushima/test/scan_test.cpp:49&#x0A;Expected equality of these values:&#x0A;  tuple_list.size()&#x0A;    Which is: 0&#x0A;  1" type=""><![CDATA[/home/tsurugi/actions-runner/_work/yakushima/yakushima/test/scan_test.cpp:49
+Expected equality of these values:
+  tuple_list.size()
+    Which is: 0
+  1]]></failure>
+    </testcase>
+    <testcase name="multiple_put_get_same_null_char_key_slice_and_different_key_length_to_single_border" status="run" result="completed" time="0.041" timestamp="2020-06-18T15:45:08" classname="scan_test" />
+    <testcase name="multiple_put_get_same_null_char_key_slice_and_different_key_length_to_multiple_border" status="run" result="completed" time="0.041" timestamp="2020-06-18T15:45:08" classname="scan_test">
+      <failure message="unknown file&#x0A;C++ exception with description &quot;vector::_M_range_check: __n (which is 9) &gt;= this-&gt;size() (which is 9)&quot; thrown in the test body." type=""><![CDATA[unknown file
+C++ exception with description "vector::_M_range_check: __n (which is 9) >= this->size() (which is 9)" thrown in the test body.]]></failure>
+    </testcase>
+    <testcase name="put_until_creating_interior_node" status="run" result="completed" time="0.041" timestamp="2020-06-18T15:45:08" classname="scan_test" />
+    <testcase name="put_until_first_split_of_interior_node" status="run" result="completed" time="0.772" timestamp="2020-06-18T15:45:08" classname="scan_test" />
+  </testsuite>
+</testsuites>

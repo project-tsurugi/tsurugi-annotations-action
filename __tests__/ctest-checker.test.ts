@@ -106,3 +106,19 @@ test('multi folder', async () => {
   console.log(checker.result);
   console.log(checker.summary);
 })
+
+test('invalid_sourcepath', async () => {
+  process.env['GITHUB_WORKSPACE'] = process.cwd();
+  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_invalid_sourcepath/*gtest_result.xml";
+
+  const checker:CTestChecker = new CTestChecker()
+  const doIf = await checker.doIf()
+  const annotations = await checker.parse()
+
+  expect(doIf).toBe(true)
+  expect(annotations.length).toBe(2)
+
+  console.log(annotations);
+  console.log(checker.result);
+  console.log(checker.summary);
+})
