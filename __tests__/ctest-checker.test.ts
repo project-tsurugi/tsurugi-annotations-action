@@ -122,3 +122,19 @@ test('invalid_sourcepath', async () => {
   console.log(checker.result);
   console.log(checker.summary);
 })
+
+test('multiple_testsuite', async () => {
+  process.env['GITHUB_WORKSPACE'] = process.cwd();
+  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_multiple_testsuite/*gtest_result.xml";
+
+  const checker:CTestChecker = new CTestChecker()
+  const doIf = await checker.doIf()
+  const annotations = await checker.parse()
+
+  expect(doIf).toBe(true)
+  expect(annotations.length).toBe(0)
+
+  console.log(annotations);
+  console.log(checker.result);
+  console.log(checker.summary);
+})

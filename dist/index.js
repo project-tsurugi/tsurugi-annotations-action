@@ -13828,6 +13828,73 @@ class JUnitChecker extends abstract_checker_1.default {
         return this.summaryMessage;
     }
     /* eslint-disable @typescript-eslint/no-explicit-any */
+    parse() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const annotations = [];
+            /* eslint-enable */
+            const reportItems = {
+                numTests: 0,
+                numErrors: 0,
+                numFailures: 0,
+                numSkipped: 0,
+                testTimes: 0
+            };
+            for (const inputFile of this.files) {
+                const xml = fs.readFileSync(inputFile, 'UTF-8');
+                const xmljsOption = { compact: true, instructionHasAttributes: true };
+                const json = JSON.parse(xml_js_1.default.xml2json(xml, xmljsOption));
+                let testsuite;
+                if (json.testsuites) {
+                    testsuite = json.testsuites.testsuite;
+                }
+                else {
+                    testsuite = json.testsuite;
+                }
+                if (!testsuite) {
+                    continue;
+                }
+                if (Array.isArray(testsuite)) {
+                    for (const ts of testsuite) {
+                        yield this.parseTestsuite(ts, annotations, reportItems);
+                    }
+                }
+                else {
+                    yield this.parseTestsuite(testsuite, annotations, reportItems);
+                }
+            }
+            const numFailureAndError = reportItems.numFailures + reportItems.numErrors;
+            this.resultMessage = `[${this.name}] ${numFailureAndError} test failed`;
+            this.summaryMessage = `Tests: \`${reportItems.numTests}\` Failures: \`${reportItems.numFailures}\` Errors: \`${reportItems.numErrors}\` Skipped: \`${reportItems.numSkipped}\` Duration: \`${reportItems.testTimes}\`s`;
+            return annotations;
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parseTestsuite(testsuite, annotations, reportItems) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            reportItems.numTests += Number(testsuite._attributes.tests);
+            reportItems.numErrors += Number(testsuite._attributes.errors);
+            reportItems.numFailures += Number(testsuite._attributes.failures);
+            reportItems.numSkipped += testsuite._attributes.skipped
+                ? Number(testsuite._attributes.skipped)
+                : Number(testsuite._attributes.disabled);
+            reportItems.testTimes += Number(testsuite._attributes.time);
+            if (Array.isArray(testsuite.testcase)) {
+                for (const testcase of testsuite.testcase) {
+                    if (testcase.failure) {
+                        annotations.push(yield this.createAnnotation(testcase));
+                    }
+                }
+            }
+            else {
+                const testcase = testsuite.testcase;
+                if (testcase.failure) {
+                    annotations.push(yield this.createAnnotation(testcase));
+                }
+            }
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     createAnnotation(testcase) {
         return __awaiter(this, void 0, void 0, function* () {
             /* eslint-enable */
@@ -13843,57 +13910,6 @@ class JUnitChecker extends abstract_checker_1.default {
                 message,
                 title: `${classname}.${testcase._attributes.name}`
             };
-        });
-    }
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    parse() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const annotations = [];
-            /* eslint-enable */
-            let numTests = 0;
-            let numErrors = 0;
-            let numFailures = 0;
-            let numSkipped = 0;
-            let testTimes = 0;
-            for (const inputFile of this.files) {
-                const xml = fs.readFileSync(inputFile, 'UTF-8');
-                const xmljsOption = { compact: true, instructionHasAttributes: true };
-                const json = JSON.parse(xml_js_1.default.xml2json(xml, xmljsOption));
-                let testsuite;
-                if (json.testsuites) {
-                    testsuite = json.testsuites.testsuite;
-                }
-                else {
-                    testsuite = json.testsuite;
-                }
-                if (!testsuite) {
-                    continue;
-                }
-                numTests += Number(testsuite._attributes.tests);
-                numErrors += Number(testsuite._attributes.errors);
-                numFailures += Number(testsuite._attributes.failures);
-                numSkipped += testsuite._attributes.skipped
-                    ? Number(testsuite._attributes.skipped)
-                    : Number(testsuite._attributes.disabled);
-                testTimes += Number(testsuite._attributes.time);
-                if (Array.isArray(testsuite.testcase)) {
-                    for (const testcase of testsuite.testcase) {
-                        if (testcase.failure) {
-                            annotations.push(yield this.createAnnotation(testcase));
-                        }
-                    }
-                }
-                else {
-                    const testcase = testsuite.testcase;
-                    if (testcase.failure) {
-                        annotations.push(yield this.createAnnotation(testcase));
-                    }
-                }
-            }
-            const numFailureAndError = numFailures + numErrors;
-            this.resultMessage = `[${this.name}] ${numFailureAndError} test failed`;
-            this.summaryMessage = `Tests: \`${numTests}\` Failures: \`${numFailures}\` Errors: \`${numErrors}\` Skipped: \`${numSkipped}\` Duration: \`${testTimes}\`s`;
-            return annotations;
         });
     }
 }

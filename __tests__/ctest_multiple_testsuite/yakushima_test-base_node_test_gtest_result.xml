@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="4" failures="0" disabled="0" errors="0" time="0.532" timestamp="2020-07-20T15:50:34" name="AllTests">
+  <testsuite name="bnt" tests="3" failures="0" disabled="0" errors="0" time="0" timestamp="2020-07-20T15:50:34">
+    <testcase name="constructor" status="run" result="completed" time="0" timestamp="2020-07-20T15:50:34" classname="bnt" />
+    <testcase name="typeSize" status="run" result="completed" time="0" timestamp="2020-07-20T15:50:34" classname="bnt" />
+    <testcase name="function" status="run" result="completed" time="0" timestamp="2020-07-20T15:50:34" classname="bnt" />
+  </testsuite>
+  <testsuite name="garbage_collection" tests="1" failures="0" disabled="0" errors="0" time="0.531" timestamp="2020-07-20T15:50:34">
+    <testcase name="gc" status="run" result="completed" time="0.531" timestamp="2020-07-20T15:50:34" classname="garbage_collection" />
+  </testsuite>
+</testsuites>
