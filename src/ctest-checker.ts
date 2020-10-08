@@ -5,7 +5,7 @@ class CTestChecker extends JUnitChecker {
     return 'CTest'
   }
   get input(): string {
-    return 'ctest-input'
+    return 'ctest_input'
   }
 
   /* eslint-disable @typescript-eslint/no-explicit-any */

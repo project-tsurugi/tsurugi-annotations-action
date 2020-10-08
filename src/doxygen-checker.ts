@@ -8,7 +8,7 @@ class DoxygenChecker extends Checker {
     return 'Doxygen'
   }
   get input(): string {
-    return 'doxygen-input'
+    return 'doxygen_input'
   }
   get result(): string {
     return this.resultMessage

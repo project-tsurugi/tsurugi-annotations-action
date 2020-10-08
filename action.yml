@@ -2,30 +2,30 @@ name: 'tsurugi-annotations-action'
 description: 'Generate check-run annotations from outputs of static analysis tools'
 author: 'project-tsurugi'
 inputs:
-  access-token:
+  access_token:
     description: 'github token'
     required: true
-  clang-tidy-input:
+  clang_tidy_input:
     description: 'input file of generating Clang-Tidy annotation'
     required: true
     default: 'build/clang-tidy.log'
-  ctest-input:
+  ctest_input:
     description: 'input file of generating CTest annotation'
     required: true
     default: 'build/**/*_gtest_result.xml'
-  doxygen-input:
+  doxygen_input:
     description: 'input file of generating Doxygen annotation'
     required: true
     default: 'build/doxygen-error.log'
-  junit-input:
+  junit_input:
     description: 'input file of generating JUnit annotation'
     required: true
     default: 'build/test-results/**/TEST-*.xml'
-  junit-test-src-dir:
+  junit_test_src_dir:
     description: 'test source root directory'
     required: true
     default: 'src/test/java'
-  checks-create:
+  checks_create:
     description: '[create] or [update] Checks when running on push event'
     required: true
     default: 'create'

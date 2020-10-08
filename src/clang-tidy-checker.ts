@@ -8,7 +8,7 @@ class ClangTidyChecker extends Checker {
     return 'Clang-Tidy'
   }
   get input(): string {
-    return 'clang-tidy-input'
+    return 'clang_tidy_input'
   }
   get result(): string {
     return this.resultMessage

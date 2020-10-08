@@ -2795,7 +2795,7 @@ class ClangTidyChecker extends abstract_checker_1.default {
         return 'Clang-Tidy';
     }
     get input() {
-        return 'clang-tidy-input';
+        return 'clang_tidy_input';
     }
     get result() {
         return this.resultMessage;

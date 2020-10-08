@@ -11,7 +11,7 @@ class JUnitChecker extends Checker {
     return 'JUnit'
   }
   get input(): string {
-    return 'junit-input'
+    return 'junit_input'
   }
   get result(): string {
     return this.resultMessage
@@ -96,7 +96,7 @@ class JUnitChecker extends Checker {
     const message: string = testcase.failure._attributes.message
     const classname: string = testcase._attributes.classname
     const klass = classname.replace(/$.*/g, '').replace(/\./g, '/')
-    const path = `${core.getInput('junit-test-src-dir')}/${klass}.java`
+    const path = `${core.getInput('junit_test_src_dir')}/${klass}.java`
 
     return {
       path,

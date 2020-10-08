@@ -10,5 +10,5 @@ This GitHub action generates check-run annotations from outputs of static analys
         name: Generate_Annotations 
         uses: ./.github/actions/tsurugi-annotations-action
         with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
+          access_token: ${{ secrets.GITHUB_TOKEN }}
 ```

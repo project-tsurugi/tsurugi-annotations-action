@@ -2,7 +2,7 @@ import JUnitChecker from '../src/junit-checker'
 
 test('no input file', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_JUNIT-INPUT'] = "__tests__/dummy_not_exist/TEST-*.xml";
+  process.env['INPUT_JUNIT_INPUT'] = "__tests__/dummy_not_exist/TEST-*.xml";
 
   const checker:JUnitChecker = new JUnitChecker()
   const doIf = await checker.doIf()
@@ -12,8 +12,8 @@ test('no input file', async () => {
 
 test('no warning file', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_JUNIT-INPUT'] = "__tests__/junit_0warning/TEST-*.xml";
-  process.env['INPUT_JUNIT-TEST-SRC-DIR'] = "ParallelRunner/src/test/java";
+  process.env['INPUT_JUNIT_INPUT'] = "__tests__/junit_0warning/TEST-*.xml";
+  process.env['INPUT_JUNIT_TEST_SRC_DIR'] = "ParallelRunner/src/test/java";
 
   const checker:JUnitChecker = new JUnitChecker()
   const doIf = await checker.doIf()
@@ -29,8 +29,8 @@ test('no warning file', async () => {
 
 test('one warning', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_JUNIT-INPUT'] = "__tests__/junit_1warning/TEST-*.xml";
-  process.env['INPUT_JUNIT-TEST-SRC-DIR'] = "ParallelRunner/src/test/java";
+  process.env['INPUT_JUNIT_INPUT'] = "__tests__/junit_1warning/TEST-*.xml";
+  process.env['INPUT_JUNIT_TEST_SRC_DIR'] = "ParallelRunner/src/test/java";
 
   const checker:JUnitChecker = new JUnitChecker()
   const doIf = await checker.doIf()
@@ -46,8 +46,8 @@ test('one warning', async () => {
 
 test('three warnings', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_JUNIT-INPUT'] = "__tests__/junit_3warnings/TEST-*.xml";
-  process.env['INPUT_JUNIT-TEST-SRC-DIR'] = "ParallelRunner/src/test/java";
+  process.env['INPUT_JUNIT_INPUT'] = "__tests__/junit_3warnings/TEST-*.xml";
+  process.env['INPUT_JUNIT_TEST_SRC_DIR'] = "ParallelRunner/src/test/java";
 
   const checker:JUnitChecker = new JUnitChecker()
   const doIf = await checker.doIf()

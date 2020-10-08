@@ -2,7 +2,7 @@ import CTestChecker from '../src/ctest-checker'
 
 test('no input file', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/dummy_not_exist/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/dummy_not_exist/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
@@ -12,7 +12,7 @@ test('no input file', async () => {
 
 test('no warning file', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_0warning/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_0warning/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
@@ -28,7 +28,7 @@ test('no warning file', async () => {
 
 test('one warning', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_1warning/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_1warning/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
@@ -44,7 +44,7 @@ test('one warning', async () => {
 
 test('two warnings', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_2warnings/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_2warnings/*gtest_result.xml";
 
 
   const checker:CTestChecker = new CTestChecker()
@@ -61,7 +61,7 @@ test('two warnings', async () => {
 
 test('three warnings', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_3warnings/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_3warnings/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
@@ -77,7 +77,7 @@ test('three warnings', async () => {
 
 test('no suite in suites', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_nosuite_in_suites/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_nosuite_in_suites/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
@@ -93,7 +93,7 @@ test('no suite in suites', async () => {
 
 test('multi folder', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_4warnings/build*/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_4warnings/build*/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
@@ -109,7 +109,7 @@ test('multi folder', async () => {
 
 test('invalid_sourcepath', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_invalid_sourcepath/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_invalid_sourcepath/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
@@ -125,7 +125,7 @@ test('invalid_sourcepath', async () => {
 
 test('multiple_testsuite', async () => {
   process.env['GITHUB_WORKSPACE'] = process.cwd();
-  process.env['INPUT_CTEST-INPUT'] = "__tests__/ctest_multiple_testsuite/*gtest_result.xml";
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_multiple_testsuite/*gtest_result.xml";
 
   const checker:CTestChecker = new CTestChecker()
   const doIf = await checker.doIf()
