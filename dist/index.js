@@ -1635,7 +1635,7 @@ function main() {
                 new junit_checker_1.default()
             ];
             const MAX_ANNOTATIONS_PER_REQUEST = 50;
-            const accessToken = core.getInput('access-token');
+            const accessToken = `${process.env.GITHUB_TOKEN}`;
             const checksCreate = core.getInput('checks-create');
             const octokit = github.getOctokit(accessToken);
             const sha = (_b = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.head.sha, (_b !== null && _b !== void 0 ? _b : github.context.sha));

@@ -16,7 +16,7 @@ async function main(): Promise<void> {
     ]
 
     const MAX_ANNOTATIONS_PER_REQUEST = 50
-    const accessToken = core.getInput('access-token')
+    const accessToken = `${process.env.GITHUB_TOKEN}`
     const checksCreate = core.getInput('checks-create')
 
     const octokit = github.getOctokit(accessToken)
