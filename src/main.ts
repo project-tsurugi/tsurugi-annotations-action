@@ -19,7 +19,7 @@ async function main(): Promise<void> {
     const accessToken = core.getInput('access-token')
     const checksCreate = core.getInput('checks-create')
 
-    const octokit = new github.GitHub(accessToken)
+    const octokit = github.getOctokit(accessToken)
     const sha =
       github.context.payload.pull_request?.head.sha ?? github.context.sha
 
