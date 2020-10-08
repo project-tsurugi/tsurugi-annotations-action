@@ -2816,12 +2816,14 @@ class ClangTidyChecker extends abstract_checker_1.default {
                         continue;
                     }
                     const relativePath = result[1].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
+                    const warnLine = parseInt(result[2]);
+                    const warnColumn = parseInt(result[3]);
                     const annotation = {
                         path: relativePath,
-                        start_line: result[2],
-                        end_line: result[2],
-                        start_column: result[3],
-                        end_column: result[3],
+                        start_line: warnLine,
+                        end_line: warnLine,
+                        start_column: warnColumn,
+                        end_column: warnColumn,
                         annotation_level: result[4] === 'error' ? 'failure' : result[4],
                         message: result[5],
                         title: result[6]

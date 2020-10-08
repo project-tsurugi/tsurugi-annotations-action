@@ -35,12 +35,21 @@ class ClangTidyChecker extends Checker {
         const relativePath = result[1].substring(
           `${process.env.GITHUB_WORKSPACE}`.length + 1
         )
+        let warnLine = parseInt(result[2])
+        if (isNaN(warnLine)) {
+          warnLine = 1
+        }
+        let warnColumn = parseInt(result[3])
+        if (isNaN(warnColumn)) {
+          warnColumn = 1
+        }
+
         const annotation = {
           path: relativePath,
-          start_line: result[2],
-          end_line: result[2],
-          start_column: result[3],
-          end_column: result[3],
+          start_line: warnLine,
+          end_line: warnLine,
+          start_column: warnColumn,
+          end_column: warnColumn,
           annotation_level: result[4] === 'error' ? 'failure' : result[4],
           message: result[5],
           title: result[6]
