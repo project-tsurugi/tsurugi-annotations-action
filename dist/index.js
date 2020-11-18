@@ -1636,7 +1636,7 @@ function main() {
             ];
             const MAX_ANNOTATIONS_PER_REQUEST = 50;
             const accessToken = `${process.env.GITHUB_TOKEN}`;
-            const checksCreate = core.getInput('checks-create');
+            const checksCreate = core.getInput('checks_create');
             const octokit = github.getOctokit(accessToken);
             const sha = (_b = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.head.sha, (_b !== null && _b !== void 0 ? _b : github.context.sha));
             let ghaWarningMessage = '';
@@ -2816,8 +2816,14 @@ class ClangTidyChecker extends abstract_checker_1.default {
                         continue;
                     }
                     const relativePath = result[1].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
-                    const warnLine = parseInt(result[2]);
-                    const warnColumn = parseInt(result[3]);
+                    let warnLine = parseInt(result[2]);
+                    if (isNaN(warnLine)) {
+                        warnLine = 1;
+                    }
+                    let warnColumn = parseInt(result[3]);
+                    if (isNaN(warnColumn)) {
+                        warnColumn = 1;
+                    }
                     const annotation = {
                         path: relativePath,
                         start_line: warnLine,
@@ -6042,7 +6048,7 @@ class CTestChecker extends junit_checker_1.default {
         return 'CTest';
     }
     get input() {
-        return 'ctest-input';
+        return 'ctest_input';
     }
     /* eslint-disable @typescript-eslint/no-explicit-any */
     createAnnotation(testcase) {
@@ -6053,25 +6059,21 @@ class CTestChecker extends junit_checker_1.default {
                 const firstLineIndex = failureMessage.indexOf('\n');
                 const pathLine = failureMessage.substr(0, firstLineIndex).split(':');
                 let path = pathLine[0].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
-                let start_line = pathLine[1];
-                let end_line = pathLine[1];
+                let warnLine = parseInt(pathLine[1]);
                 let message = failureMessage.substr(firstLineIndex);
                 if (!path) {
                     path = 'unknouwn file';
                 }
-                if (!start_line) {
-                    start_line = '1';
-                }
-                if (!end_line) {
-                    end_line = '1';
+                if (isNaN(warnLine)) {
+                    warnLine = 1;
                 }
                 if (!message) {
                     message = failureMessage;
                 }
                 const annotation = {
                     path,
-                    start_line,
-                    end_line,
+                    start_line: warnLine,
+                    end_line: warnLine,
                     annotation_level: 'failure',
                     message,
                     title: `${testcase._attributes.classname}.${testcase._attributes.name}`
@@ -6857,7 +6859,7 @@ class DoxygenChecker extends abstract_checker_1.default {
         return 'Doxygen';
     }
     get input() {
-        return 'doxygen-input';
+        return 'doxygen_input';
     }
     get result() {
         return this.resultMessage;
@@ -6878,12 +6880,20 @@ class DoxygenChecker extends abstract_checker_1.default {
                         continue;
                     }
                     const relativePath = result[1].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
+                    let warnLine = parseInt(result[2]);
+                    if (isNaN(warnLine)) {
+                        warnLine = 1;
+                    }
+                    let warnColumn = parseInt(result[3]);
+                    if (isNaN(warnColumn)) {
+                        warnColumn = 1;
+                    }
                     const annotation = {
                         path: relativePath,
-                        start_line: result[2],
-                        end_line: result[2],
-                        start_column: result[3],
-                        end_column: result[3],
+                        start_line: warnLine,
+                        end_line: warnLine,
+                        start_column: warnColumn,
+                        end_column: warnColumn,
                         annotation_level: result[4] === 'error' ? 'failure' : result[4],
                         message: result[5]
                     };
@@ -9157,7 +9167,7 @@ class JUnitChecker extends abstract_checker_1.default {
         return 'JUnit';
     }
     get input() {
-        return 'junit-input';
+        return 'junit_input';
     }
     get result() {
         return this.resultMessage;
@@ -9239,7 +9249,7 @@ class JUnitChecker extends abstract_checker_1.default {
             const message = testcase.failure._attributes.message;
             const classname = testcase._attributes.classname;
             const klass = classname.replace(/$.*/g, '').replace(/\./g, '/');
-            const path = `${core.getInput('junit-test-src-dir')}/${klass}.java`;
+            const path = `${core.getInput('junit_test_src_dir')}/${klass}.java`;
             return {
                 path,
                 start_line: 1,
