@@ -9,6 +9,4 @@ This GitHub action generates check-run annotations from outputs of static analys
       - id: Generate_Annotations 
         name: Generate_Annotations 
         uses: ./.github/actions/tsurugi-annotations-action
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
 ```

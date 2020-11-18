@@ -2,9 +2,6 @@ name: 'tsurugi-annotations-action'
 description: 'Generate check-run annotations from outputs of static analysis tools'
 author: 'project-tsurugi'
 inputs:
-  access_token:
-    description: 'github token'
-    required: true
   clang_tidy_input:
     description: 'input file of generating Clang-Tidy annotation'
     required: true
