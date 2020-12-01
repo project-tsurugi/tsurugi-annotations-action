@@ -8,7 +8,9 @@ name: Create Release
 jobs:
   build:
     name: Create Release
-    runs-on: [self-hosted, nodejs]
+    runs-on: [self-hosted, docker]
+    container: node:14
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -32,7 +34,7 @@ jobs:
           REPONAME=${GITHUB_REPOSITORY##*/}
           mkdir ${REPONAME}
           cp -a VERSION action.yml dist ${REPONAME}
-          zip -r dist.zip ${REPONAME}
+          tar -czvf dist.tar.gz ${REPONAME}
 
       - name: Create Release
         id: create_release
@@ -52,9 +54,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist.zip
-          asset_name: dist.zip
-          asset_content_type: application/zip
+          asset_path: ./dist.tar.gz
+          asset_name: dist.tar.gz
+          asset_content_type: application/gzip
 
       - uses: 8398a7/action-slack@v3
         with:
@@ -62,6 +64,5 @@ jobs:
           status: ${{ job.status }}
           fields: repo,message
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
