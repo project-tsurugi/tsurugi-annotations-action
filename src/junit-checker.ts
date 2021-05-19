@@ -7,7 +7,7 @@ class JUnitChecker extends Checker {
   private resultMessage: string = ''
   private summaryMessage: string = ''
 
-  get name(): string {
+  get checkerName(): string {
     return 'JUnit'
   }
   get input(): string {
@@ -56,7 +56,7 @@ class JUnitChecker extends Checker {
     }
 
     const numFailureAndError = reportItems.numFailures + reportItems.numErrors
-    this.resultMessage = `[${this.name}] ${numFailureAndError} test failed`
+    this.resultMessage = `[${this.checkerName}] ${numFailureAndError} test failed`
     this.summaryMessage = `Tests: \`${reportItems.numTests}\` Failures: \`${reportItems.numFailures}\` Errors: \`${reportItems.numErrors}\` Skipped: \`${reportItems.numSkipped}\` Duration: \`${reportItems.testTimes}\`s`
     return annotations
   }

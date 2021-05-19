@@ -172,6 +172,16 @@ class Checker {
     constructor() {
         this.files = [];
     }
+    get name() {
+        const matrix = core.getInput('matrix');
+        if (matrix == null || matrix === 'null' || matrix === '') {
+            return this.checkerName;
+        }
+        else {
+            const value = Object.values(JSON.parse(matrix)).join(', ');
+            return value !== '' ? `${this.checkerName} (${value})` : this.checkerName;
+        }
+    }
     /* eslint-enable */
     doIf() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -2791,7 +2801,7 @@ class ClangTidyChecker extends abstract_checker_1.default {
         super(...arguments);
         this.resultMessage = '';
     }
-    get name() {
+    get checkerName() {
         return 'Clang-Tidy';
     }
     get input() {
@@ -2837,7 +2847,7 @@ class ClangTidyChecker extends abstract_checker_1.default {
                     annotations.push(annotation);
                 }
             }
-            this.resultMessage = `[${this.name}] ${annotations.length} warnings`;
+            this.resultMessage = `[${this.checkerName}] ${annotations.length} warnings`;
             return annotations;
         });
     }
@@ -6044,7 +6054,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const junit_checker_1 = __importDefault(__webpack_require__(829));
 class CTestChecker extends junit_checker_1.default {
-    get name() {
+    get checkerName() {
         return 'CTest';
     }
     get input() {
@@ -6855,7 +6865,7 @@ class DoxygenChecker extends abstract_checker_1.default {
         super(...arguments);
         this.resultMessage = '';
     }
-    get name() {
+    get checkerName() {
         return 'Doxygen';
     }
     get input() {
@@ -6900,7 +6910,7 @@ class DoxygenChecker extends abstract_checker_1.default {
                     annotations.push(annotation);
                 }
             }
-            this.resultMessage = `[${this.name}] ${annotations.length} warnings`;
+            this.resultMessage = `[${this.checkerName}] ${annotations.length} warnings`;
             return annotations;
         });
     }
@@ -9163,7 +9173,7 @@ class JUnitChecker extends abstract_checker_1.default {
         this.resultMessage = '';
         this.summaryMessage = '';
     }
-    get name() {
+    get checkerName() {
         return 'JUnit';
     }
     get input() {
@@ -9211,7 +9221,7 @@ class JUnitChecker extends abstract_checker_1.default {
                 }
             }
             const numFailureAndError = reportItems.numFailures + reportItems.numErrors;
-            this.resultMessage = `[${this.name}] ${numFailureAndError} test failed`;
+            this.resultMessage = `[${this.checkerName}] ${numFailureAndError} test failed`;
             this.summaryMessage = `Tests: \`${reportItems.numTests}\` Failures: \`${reportItems.numFailures}\` Errors: \`${reportItems.numErrors}\` Skipped: \`${reportItems.numSkipped}\` Duration: \`${reportItems.testTimes}\`s`;
             return annotations;
         });

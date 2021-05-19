@@ -1,7 +1,7 @@
 import JUnitChecker from './junit-checker'
 
 class CTestChecker extends JUnitChecker {
-  get name(): string {
+  get checkerName(): string {
     return 'CTest'
   }
   get input(): string {

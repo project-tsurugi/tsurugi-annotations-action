@@ -4,7 +4,7 @@ import Checker from './abstract-checker'
 class ClangTidyChecker extends Checker {
   private resultMessage: string = ''
 
-  get name(): string {
+  get checkerName(): string {
     return 'Clang-Tidy'
   }
   get input(): string {
@@ -57,7 +57,7 @@ class ClangTidyChecker extends Checker {
         annotations.push(annotation)
       }
     }
-    this.resultMessage = `[${this.name}] ${annotations.length} warnings`
+    this.resultMessage = `[${this.checkerName}] ${annotations.length} warnings`
     return annotations
   }
 }

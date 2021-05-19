@@ -30,6 +30,9 @@ inputs:
     description: '[create] or [update] Checks when running on push event'
     required: true
     default: 'create'
+  matrix:
+    description: 'matrix context'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'

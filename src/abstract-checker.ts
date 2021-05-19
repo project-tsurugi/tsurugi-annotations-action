@@ -4,10 +4,21 @@ import * as glob from '@actions/glob'
 abstract class Checker {
   files: string[] = []
 
-  abstract get name(): string
+  abstract get checkerName(): string
   abstract get input(): string
   abstract get result(): string
   abstract get summary(): string
+
+  get name(): string {
+    const matrix = core.getInput('matrix')
+    if (matrix == null || matrix === 'null' || matrix === '') {
+      return this.checkerName
+    } else {
+      const value = Object.values(JSON.parse(matrix)).join(', ')
+      return value !== '' ? `${this.checkerName} (${value})` : this.checkerName
+    }
+  }
+
   /* eslint-disable @typescript-eslint/no-explicit-any */
   abstract async parse(): Promise<any>
   /* eslint-enable */
