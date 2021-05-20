@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.2.2" sequence="0" timestamp="1621497494501" analysisTimestamp="1621497494539" release="unspecified">
+  <Project projectName="connectivity (spotbugsMain)">
+    <Jar>/__w/tsubakuro/modules/connectivity/build/classes/java/main/com/nautilus_technologies/tsubakuro/LowLevelResultSet.class</Jar>
+    <Jar>/__w/tsubakuro/modules/connectivity/build/classes/java/main/com/nautilus_technologies/tsubakuro/ErrorCode.class</Jar>
+    <Jar>/__w/tsubakuro/modules/connectivity/build/classes/java/main/com/nautilus_technologies/tsubakuro/LowLevelPreparedStatement.class</Jar>
+    <Jar>/__w/tsubakuro/modules/connectivity/build/classes/java/main/com/nautilus_technologies/tsubakuro/Link.class</Jar>
+    <AuxClasspathEntry>/__w/tsubakuro/modules/protocolbuffers/build/libs/protocolbuffers.jar</AuxClasspathEntry>
+    <SrcDir>/__w/tsubakuro/modules/connectivity/src/main/resources</SrcDir>
+    <SrcDir>/__w/tsubakuro/modules/connectivity/src/main/java</SrcDir>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 20 May 2021 16:58:14 +0900" total_classes="4" referenced_classes="29" total_bugs="0" total_size="19" num_packages="1" java_version="11.0.8" vm_version="11.0.8+10-post-Ubuntu-0ubuntu118.04.1" cpu_seconds="7.40" clock_seconds="1.61" peak_mbytes="185.89" alloc_mbytes="512.00" gc_seconds="0.05">
+    <FileStats path="com/nautilus_technologies/tsubakuro/ErrorCode.java" bugCount="0" size="11"/>
+    <FileStats path="com/nautilus_technologies/tsubakuro/Link.java" bugCount="0" size="6"/>
+    <FileStats path="com/nautilus_technologies/tsubakuro/LowLevelPreparedStatement.java" bugCount="0" size="1"/>
+    <FileStats path="com/nautilus_technologies/tsubakuro/LowLevelResultSet.java" bugCount="0" size="1"/>
+    <PackageStats package="com.nautilus_technologies.tsubakuro" total_bugs="0" total_types="4" total_size="19">
+      <ClassStats class="com.nautilus_technologies.tsubakuro.ErrorCode" sourceFile="ErrorCode.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.Link" sourceFile="Link.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.LowLevelPreparedStatement" sourceFile="LowLevelPreparedStatement.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.LowLevelResultSet" sourceFile="LowLevelResultSet.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="366" invocations="391" avgMicrosecondsPerInvocation="937" maxMicrosecondsPerInvocation="29519" standardDeviationMicrosecondsPerInvocation="2219"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="75" invocations="29" avgMicrosecondsPerInvocation="2594" maxMicrosecondsPerInvocation="20276" standardDeviationMicrosecondsPerInvocation="5006"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="53" invocations="61" avgMicrosecondsPerInvocation="875" maxMicrosecondsPerInvocation="6163" standardDeviationMicrosecondsPerInvocation="997"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="47" invocations="396" avgMicrosecondsPerInvocation="120" maxMicrosecondsPerInvocation="4250" standardDeviationMicrosecondsPerInvocation="261"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="42" invocations="9" avgMicrosecondsPerInvocation="4761" maxMicrosecondsPerInvocation="41170" standardDeviationMicrosecondsPerInvocation="12876"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="42" invocations="29" avgMicrosecondsPerInvocation="1476" maxMicrosecondsPerInvocation="10776" standardDeviationMicrosecondsPerInvocation="2292"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="38" invocations="336" avgMicrosecondsPerInvocation="115" maxMicrosecondsPerInvocation="1449" standardDeviationMicrosecondsPerInvocation="205"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="36" invocations="4" avgMicrosecondsPerInvocation="9197" maxMicrosecondsPerInvocation="34285" standardDeviationMicrosecondsPerInvocation="14486"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="30" invocations="29" avgMicrosecondsPerInvocation="1062" maxMicrosecondsPerInvocation="11692" standardDeviationMicrosecondsPerInvocation="2328"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="29" invocations="49" avgMicrosecondsPerInvocation="599" maxMicrosecondsPerInvocation="13113" standardDeviationMicrosecondsPerInvocation="1928"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="24" invocations="29" avgMicrosecondsPerInvocation="842" maxMicrosecondsPerInvocation="8628" standardDeviationMicrosecondsPerInvocation="1792"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="22" invocations="29" avgMicrosecondsPerInvocation="761" maxMicrosecondsPerInvocation="10229" standardDeviationMicrosecondsPerInvocation="1936"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.2.2" sequence="0" timestamp="1621495825599" analysisTimestamp="1621495825637" release="unspecified">
+  <Project projectName="sql (spotbugsMain)">
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/ResultSet.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/ResultSet$FieldType.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/ResultSet$ResultSetIterator.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/Session.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/ResultSet$RecordMeta.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/Transaction.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/ResultSet$Record.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/ParameterSet.class</Jar>
+    <Jar>/__w/tsubakuro/modules/sql/build/classes/java/main/com/nautilus_technologies/tsubakuro/PreparedStatement.class</Jar>
+    <AuxClasspathEntry>/__w/tsubakuro/modules/connectivity/build/libs/connectivity.jar</AuxClasspathEntry>
+    <SrcDir>/__w/tsubakuro/modules/sql/src/main/resources</SrcDir>
+    <SrcDir>/__w/tsubakuro/modules/sql/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="1" rank="9" abbrev="DLS" category="STYLE" instanceHash="5b31931aff039bc6cf03187694560cc8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to m in new com.nautilus_technologies.tsubakuro.ResultSet$FieldType(String, int, String, int)</LongMessage>
+    <Class classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" primary="true">
+      <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" start="10" end="37" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java">
+        <Message>At ResultSet.java:[lines 10-37]</Message>
+      </SourceLine>
+      <Message>In class com.nautilus_technologies.tsubakuro.ResultSet$FieldType</Message>
+    </Class>
+    <Method classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" name="&lt;init&gt;" signature="(Ljava/lang/String;ILjava/lang/String;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" start="21" end="27" startBytecode="0" endBytecode="19" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java"/>
+      <Message>In method new com.nautilus_technologies.tsubakuro.ResultSet$FieldType(String, int, String, int)</Message>
+    </Method>
+    <LocalVariable name="m" register="6" pc="27" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named m</Message>
+    </LocalVariable>
+    <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" primary="true" start="25" end="25" startBytecode="25" endBytecode="25" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java">
+      <Message>At ResultSet.java:[line 25]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="m"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="10" abbrev="DLS" category="STYLE" instanceHash="ebf529bf68ef582d6ad49c63ac9de9b4" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="563">
+    <ShortMessage>Dead store to local variable</ShortMessage>
+    <LongMessage>Dead store to s in new com.nautilus_technologies.tsubakuro.ResultSet$FieldType(String, int, String, int)</LongMessage>
+    <Class classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" primary="true">
+      <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" start="10" end="37" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java">
+        <Message>At ResultSet.java:[lines 10-37]</Message>
+      </SourceLine>
+      <Message>In class com.nautilus_technologies.tsubakuro.ResultSet$FieldType</Message>
+    </Class>
+    <Method classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" name="&lt;init&gt;" signature="(Ljava/lang/String;ILjava/lang/String;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" start="21" end="27" startBytecode="0" endBytecode="19" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java"/>
+      <Message>In method new com.nautilus_technologies.tsubakuro.ResultSet$FieldType(String, int, String, int)</Message>
+    </Method>
+    <LocalVariable name="s" register="7" pc="36" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named s</Message>
+    </LocalVariable>
+    <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" primary="true" start="26" end="26" startBytecode="34" endBytecode="34" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java">
+      <Message>At ResultSet.java:[line 26]</Message>
+    </SourceLine>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.BASE_VALUE" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="s"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="UC_USELESS_OBJECT" priority="3" rank="11" abbrev="UC" category="STYLE" instanceHash="3f00096d5cb538d5ffd8d70236450796" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Useless object created</ShortMessage>
+    <LongMessage>Useless object stored in variable arr of method com.nautilus_technologies.tsubakuro.ResultSet$FieldType.getLabel()</LongMessage>
+    <Class classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" primary="true">
+      <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" start="10" end="37" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java">
+        <Message>At ResultSet.java:[lines 10-37]</Message>
+      </SourceLine>
+      <Message>In class com.nautilus_technologies.tsubakuro.ResultSet$FieldType</Message>
+    </Class>
+    <Method classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" name="getLabel" signature="()Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" start="31" end="33" startBytecode="0" endBytecode="77" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java"/>
+      <Message>In method com.nautilus_technologies.tsubakuro.ResultSet$FieldType.getLabel()</Message>
+    </Method>
+    <String value="arr">
+      <Message>Value arr</Message>
+    </String>
+    <Type descriptor="[Ljava/lang/Integer;">
+      <Message>Type Integer[]</Message>
+    </Type>
+    <SourceLine classname="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" primary="true" start="31" end="31" startBytecode="2" endBytecode="2" sourcefile="ResultSet.java" sourcepath="com/nautilus_technologies/tsubakuro/ResultSet.java" relSourcepath="java/com/nautilus_technologies/tsubakuro/ResultSet.java">
+      <Message>At ResultSet.java:[line 31]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugPattern type="DLS_DEAD_LOCAL_STORE" abbrev="DLS" category="STYLE">
+    <ShortDescription>Dead store to local variable</ShortDescription>
+    <Details><![CDATA[
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UC_USELESS_OBJECT" abbrev="UC" category="STYLE">
+    <ShortDescription>Useless object created</ShortDescription>
+    <Details><![CDATA[
+
+<p>Our analysis shows that this object is useless.
+It's created and modified, but its value never go outside of the method or produce any side-effect.
+Either there is a mistake and object was intended to be used or it can be removed.</p>
+<p>This analysis rarely produces false-positives. Common false-positive cases include:</p>
+<p>- This object used to implicitly throw some obscure exception.</p>
+<p>- This object used as a stub to generalize the code.</p>
+<p>- This object used to hold strong references to weak/soft-referenced objects.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="DLS" cweid="563">
+    <Description>Dead local store</Description>
+  </BugCode>
+  <BugCode abbrev="UC">
+    <Description>Useless code</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 20 May 2021 16:30:25 +0900" total_classes="9" referenced_classes="36" total_bugs="3" total_size="66" num_packages="1" java_version="11.0.8" vm_version="11.0.8+10-post-Ubuntu-0ubuntu118.04.1" cpu_seconds="9.12" clock_seconds="1.94" peak_mbytes="180.58" alloc_mbytes="512.00" gc_seconds="0.08" priority_2="3">
+    <FileStats path="com/nautilus_technologies/tsubakuro/ParameterSet.java" bugCount="0" size="6"/>
+    <FileStats path="com/nautilus_technologies/tsubakuro/PreparedStatement.java" bugCount="0" size="1"/>
+    <FileStats path="com/nautilus_technologies/tsubakuro/ResultSet.java" bugCount="3" size="50" bugHash="904c95fd706bd6b9124923ca33e90d2c"/>
+    <FileStats path="com/nautilus_technologies/tsubakuro/Session.java" bugCount="0" size="4"/>
+    <FileStats path="com/nautilus_technologies/tsubakuro/Transaction.java" bugCount="0" size="5"/>
+    <PackageStats package="com.nautilus_technologies.tsubakuro" total_bugs="3" total_types="9" total_size="66" priority_2="3">
+      <ClassStats class="com.nautilus_technologies.tsubakuro.ParameterSet" sourceFile="ParameterSet.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.PreparedStatement" sourceFile="PreparedStatement.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.ResultSet" sourceFile="ResultSet.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.ResultSet$FieldType" sourceFile="ResultSet.java" interface="false" size="34" bugs="3" priority_2="3"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.ResultSet$Record" sourceFile="ResultSet.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.ResultSet$RecordMeta" sourceFile="ResultSet.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.ResultSet$ResultSetIterator" sourceFile="ResultSet.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.Session" sourceFile="Session.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="com.nautilus_technologies.tsubakuro.Transaction" sourceFile="Transaction.java" interface="true" size="5" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="425" invocations="427" avgMicrosecondsPerInvocation="996" maxMicrosecondsPerInvocation="15376" standardDeviationMicrosecondsPerInvocation="1815"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="100" invocations="36" avgMicrosecondsPerInvocation="2793" maxMicrosecondsPerInvocation="30148" standardDeviationMicrosecondsPerInvocation="6021"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="78" invocations="36" avgMicrosecondsPerInvocation="2190" maxMicrosecondsPerInvocation="17950" standardDeviationMicrosecondsPerInvocation="4476"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="75" invocations="390" avgMicrosecondsPerInvocation="192" maxMicrosecondsPerInvocation="23992" standardDeviationMicrosecondsPerInvocation="1234"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="64" invocations="77" avgMicrosecondsPerInvocation="840" maxMicrosecondsPerInvocation="5090" standardDeviationMicrosecondsPerInvocation="993"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="59" invocations="432" avgMicrosecondsPerInvocation="137" maxMicrosecondsPerInvocation="4675" standardDeviationMicrosecondsPerInvocation="269"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="56" invocations="61" avgMicrosecondsPerInvocation="919" maxMicrosecondsPerInvocation="22276" standardDeviationMicrosecondsPerInvocation="3314"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="40" invocations="30" avgMicrosecondsPerInvocation="1357" maxMicrosecondsPerInvocation="38574" standardDeviationMicrosecondsPerInvocation="6913"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="33" invocations="36" avgMicrosecondsPerInvocation="930" maxMicrosecondsPerInvocation="8507" standardDeviationMicrosecondsPerInvocation="1849"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="30" invocations="6" avgMicrosecondsPerInvocation="5117" maxMicrosecondsPerInvocation="24995" standardDeviationMicrosecondsPerInvocation="8947"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="28" invocations="36" avgMicrosecondsPerInvocation="779" maxMicrosecondsPerInvocation="6633" standardDeviationMicrosecondsPerInvocation="1515"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="27" invocations="36" avgMicrosecondsPerInvocation="752" maxMicrosecondsPerInvocation="9468" standardDeviationMicrosecondsPerInvocation="1647"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

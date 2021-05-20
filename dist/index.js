@@ -1635,6 +1635,7 @@ const clang_tidy_checker_1 = __importDefault(__webpack_require__(346));
 const ctest_checker_1 = __importDefault(__webpack_require__(499));
 const doxygen_checker_1 = __importDefault(__webpack_require__(571));
 const junit_checker_1 = __importDefault(__webpack_require__(829));
+const spotbugs_checker_1 = __importDefault(__webpack_require__(837));
 function main() {
     var _a, _b, _c;
     return __awaiter(this, void 0, void 0, function* () {
@@ -1643,7 +1644,8 @@ function main() {
                 new ctest_checker_1.default(),
                 new clang_tidy_checker_1.default(),
                 new doxygen_checker_1.default(),
-                new junit_checker_1.default()
+                new junit_checker_1.default(),
+                new spotbugs_checker_1.default()
             ];
             const MAX_ANNOTATIONS_PER_REQUEST = 50;
             const accessToken = (_a = process.env.GITHUB_TOKEN, (_a !== null && _a !== void 0 ? _a : core.getInput('github_token')));
@@ -9290,6 +9292,136 @@ exports.default = JUnitChecker;
 /***/ (function(module) {
 
 module.exports = require("url");
+
+/***/ }),
+
+/***/ 837:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs = __importStar(__webpack_require__(747));
+const xml_js_1 = __importDefault(__webpack_require__(421));
+const abstract_checker_1 = __importDefault(__webpack_require__(42));
+class SpotbugsChecker extends abstract_checker_1.default {
+    constructor() {
+        super(...arguments);
+        this.resultMessage = '';
+        this.summaryMessage = '';
+    }
+    get checkerName() {
+        return 'SpotBugs';
+    }
+    get input() {
+        return 'spotbugs_input';
+    }
+    get result() {
+        return this.resultMessage;
+    }
+    get summary() {
+        return this.summaryMessage;
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parse() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const annotations = [];
+            /* eslint-enable */
+            const reportItems = {
+                totalBugs: 0
+            };
+            for (const inputFile of this.files) {
+                const xml = fs.readFileSync(inputFile, 'UTF-8');
+                const xmljsOption = { compact: true, instructionHasAttributes: true };
+                const json = JSON.parse(xml_js_1.default.xml2json(xml, xmljsOption));
+                yield this.parseBugCollection(json.BugCollection, annotations, reportItems);
+            }
+            this.resultMessage = `[${this.checkerName}] ${reportItems.totalBugs} bugs found`;
+            this.summaryMessage = `Bugs: \`${reportItems.totalBugs}\``;
+            return annotations;
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parseBugCollection(bugCollection, annotations, reportItems) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            const findBugsSummary = bugCollection.FindBugsSummary;
+            reportItems.totalBugs += Number(findBugsSummary._attributes.total_bugs);
+            if (reportItems.totalBugs > 0) {
+                const javaDir = yield this.getJavaDir(bugCollection.Project.SrcDir);
+                if (Array.isArray(bugCollection.BugInstance)) {
+                    for (const bugInstance of bugCollection.BugInstance) {
+                        annotations.push(yield this.createAnnotation(bugInstance, javaDir));
+                    }
+                }
+                else {
+                    if (bugCollection.BugInstance) {
+                        const bugInstance = bugCollection.BugInstance;
+                        annotations.push(yield this.createAnnotation(bugInstance, javaDir));
+                    }
+                }
+            }
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    getJavaDir(srcDirs) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            const searchPath = 'src/main/java';
+            for (const srcDir of srcDirs) {
+                const srcDirText = `${srcDir._text}`;
+                if (srcDirText.lastIndexOf(searchPath) + searchPath.length ===
+                    srcDirText.length) {
+                    return srcDirText.substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
+                }
+            }
+            return '';
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    createAnnotation(bugInstance, javaDir) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            const path = `${javaDir}/${bugInstance.SourceLine._attributes.sourcepath}`;
+            const start_line = Number(bugInstance.SourceLine._attributes.start || 1);
+            const end_line = Number(bugInstance.SourceLine._attributes.end ||
+                bugInstance.SourceLine._attributes.start ||
+                1);
+            const annotation_level = bugInstance._attributes.rank < 10 ? 'failure' : 'warning';
+            const message = bugInstance.LongMessage._text;
+            const title = `${bugInstance._attributes.type} (Confidence:${bugInstance._attributes.priority}, Rank:${bugInstance._attributes.rank})`;
+            return {
+                path,
+                start_line,
+                end_line,
+                annotation_level,
+                message,
+                title
+            };
+        });
+    }
+}
+exports.default = SpotbugsChecker;
+
 
 /***/ }),
 
