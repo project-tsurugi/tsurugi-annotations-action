@@ -78,22 +78,33 @@ class JUnitChecker extends Checker {
 
     if (Array.isArray(testsuite.testcase)) {
       for (const testcase of testsuite.testcase) {
-        if (testcase.failure) {
-          annotations.push(await this.createAnnotation(testcase))
-        }
+        await this.parseTestCase(testcase, annotations)
       }
     } else {
-      const testcase = testsuite.testcase
+      await this.parseTestCase(testsuite.testcase, annotations)
+    }
+  }
+
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  async parseTestCase(testcase: any, annotations: any): Promise<any> {
+    /* eslint-enable */
+    if (Array.isArray(testcase.failure)) {
+      for (const failure of testcase.failure) {
+        annotations.push(await this.createAnnotation(testcase, failure))
+      }
+    } else {
       if (testcase.failure) {
-        annotations.push(await this.createAnnotation(testcase))
+        annotations.push(
+          await this.createAnnotation(testcase, testcase.failure)
+        )
       }
     }
   }
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  async createAnnotation(testcase: any): Promise<any> {
+  async createAnnotation(testcase: any, failure: any): Promise<any> {
     /* eslint-enable */
-    const message: string = testcase.failure._attributes.message
+    const message: string = failure._attributes.message
     const classname: string = testcase._attributes.classname
     const klass = classname.replace(/$.*/g, '').replace(/\./g, '/')
     const path = `${core.getInput('junit_test_src_dir')}/${klass}.java`

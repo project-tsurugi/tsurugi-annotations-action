@@ -138,3 +138,19 @@ test('multiple_testsuite', async () => {
   console.log(checker.result);
   console.log(checker.summary);
 })
+
+test('multiple_failure', async () => {
+  process.env['GITHUB_WORKSPACE'] = process.cwd();
+  process.env['INPUT_CTEST_INPUT'] = "__tests__/ctest_multiple_failure/*gtest_result.xml";
+
+  const checker:CTestChecker = new CTestChecker()
+  const doIf = await checker.doIf()
+  const annotations = await checker.parse()
+
+  expect(doIf).toBe(true)
+  expect(annotations.length).toBe(2)
+
+  console.log(annotations);
+  console.log(checker.result);
+  console.log(checker.summary);
+})

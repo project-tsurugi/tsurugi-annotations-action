@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="27" failures="1" disabled="2" errors="0" time="24.329" timestamp="2021-06-01T04:19:56.119" name="AllTests">
+  <testsuite name="ShirakamiApiTest" tests="27" failures="1" disabled="2" skipped="0" errors="0" time="24.328" timestamp="2021-06-01T04:19:56.120">
+    <testcase name="simple" status="run" result="completed" time="0.887" timestamp="2021-06-01T04:19:56.120" classname="ShirakamiApiTest" />
+    <testcase name="DISABLED_database_restore" status="notrun" result="suppressed" time="0" timestamp="1970-01-01T00:00:00.000" classname="ShirakamiApiTest" />
+    <testcase name="DISABLED_database_not_found" status="notrun" result="suppressed" time="0" timestamp="1970-01-01T00:00:00.000" classname="ShirakamiApiTest" />
+    <testcase name="storage_create" status="run" result="completed" time="0.879" timestamp="2021-06-01T04:19:57.007" classname="ShirakamiApiTest" />
+    <testcase name="storage_create_exists" status="run" result="completed" time="0.897" timestamp="2021-06-01T04:19:57.887" classname="ShirakamiApiTest" />
+    <testcase name="storage_get" status="run" result="completed" time="0.901" timestamp="2021-06-01T04:19:58.785" classname="ShirakamiApiTest" />
+    <testcase name="storage_get_missing" status="run" result="completed" time="0.902" timestamp="2021-06-01T04:19:59.686" classname="ShirakamiApiTest" />
+    <testcase name="storage_delete" status="run" result="completed" time="0.881" timestamp="2021-06-01T04:20:00.588" classname="ShirakamiApiTest" />
+    <testcase name="transaction_wait" status="run" result="completed" time="1.97" timestamp="2021-06-01T04:20:01.469" classname="ShirakamiApiTest" />
+    <testcase name="transaction_failed" status="run" result="completed" time="0.878" timestamp="2021-06-01T04:20:03.439" classname="ShirakamiApiTest" />
+    <testcase name="transaction_borrow_owner" status="run" result="completed" time="0.874" timestamp="2021-06-01T04:20:04.317" classname="ShirakamiApiTest" />
+    <testcase name="contents" status="run" result="completed" time="1.087" timestamp="2021-06-01T04:20:05.192" classname="ShirakamiApiTest" />
+    <testcase name="put_operations" status="run" result="completed" time="0.897" timestamp="2021-06-01T04:20:06.279" classname="ShirakamiApiTest" />
+    <testcase name="scan_prefix" status="run" result="completed" time="0.891" timestamp="2021-06-01T04:20:07.176" classname="ShirakamiApiTest" />
+    <testcase name="scan_range" status="run" result="completed" time="0.878" timestamp="2021-06-01T04:20:08.068" classname="ShirakamiApiTest" />
+    <testcase name="scan" status="run" result="completed" time="0.893" timestamp="2021-06-01T04:20:08.947" classname="ShirakamiApiTest" />
+    <testcase name="scan_empty_prefix" status="run" result="completed" time="0.863" timestamp="2021-06-01T04:20:09.840" classname="ShirakamiApiTest" />
+    <testcase name="scan_empty_table" status="run" result="completed" time="0.866" timestamp="2021-06-01T04:20:10.703" classname="ShirakamiApiTest" />
+    <testcase name="scan_range_to_end" status="run" result="completed" time="0.841" timestamp="2021-06-01T04:20:11.569" classname="ShirakamiApiTest" />
+    <testcase name="scan_data_variation" status="run" result="completed" time="0.85" timestamp="2021-06-01T04:20:12.410" classname="ShirakamiApiTest" />
+    <testcase name="long_data" status="run" result="completed" time="0.855" timestamp="2021-06-01T04:20:13.260" classname="ShirakamiApiTest" />
+    <testcase name="scan_join" status="run" result="completed" time="0.849" timestamp="2021-06-01T04:20:14.115" classname="ShirakamiApiTest" />
+    <testcase name="tracking" status="run" result="completed" time="0.853" timestamp="2021-06-01T04:20:14.964" classname="ShirakamiApiTest" />
+    <testcase name="transaction_begin_and_commit" status="run" result="completed" time="1.932" timestamp="2021-06-01T04:20:15.817" classname="ShirakamiApiTest" />
+    <testcase name="transaction_begin_and_abort" status="run" result="completed" time="0.861" timestamp="2021-06-01T04:20:17.750" classname="ShirakamiApiTest" />
+    <testcase name="readonly_transaction" status="run" result="completed" time="0.858" timestamp="2021-06-01T04:20:18.611" classname="ShirakamiApiTest" />
+    <testcase name="sequence" status="run" result="completed" time="0.979" timestamp="2021-06-01T04:20:19.469" classname="ShirakamiApiTest">
+      <failure message="/__w/sharksfin/sharksfin/shirakami/test/ApiTest.cpp:1512&#x0A;Expected equality of these values:&#x0A;  2&#x0A;  ver&#x0A;    Which is: 0" type=""><![CDATA[/__w/sharksfin/sharksfin/shirakami/test/ApiTest.cpp:1512
+Expected equality of these values:
+  2
+  ver
+    Which is: 0]]></failure>
+      <failure message="/__w/sharksfin/sharksfin/shirakami/test/ApiTest.cpp:1513&#x0A;Expected equality of these values:&#x0A;  20&#x0A;  val&#x0A;    Which is: 0" type=""><![CDATA[/__w/sharksfin/sharksfin/shirakami/test/ApiTest.cpp:1513
+Expected equality of these values:
+  20
+  val
+    Which is: 0]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -6061,35 +6061,33 @@ class CTestChecker extends junit_checker_1.default {
         return 'ctest_input';
     }
     /* eslint-disable @typescript-eslint/no-explicit-any */
-    createAnnotation(testcase) {
+    createAnnotation(testcase, failure) {
         return __awaiter(this, void 0, void 0, function* () {
             /* eslint-enable */
-            if (testcase.failure) {
-                const failureMessage = testcase.failure._attributes.message;
-                const firstLineIndex = failureMessage.indexOf('\n');
-                const pathLine = failureMessage.substr(0, firstLineIndex).split(':');
-                let path = pathLine[0].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
-                let warnLine = parseInt(pathLine[1]);
-                let message = failureMessage.substr(firstLineIndex);
-                if (!path) {
-                    path = 'unknouwn file';
-                }
-                if (isNaN(warnLine)) {
-                    warnLine = 1;
-                }
-                if (!message) {
-                    message = failureMessage;
-                }
-                const annotation = {
-                    path,
-                    start_line: warnLine,
-                    end_line: warnLine,
-                    annotation_level: 'failure',
-                    message,
-                    title: `${testcase._attributes.classname}.${testcase._attributes.name}`
-                };
-                return annotation;
+            const failureMessage = failure._attributes.message;
+            const firstLineIndex = failureMessage.indexOf('\n');
+            const pathLine = failureMessage.substr(0, firstLineIndex).split(':');
+            let path = pathLine[0].substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
+            let warnLine = parseInt(pathLine[1]);
+            let message = failureMessage.substr(firstLineIndex);
+            if (!path) {
+                path = 'unknouwn file';
             }
+            if (isNaN(warnLine)) {
+                warnLine = 1;
+            }
+            if (!message) {
+                message = failureMessage;
+            }
+            const annotation = {
+                path,
+                start_line: warnLine,
+                end_line: warnLine,
+                annotation_level: 'failure',
+                message,
+                title: `${testcase._attributes.classname}.${testcase._attributes.name}`
+            };
+            return annotation;
         });
     }
 }
@@ -9239,24 +9237,35 @@ class JUnitChecker extends abstract_checker_1.default {
             reportItems.testTimes += Number(testsuite._attributes.time);
             if (Array.isArray(testsuite.testcase)) {
                 for (const testcase of testsuite.testcase) {
-                    if (testcase.failure) {
-                        annotations.push(yield this.createAnnotation(testcase));
-                    }
+                    yield this.parseTestCase(testcase, annotations);
                 }
             }
             else {
-                const testcase = testsuite.testcase;
+                yield this.parseTestCase(testsuite.testcase, annotations);
+            }
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parseTestCase(testcase, annotations) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            if (Array.isArray(testcase.failure)) {
+                for (const failure of testcase.failure) {
+                    annotations.push(yield this.createAnnotation(testcase, failure));
+                }
+            }
+            else {
                 if (testcase.failure) {
-                    annotations.push(yield this.createAnnotation(testcase));
+                    annotations.push(yield this.createAnnotation(testcase, testcase.failure));
                 }
             }
         });
     }
     /* eslint-disable @typescript-eslint/no-explicit-any */
-    createAnnotation(testcase) {
+    createAnnotation(testcase, failure) {
         return __awaiter(this, void 0, void 0, function* () {
             /* eslint-enable */
-            const message = testcase.failure._attributes.message;
+            const message = failure._attributes.message;
             const classname = testcase._attributes.classname;
             const klass = classname.replace(/$.*/g, '').replace(/\./g, '/');
             const path = `${core.getInput('junit_test_src_dir')}/${klass}.java`;
