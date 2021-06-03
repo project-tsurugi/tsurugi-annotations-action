@@ -4,6 +4,8 @@ import * as glob from '@actions/glob'
 abstract class Checker {
   files: string[] = []
 
+  INPUT_EXCLUDE_PATTERN = '!.github/**'
+
   abstract get checkerName(): string
   abstract get input(): string
   abstract get result(): string
@@ -25,7 +27,9 @@ abstract class Checker {
 
   async doIf(): Promise<boolean> {
     const patterns = core.getInput(this.input)
-    const globber = await glob.create(patterns)
+    const globber = await glob.create(
+      `${patterns}\n${this.INPUT_EXCLUDE_PATTERN}`
+    )
     this.files = await globber.glob()
     if (this.files.length) {
       core.info(`[${this.name}] files: ${this.files}`)

@@ -171,6 +171,7 @@ const glob = __importStar(__webpack_require__(281));
 class Checker {
     constructor() {
         this.files = [];
+        this.INPUT_EXCLUDE_PATTERN = '!.github/**';
     }
     get name() {
         const matrix = core.getInput('matrix');
@@ -186,7 +187,7 @@ class Checker {
     doIf() {
         return __awaiter(this, void 0, void 0, function* () {
             const patterns = core.getInput(this.input);
-            const globber = yield glob.create(patterns);
+            const globber = yield glob.create(`${patterns}\n${this.INPUT_EXCLUDE_PATTERN}`);
             this.files = yield globber.glob();
             if (this.files.length) {
                 core.info(`[${this.name}] files: ${this.files}`);
