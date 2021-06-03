@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/ErrorCode.java">
+<error line="21" column="9" severity="warning" message="switch without &quot;default&quot; clause." source="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+</file>
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/Link.java">
+<error line="5" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.LowLevelPreparedStatement." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="6" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.LowLevelResultSet." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+</file>
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/LowLevelPreparedStatement.java">
+</file>
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/LowLevelResultSet.java">
+</file>
+</checkstyle>

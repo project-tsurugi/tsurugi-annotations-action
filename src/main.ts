@@ -6,6 +6,7 @@ import CTestChecker from './ctest-checker'
 import DoxygenChecker from './doxygen-checker'
 import JUnitChecker from './junit-checker'
 import SpotbugsChecker from './spotbugs-checker'
+import CheckstyleChecker from './checkstyle-checker'
 
 async function main(): Promise<void> {
   try {
@@ -14,7 +15,8 @@ async function main(): Promise<void> {
       new ClangTidyChecker(),
       new DoxygenChecker(),
       new JUnitChecker(),
-      new SpotbugsChecker()
+      new SpotbugsChecker(),
+      new CheckstyleChecker()
     ]
 
     const MAX_ANNOTATIONS_PER_REQUEST = 50

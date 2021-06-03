@@ -1636,6 +1636,7 @@ const ctest_checker_1 = __importDefault(__webpack_require__(499));
 const doxygen_checker_1 = __importDefault(__webpack_require__(571));
 const junit_checker_1 = __importDefault(__webpack_require__(829));
 const spotbugs_checker_1 = __importDefault(__webpack_require__(837));
+const checkstyle_checker_1 = __importDefault(__webpack_require__(744));
 function main() {
     var _a, _b, _c;
     return __awaiter(this, void 0, void 0, function* () {
@@ -1645,7 +1646,8 @@ function main() {
                 new clang_tidy_checker_1.default(),
                 new doxygen_checker_1.default(),
                 new junit_checker_1.default(),
-                new spotbugs_checker_1.default()
+                new spotbugs_checker_1.default(),
+                new checkstyle_checker_1.default()
             ];
             const MAX_ANNOTATIONS_PER_REQUEST = 50;
             const accessToken = (_a = process.env.GITHUB_TOKEN, (_a !== null && _a !== void 0 ? _a : core.getInput('github_token')));
@@ -8825,6 +8827,139 @@ module.exports = function (json, options) {
   }
   return js2xml(js, options);
 };
+
+
+/***/ }),
+
+/***/ 744:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs = __importStar(__webpack_require__(747));
+const xml_js_1 = __importDefault(__webpack_require__(421));
+const abstract_checker_1 = __importDefault(__webpack_require__(42));
+class CheckstyleChecker extends abstract_checker_1.default {
+    constructor() {
+        super(...arguments);
+        this.resultMessage = '';
+        this.summaryMessage = '';
+    }
+    get checkerName() {
+        return 'Checkstyle';
+    }
+    get input() {
+        return 'checkstyle_input';
+    }
+    get result() {
+        return this.resultMessage;
+    }
+    get summary() {
+        return this.summaryMessage;
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parse() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const annotations = [];
+            /* eslint-enable */
+            const reportItems = {
+                totalWarnings: 0
+            };
+            for (const inputFile of this.files) {
+                const xml = fs.readFileSync(inputFile, 'UTF-8');
+                const xmljsOption = { compact: true, instructionHasAttributes: true };
+                const json = JSON.parse(xml_js_1.default.xml2json(xml, xmljsOption));
+                yield this.parseCheckstyle(json.checkstyle, annotations, reportItems);
+            }
+            this.resultMessage = `[${this.checkerName}] ${reportItems.totalWarnings} warnings found`;
+            this.summaryMessage = `Warnings: \`${reportItems.totalWarnings}\``;
+            return annotations;
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parseCheckstyle(checkstyle, annotations, reportItems) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            if (Array.isArray(checkstyle.file)) {
+                for (const file of checkstyle.file) {
+                    yield this.parseFile(file, annotations, reportItems);
+                }
+            }
+            else {
+                if (checkstyle.file) {
+                    yield this.parseFile(checkstyle.file, annotations, reportItems);
+                }
+            }
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    parseFile(file, annotations, reportItems) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            if (Array.isArray(file.error)) {
+                for (const error of file.error) {
+                    reportItems.totalWarnings++;
+                    annotations.push(yield this.createAnnotation(file, error));
+                }
+            }
+            else {
+                if (file.error) {
+                    reportItems.totalWarnings++;
+                    annotations.push(yield this.createAnnotation(file, file.error));
+                }
+            }
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    createAnnotation(file, error) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            const fileName = `${file._attributes.name}`;
+            const path = fileName.substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
+            const line = Number(error._attributes.line);
+            const start_line = line;
+            const end_line = line;
+            const severity = error._attributes.severity;
+            const annotation_level = severity === 'error' ? 'failure' : 'warning';
+            const message = error._attributes.message;
+            const source = error._attributes.source;
+            const checkstyleChecksPackage = 'com.puppycrawl.tools.checkstyle.checks.';
+            const sourceIndex = source.includes(checkstyleChecksPackage)
+                ? checkstyleChecksPackage.length
+                : 0;
+            const title = source.substring(sourceIndex);
+            return {
+                path,
+                start_line,
+                end_line,
+                annotation_level,
+                message,
+                title
+            };
+        });
+    }
+}
+exports.default = CheckstyleChecker;
 
 
 /***/ }),

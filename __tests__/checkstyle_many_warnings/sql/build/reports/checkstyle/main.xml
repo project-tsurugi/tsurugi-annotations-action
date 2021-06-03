@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/__w/tsubakuro/modules/sql/src/main/java/com/nautilus_technologies/tsubakuro/ParameterSet.java">
+</file>
+<file name="/__w/tsubakuro/modules/sql/src/main/java/com/nautilus_technologies/tsubakuro/PreparedStatement.java">
+</file>
+<file name="/__w/tsubakuro/modules/sql/src/main/java/com/nautilus_technologies/tsubakuro/ResultSet.java">
+<error line="10" column="5" severity="warning" message="Redundant &apos;public&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+<error line="21" column="5" severity="warning" message="Redundant &apos;private&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+<error line="25" column="22" severity="error" message="Inner assignments should be avoided." source="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+</file>
+<file name="/__w/tsubakuro/modules/sql/src/main/java/com/nautilus_technologies/tsubakuro/Session.java">
+<error line="4" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.Transaction." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="5" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.PreparedStatement." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="6" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.ParameterSet." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+</file>
+<file name="/__w/tsubakuro/modules/sql/src/main/java/com/nautilus_technologies/tsubakuro/Transaction.java">
+<error line="4" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.PreparedStatement." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="5" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.ParameterSet." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="6" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.ResultSet." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="7" column="1" severity="warning" message="Redundant import from the same package - com.nautilus_technologies.tsubakuro.ErrorCode." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+</file>
+</checkstyle>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.37">
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/ErrorCode.java">
+</file>
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/Link.java">
+</file>
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/LowLevelPreparedStatement.java">
+</file>
+<file name="/__w/tsubakuro/modules/connectivity/src/main/java/com/nautilus_technologies/tsubakuro/LowLevelResultSet.java">
+</file>
+</checkstyle>

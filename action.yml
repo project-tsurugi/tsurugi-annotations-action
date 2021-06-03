@@ -26,6 +26,10 @@ inputs:
     description: 'input file of generating SpotBugs annotation'
     required: true
     default: 'build/reports/spotbugs/main/*.xml'
+  checkstyle_input:
+    description: 'input file of generating Checkstyle annotation'
+    required: true
+    default: 'build/reports/checkstyle/main.xml'
   junit_test_src_dir:
     description: 'test source root directory'
     required: true
