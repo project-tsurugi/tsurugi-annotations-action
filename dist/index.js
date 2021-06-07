@@ -1671,16 +1671,21 @@ function main() {
                         }
                         const req = Object.assign(Object.assign({}, github.context.repo), { ref: sha, check_name: `${process.env.GITHUB_JOB}` });
                         const res = yield octokit.checks.listForRef(req);
-                        const check_run_id = res.data.check_runs[0].id;
-                        const update_req = Object.assign({}, github.context.repo, {
-                            check_run_id,
-                            output: {
-                                title: checker.result,
-                                summary: checkSummary,
-                                annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
-                            }
-                        });
-                        yield octokit.checks.update(update_req);
+                        if (res.data.check_runs[0]) {
+                            const check_run_id = res.data.check_runs[0].id;
+                            const update_req = Object.assign({}, github.context.repo, {
+                                check_run_id,
+                                output: {
+                                    title: checker.result,
+                                    summary: checkSummary,
+                                    annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
+                                }
+                            });
+                            yield octokit.checks.update(update_req);
+                        }
+                        else {
+                            core.warning('Failed to checks.update due to fail to get check runs.');
+                        }
                     }
                     else {
                         let checkSummary = checker.summary;
