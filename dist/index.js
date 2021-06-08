@@ -1662,13 +1662,12 @@ function main() {
                 core.info(checker.result);
                 if (annotations.length) {
                     ghaWarningMessage += `${checker.result} `;
-                    // TODO workaround: checks.create cannot create new checks page from pull_request event
-                    if (github.context.eventName === 'pull_request' ||
-                        checksCreate === 'update') {
+                    if (checksCreate === 'update') {
                         let checkSummary = checker.summary;
                         if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
                             checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`;
                         }
+                        // FIXME check_name is invalid when matrix build
                         const req = Object.assign(Object.assign({}, github.context.repo), { ref: sha, check_name: `${process.env.GITHUB_JOB}` });
                         const res = yield octokit.checks.listForRef(req);
                         if (res.data.check_runs[0]) {
@@ -1692,10 +1691,14 @@ function main() {
                         if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
                             checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`;
                         }
+                        let checkName = checker.name;
+                        if (github.context.eventName === 'pull_request') {
+                            checkName = `${checkName}-pr`;
+                        }
                         octokit.checks.create({
                             owner: github.context.repo.owner,
                             repo: github.context.repo.repo,
-                            name: checker.name,
+                            name: checkName,
                             head_sha: sha,
                             status: 'completed',
                             conclusion: annotations.length === 0 ? 'success' : 'failure',

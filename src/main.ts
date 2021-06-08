@@ -38,15 +38,12 @@ async function main(): Promise<void> {
       if (annotations.length) {
         ghaWarningMessage += `${checker.result} `
 
-        // TODO workaround: checks.create cannot create new checks page from pull_request event
-        if (
-          github.context.eventName === 'pull_request' ||
-          checksCreate === 'update'
-        ) {
+        if (checksCreate === 'update') {
           let checkSummary = checker.summary
           if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
             checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`
           }
+          // FIXME check_name is invalid when matrix build
           const req = {
             ...github.context.repo,
             ref: sha,
@@ -74,10 +71,14 @@ async function main(): Promise<void> {
           if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
             checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`
           }
+          let checkName = checker.name
+          if (github.context.eventName === 'pull_request') {
+            checkName = `${checkName}-pr`
+          }
           octokit.checks.create({
             owner: github.context.repo.owner,
             repo: github.context.repo.repo,
-            name: checker.name,
+            name: checkName,
             head_sha: sha,
             status: 'completed',
             conclusion: annotations.length === 0 ? 'success' : 'failure',
