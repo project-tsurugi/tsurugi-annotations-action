@@ -41,3 +41,19 @@ test('four warnings', async () => {
   console.log(checker.result);
   console.log(checker.summary);
 })
+
+test('multiple_sourceline', async () => {
+  process.env['GITHUB_WORKSPACE'] = "/__w/phone-bill-benchmark"
+  process.env['INPUT_SPOTBUGS_INPUT'] = "__tests__/spotbugs_multiple_sourceline/**/spotbugs.xml";
+
+  const checker:SpotBugsChecker = new SpotBugsChecker()
+  const doIf = await checker.doIf()
+  const annotations = await checker.parse()
+
+  expect(doIf).toBe(true)
+  expect(annotations.length).toBe(33)
+
+  console.log(annotations);
+  console.log(checker.result);
+  console.log(checker.summary);
+})

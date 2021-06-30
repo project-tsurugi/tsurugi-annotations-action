@@ -1,0 +1,1463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.2.2" sequence="0" timestamp="1625028235405" analysisTimestamp="1625028235407" release="unspecified">
+  <Project projectName="phone-bill (spotbugsMain)">
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/db/Billing.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/db/DBUtils.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/db/Contract.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/db/History.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/db/Duration.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/ThreadBench.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/Config$TransactionScope.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/Config.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/Main.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/ORA08177.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/Config$DistributionFunction.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/SimpleBillingCalculator.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/CalculationTarget.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/PhoneBill.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/SimpleCallChargeCalculator.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/CallChargeCalculator.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/CalculationTask.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/BillingCalculator.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/billing/CalculationTaskResult.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/OnlineAppBench.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/Main$Command.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/CreateTable.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/ExecutableCommand.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/app/Main$1.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/HistoryInsertApp$Key.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/MasterUpdateApp.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/MasterInsertApp.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/HistoryUpdateApp.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/MasterUpdateApp$Updater1.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/HistoryUpdateApp$Updater.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/ContractKeyHolder$Key.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/ContractKeyHolder.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/HistoryInsertApp$1.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/MasterUpdateApp$Updater.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/HistoryUpdateApp$Updater1.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/AbstractOnlineApp.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/HistoryUpdateApp$Updater2.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/MasterUpdateApp$Updater2.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/online/HistoryInsertApp.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/testdata/LogNormalCallTimeGenerator.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/testdata/TestDataGenerator.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/testdata/CreateTestData.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/testdata/TestDataGenerator$1.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/testdata/UniformCallTimeGenerator.class</Jar>
+    <Jar>/__w/phone-bill-benchmark/src/build/classes/java/main/com/example/nedo/testdata/CallTimeGenerator.class</Jar>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/42.2.16/a9ee12f737bd5dc7d046e4c065e391d38d6a3cfc/postgresql-42.2.16.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ojdbc8/19.3.0.0/967c0b1a2d5b1435324de34a9b8018d294f8f47b/ojdbc8-19.3.0.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.4/c51c00206bb913cd8612b24abd9fa98ae89719b1/commons-cli-1.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.2.3/7c4f3c474fb2c041d8028740440937705ebb473a/logback-classic-1.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf/commons-math3-3.6.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ucp/19.3.0.0/796b661b0bb1818b7c04171837356acddcea504c/ucp-19.3.0.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/oraclepki/19.3.0.0/e52a34f271c6c62ee1a73b71cc19da5459b709f/oraclepki-19.3.0.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/osdt_cert/19.3.0.0/c134652fdcb17ff72963d386efd8ade902d2eaff/osdt_cert-19.3.0.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/osdt_core/19.3.0.0/2e01c262879c97de876c238966eb1da48542f2e8/osdt_core-19.3.0.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/simplefan/19.3.0.0/bcbfbb3cc529995f33c8694eb7cbc605c129e4e6/simplefan-19.3.0.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/com.oracle.ojdbc/ons/19.3.0.0/cf3f3ef525c61a27fe9952652a156ddd738b1cd5/ons-19.3.0.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.2.3/864344400c3d4d92dfeb0a305dc87d953677c03c/logback-core-1.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/home/akirakw/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar</AuxClasspathEntry>
+    <SrcDir>/__w/phone-bill-benchmark/src/src/main/resources</SrcDir>
+    <SrcDir>/__w/phone-bill-benchmark/src/src/main/java</SrcDir>
+  </Project>
+  <BugInstance type="OS_OPEN_STREAM" priority="2" rank="16" abbrev="OS" category="BAD_PRACTICE" instanceHash="fd4501772796f569bad8646649764427" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to close stream</ShortMessage>
+    <LongMessage>new com.example.nedo.app.Config(String) may fail to close stream</LongMessage>
+    <Class classname="com.example.nedo.app.Config" primary="true">
+      <SourceLine classname="com.example.nedo.app.Config" start="16" end="589" sourcefile="Config.java" sourcepath="com/example/nedo/app/Config.java" relSourcepath="java/com/example/nedo/app/Config.java">
+        <Message>At Config.java:[lines 16-589]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.Config</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.Config" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.Config" start="221" end="234" startBytecode="0" endBytecode="50" sourcefile="Config.java" sourcepath="com/example/nedo/app/Config.java" relSourcepath="java/com/example/nedo/app/Config.java"/>
+      <Message>In method new com.example.nedo.app.Config(String)</Message>
+    </Method>
+    <Type descriptor="Ljava/io/BufferedReader;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.io.BufferedReader" start="79" end="593" sourcefile="BufferedReader.java" sourcepath="java/io/BufferedReader.java">
+        <Message>At BufferedReader.java:[lines 79-593]</Message>
+      </SourceLine>
+      <Message>Need to close java.io.BufferedReader </Message>
+    </Type>
+    <SourceLine classname="com.example.nedo.app.Config" primary="true" start="224" end="224" startBytecode="34" endBytecode="34" sourcefile="Config.java" sourcepath="com/example/nedo/app/Config.java" relSourcepath="java/com/example/nedo/app/Config.java">
+      <Message>At Config.java:[line 224]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="2badbbe61928e948a010b3fbc4fdcc06" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.app.CreateTable.execute(Config) may fail to clean up java.sql.Statement</LongMessage>
+    <Class classname="com.example.nedo.app.CreateTable" primary="true">
+      <SourceLine classname="com.example.nedo.app.CreateTable" start="9" end="102" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java">
+        <Message>At CreateTable.java:[lines 9-102]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.CreateTable</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.CreateTable" name="execute" signature="(Lcom/example/nedo/app/Config;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.CreateTable" start="20" end="29" startBytecode="0" endBytecode="273" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java"/>
+      <Message>In method com.example.nedo.app.CreateTable.execute(Config)</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.app.CreateTable" primary="true" start="23" end="23" startBytecode="29" endBytecode="29" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at CreateTable.java:[line 23] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.CreateTable" start="24" end="24" startBytecode="35" endBytecode="35" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTable.java:[line 24]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.CreateTable" start="25" end="25" startBytecode="40" endBytecode="40" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTable.java:[line 25]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.CreateTable" start="26" end="26" startBytecode="45" endBytecode="45" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTable.java:[line 26]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.CreateTable" start="27" end="27" startBytecode="50" endBytecode="50" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTable.java:[line 27]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.CreateTable" start="28" end="28" startBytecode="55" endBytecode="55" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTable.java:[line 28]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.CreateTable" start="29" end="29" startBytecode="92" endBytecode="92" sourcefile="CreateTable.java" sourcepath="com/example/nedo/app/CreateTable.java" relSourcepath="java/com/example/nedo/app/CreateTable.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTable.java:[line 29]</Message>
+    </SourceLine>
+    <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="1647ec1ba2e3d36de93e55f41a8b6782" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.app.OnlineAppBench.afterExec(Config) may fail to clean up java.sql.Statement</LongMessage>
+    <Class classname="com.example.nedo.app.OnlineAppBench" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="25" end="173" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java">
+        <Message>At OnlineAppBench.java:[lines 25-173]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.OnlineAppBench</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.OnlineAppBench" name="afterExec" signature="(Lcom/example/nedo/app/Config;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="110" end="130" startBytecode="0" endBytecode="498" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java"/>
+      <Message>In method com.example.nedo.app.OnlineAppBench.afterExec(Config)</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" primary="true" start="113" end="113" startBytecode="26" endBytecode="26" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at OnlineAppBench.java:[line 113] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="114" end="114" startBytecode="33" endBytecode="33" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 114]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="118" end="118" startBytecode="46" endBytecode="46" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 118]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="119" end="119" startBytecode="65" endBytecode="65" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 119]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="123" end="123" startBytecode="78" endBytecode="78" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 123]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="124" end="124" startBytecode="97" endBytecode="97" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 124]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="125" end="125" startBytecode="125" endBytecode="125" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 125]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="126" end="126" startBytecode="153" endBytecode="153" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 126]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="127" end="127" startBytecode="181" endBytecode="181" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 127]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="128" end="128" startBytecode="209" endBytecode="209" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 128]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="130" end="130" startBytecode="249" endBytecode="249" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 130]</Message>
+    </SourceLine>
+    <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="e631ed4b6d45b67b1cbfe4d1c82380cc" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.app.OnlineAppBench.beforeExec(Config) may fail to clean up java.sql.Statement</LongMessage>
+    <Class classname="com.example.nedo.app.OnlineAppBench" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="25" end="173" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java">
+        <Message>At OnlineAppBench.java:[lines 25-173]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.OnlineAppBench</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.OnlineAppBench" name="beforeExec" signature="(Lcom/example/nedo/app/Config;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="157" end="165" startBytecode="0" endBytecode="265" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java"/>
+      <Message>In method com.example.nedo.app.OnlineAppBench.beforeExec(Config)</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" primary="true" start="159" end="159" startBytecode="13" endBytecode="13" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at OnlineAppBench.java:[line 159] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="160" end="160" startBytecode="19" endBytecode="19" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 160]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="161" end="161" startBytecode="26" endBytecode="26" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 161]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="162" end="162" startBytecode="33" endBytecode="33" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 162]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="163" end="163" startBytecode="42" endBytecode="42" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 163]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="164" end="164" startBytecode="51" endBytecode="51" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 164]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="165" end="165" startBytecode="88" endBytecode="88" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 165]</Message>
+    </SourceLine>
+    <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="129262d0e02f76e971558952fefa883c" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.app.OnlineAppBench.count(Statement, String) may fail to clean up java.sql.ResultSet</LongMessage>
+    <Class classname="com.example.nedo.app.OnlineAppBench" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="25" end="173" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java">
+        <Message>At OnlineAppBench.java:[lines 25-173]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.OnlineAppBench</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.OnlineAppBench" name="count" signature="(Ljava/sql/Statement;Ljava/lang/String;)I" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="148" end="153" startBytecode="0" endBytecode="172" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java"/>
+      <Message>In method com.example.nedo.app.OnlineAppBench.count(Statement, String)</Message>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet" start="4186" end="4287" sourcefile="ResultSet.java" sourcepath="java/sql/ResultSet.java">
+        <Message>At ResultSet.java:[lines 4186-4287]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.ResultSet</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" primary="true" start="149" end="149" startBytecode="22" endBytecode="22" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at OnlineAppBench.java:[line 149] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="150" end="150" startBytecode="29" endBytecode="29" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 150]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="151" end="151" startBytecode="39" endBytecode="39" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 151]</Message>
+    </SourceLine>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {ResultSet x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="2528b5cfcca0f4977ea406d068b8b6f1" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.app.OnlineAppBench.count(Statement, String, String, boolean) may fail to clean up java.sql.ResultSet</LongMessage>
+    <Class classname="com.example.nedo.app.OnlineAppBench" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="25" end="173" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java">
+        <Message>At OnlineAppBench.java:[lines 25-173]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.OnlineAppBench</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.OnlineAppBench" name="count" signature="(Ljava/sql/Statement;Ljava/lang/String;Ljava/lang/String;Z)I" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="135" end="144" startBytecode="0" endBytecode="273" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java"/>
+      <Message>In method com.example.nedo.app.OnlineAppBench.count(Statement, String, String, boolean)</Message>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet" start="4186" end="4287" sourcefile="ResultSet.java" sourcepath="java/sql/ResultSet.java">
+        <Message>At ResultSet.java:[lines 4186-4287]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.ResultSet</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" primary="true" start="140" end="140" startBytecode="81" endBytecode="81" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at OnlineAppBench.java:[line 140] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="141" end="141" startBytecode="88" endBytecode="88" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 141]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.OnlineAppBench" start="142" end="142" startBytecode="98" endBytecode="98" sourcefile="OnlineAppBench.java" sourcepath="com/example/nedo/app/OnlineAppBench.java" relSourcepath="java/com/example/nedo/app/OnlineAppBench.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at OnlineAppBench.java:[line 142]</Message>
+    </SourceLine>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {ResultSet x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="f9ee2e88b0ce5bd57bce094cd8df2bb3" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.example.nedo.app.billing.CalculationTarget.getEnd() may expose internal representation by returning CalculationTarget.end</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTarget" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="39" end="110" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>At CalculationTarget.java:[lines 39-110]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTarget</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.billing.CalculationTarget" name="getEnd" signature="()Ljava/sql/Date;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="110" end="110" startBytecode="0" endBytecode="46" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java"/>
+      <Message>In method com.example.nedo.app.billing.CalculationTarget.getEnd()</Message>
+    </Method>
+    <Field classname="com.example.nedo.app.billing.CalculationTarget" name="end" signature="Ljava/sql/Date;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>In CalculationTarget.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.app.billing.CalculationTarget.end</Message>
+    </Field>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" primary="true" start="110" end="110" startBytecode="4" endBytecode="4" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+      <Message>At CalculationTarget.java:[line 110]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="e23eedf7bbbb9e01d5699473211ed455" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>com.example.nedo.app.billing.CalculationTarget.getStart() may expose internal representation by returning CalculationTarget.start</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTarget" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="39" end="110" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>At CalculationTarget.java:[lines 39-110]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTarget</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.billing.CalculationTarget" name="getStart" signature="()Ljava/sql/Date;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="102" end="102" startBytecode="0" endBytecode="46" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java"/>
+      <Message>In method com.example.nedo.app.billing.CalculationTarget.getStart()</Message>
+    </Method>
+    <Field classname="com.example.nedo.app.billing.CalculationTarget" name="start" signature="Ljava/sql/Date;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>In CalculationTarget.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.app.billing.CalculationTarget.start</Message>
+    </Field>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" primary="true" start="102" end="102" startBytecode="4" endBytecode="4" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+      <Message>At CalculationTarget.java:[line 102]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="23221035fb21cf87e82aac2c22ad9145" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.example.nedo.app.billing.CalculationTarget(Contract, BillingCalculator, CallChargeCalculator, Date, Date, boolean) may expose internal representation by storing an externally mutable object into CalculationTarget.end</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTarget" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="39" end="110" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>At CalculationTarget.java:[lines 39-110]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTarget</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.billing.CalculationTarget" name="&lt;init&gt;" signature="(Lcom/example/nedo/db/Contract;Lcom/example/nedo/app/billing/BillingCalculator;Lcom/example/nedo/app/billing/CallChargeCalculator;Ljava/sql/Date;Ljava/sql/Date;Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="51" end="58" startBytecode="0" endBytecode="176" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java"/>
+      <Message>In method new com.example.nedo.app.billing.CalculationTarget(Contract, BillingCalculator, CallChargeCalculator, Date, Date, boolean)</Message>
+    </Method>
+    <Field classname="com.example.nedo.app.billing.CalculationTarget" name="end" signature="Ljava/sql/Date;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>In CalculationTarget.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.app.billing.CalculationTarget.end</Message>
+    </Field>
+    <LocalVariable name="end" register="5" pc="33" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named end</Message>
+    </LocalVariable>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" primary="true" start="56" end="56" startBytecode="33" endBytecode="33" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+      <Message>At CalculationTarget.java:[line 56]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="43011964d47a9b6832720e8a2c50ade7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new com.example.nedo.app.billing.CalculationTarget(Contract, BillingCalculator, CallChargeCalculator, Date, Date, boolean) may expose internal representation by storing an externally mutable object into CalculationTarget.start</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTarget" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="39" end="110" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>At CalculationTarget.java:[lines 39-110]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTarget</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.billing.CalculationTarget" name="&lt;init&gt;" signature="(Lcom/example/nedo/db/Contract;Lcom/example/nedo/app/billing/BillingCalculator;Lcom/example/nedo/app/billing/CallChargeCalculator;Ljava/sql/Date;Ljava/sql/Date;Z)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" start="51" end="58" startBytecode="0" endBytecode="176" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java"/>
+      <Message>In method new com.example.nedo.app.billing.CalculationTarget(Contract, BillingCalculator, CallChargeCalculator, Date, Date, boolean)</Message>
+    </Method>
+    <Field classname="com.example.nedo.app.billing.CalculationTarget" name="start" signature="Ljava/sql/Date;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+        <Message>In CalculationTarget.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.app.billing.CalculationTarget.start</Message>
+    </Field>
+    <LocalVariable name="start" register="4" pc="27" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named start</Message>
+    </LocalVariable>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTarget" primary="true" start="55" end="55" startBytecode="27" endBytecode="27" sourcefile="CalculationTarget.java" sourcepath="com/example/nedo/app/billing/CalculationTarget.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTarget.java">
+      <Message>At CalculationTarget.java:[line 55]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="c537ef29214e9a9af38cc7cfa6841be" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource on checked exception</ShortMessage>
+    <LongMessage>com.example.nedo.app.billing.CalculationTask.getHistoryResultSet(Contract, Date, Date) may fail to clean up java.sql.Statement on checked exception</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTask" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTask" start="25" end="195" sourcefile="CalculationTask.java" sourcepath="com/example/nedo/app/billing/CalculationTask.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTask.java">
+        <Message>At CalculationTask.java:[lines 25-195]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTask</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.billing.CalculationTask" name="getHistoryResultSet" signature="(Lcom/example/nedo/db/Contract;Ljava/sql/Date;Ljava/sql/Date;)Ljava/sql/ResultSet;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTask" start="150" end="163" startBytecode="0" endBytecode="209" sourcefile="CalculationTask.java" sourcepath="com/example/nedo/app/billing/CalculationTask.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTask.java"/>
+      <Message>In method com.example.nedo.app.billing.CalculationTask.getHistoryResultSet(Contract, Date, Date)</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTask" primary="true" start="157" end="157" startBytecode="16" endBytecode="16" sourcefile="CalculationTask.java" sourcepath="com/example/nedo/app/billing/CalculationTask.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTask.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at CalculationTask.java:[line 157] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTask" start="158" end="158" startBytecode="23" endBytecode="23" sourcefile="CalculationTask.java" sourcepath="com/example/nedo/app/billing/CalculationTask.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTask.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CalculationTask.java:[line 158]</Message>
+    </SourceLine>
+    <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="ODR_OPEN_DATABASE_RESOURCE" priority="2" rank="16" abbrev="ODR" category="BAD_PRACTICE" instanceHash="97324c487bad7aa36a61439aaa357896" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to close database resource</ShortMessage>
+    <LongMessage>com.example.nedo.app.billing.CalculationTask.getHistoryResultSet(Contract, Date, Date) may fail to close PreparedStatement</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTask" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTask" start="25" end="195" sourcefile="CalculationTask.java" sourcepath="com/example/nedo/app/billing/CalculationTask.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTask.java">
+        <Message>At CalculationTask.java:[lines 25-195]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTask</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.billing.CalculationTask" name="getHistoryResultSet" signature="(Lcom/example/nedo/db/Contract;Ljava/sql/Date;Ljava/sql/Date;)Ljava/sql/ResultSet;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTask" start="150" end="163" startBytecode="0" endBytecode="32" sourcefile="CalculationTask.java" sourcepath="com/example/nedo/app/billing/CalculationTask.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTask.java"/>
+      <Message>In method com.example.nedo.app.billing.CalculationTask.getHistoryResultSet(Contract, Date, Date)</Message>
+    </Method>
+    <Type descriptor="Ljava/sql/PreparedStatement;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.sql.PreparedStatement" start="1266" end="1319" sourcefile="PreparedStatement.java" sourcepath="java/sql/PreparedStatement.java">
+        <Message>At PreparedStatement.java:[lines 1266-1319]</Message>
+      </SourceLine>
+      <Message>Need to close java.sql.PreparedStatement </Message>
+    </Type>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTask" primary="true" start="157" end="157" startBytecode="16" endBytecode="16" sourcefile="CalculationTask.java" sourcepath="com/example/nedo/app/billing/CalculationTask.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTask.java">
+      <Message>At CalculationTask.java:[line 157]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="63a762e3c31e955474b033117eb38514" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unused field</ShortMessage>
+    <LongMessage>Unused field: com.example.nedo.app.billing.CalculationTaskResult.exception</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTaskResult" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" start="3" end="3" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java">
+        <Message>At CalculationTaskResult.java:[line 3]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTaskResult</Message>
+    </Class>
+    <Field classname="com.example.nedo.app.billing.CalculationTaskResult" name="exception" signature="Ljava/lang/Exception;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java">
+        <Message>In CalculationTaskResult.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.app.billing.CalculationTaskResult.exception</Message>
+    </Field>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java" synthetic="true">
+      <Message>In CalculationTaskResult.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="50d18b09f22f3c9e18f7d9f32a405294" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unused field</ShortMessage>
+    <LongMessage>Unused field: com.example.nedo.app.billing.CalculationTaskResult.success</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTaskResult" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" start="3" end="3" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java">
+        <Message>At CalculationTaskResult.java:[line 3]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTaskResult</Message>
+    </Class>
+    <Field classname="com.example.nedo.app.billing.CalculationTaskResult" name="success" signature="Z" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java">
+        <Message>In CalculationTaskResult.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.app.billing.CalculationTaskResult.success</Message>
+    </Field>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java" synthetic="true">
+      <Message>In CalculationTaskResult.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="eb3c6f530b181a7f7e6bc0c73ef3809f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Unused field</ShortMessage>
+    <LongMessage>Unused field: com.example.nedo.app.billing.CalculationTaskResult.threadName</LongMessage>
+    <Class classname="com.example.nedo.app.billing.CalculationTaskResult" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" start="3" end="3" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java">
+        <Message>At CalculationTaskResult.java:[line 3]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.CalculationTaskResult</Message>
+    </Class>
+    <Field classname="com.example.nedo.app.billing.CalculationTaskResult" name="threadName" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java">
+        <Message>In CalculationTaskResult.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.app.billing.CalculationTaskResult.threadName</Message>
+    </Field>
+    <SourceLine classname="com.example.nedo.app.billing.CalculationTaskResult" sourcefile="CalculationTaskResult.java" sourcepath="com/example/nedo/app/billing/CalculationTaskResult.java" relSourcepath="java/com/example/nedo/app/billing/CalculationTaskResult.java" synthetic="true">
+      <Message>In CalculationTaskResult.java</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="c7396c2a245c2dc0d2b1750c23d92614" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource on checked exception</ShortMessage>
+    <LongMessage>com.example.nedo.app.billing.PhoneBill.getContractResultSet(Connection, Date, Date) may fail to clean up java.sql.Statement on checked exception</LongMessage>
+    <Class classname="com.example.nedo.app.billing.PhoneBill" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.PhoneBill" start="45" end="323" sourcefile="PhoneBill.java" sourcepath="com/example/nedo/app/billing/PhoneBill.java" relSourcepath="java/com/example/nedo/app/billing/PhoneBill.java">
+        <Message>At PhoneBill.java:[lines 45-323]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.app.billing.PhoneBill</Message>
+    </Class>
+    <Method classname="com.example.nedo.app.billing.PhoneBill" name="getContractResultSet" signature="(Ljava/sql/Connection;Ljava/sql/Date;Ljava/sql/Date;)Ljava/sql/ResultSet;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.app.billing.PhoneBill" start="307" end="314" startBytecode="0" endBytecode="165" sourcefile="PhoneBill.java" sourcepath="com/example/nedo/app/billing/PhoneBill.java" relSourcepath="java/com/example/nedo/app/billing/PhoneBill.java"/>
+      <Message>In method com.example.nedo.app.billing.PhoneBill.getContractResultSet(Connection, Date, Date)</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.app.billing.PhoneBill" primary="true" start="310" end="310" startBytecode="7" endBytecode="7" sourcefile="PhoneBill.java" sourcepath="com/example/nedo/app/billing/PhoneBill.java" relSourcepath="java/com/example/nedo/app/billing/PhoneBill.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at PhoneBill.java:[line 310] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.app.billing.PhoneBill" start="311" end="311" startBytecode="14" endBytecode="14" sourcefile="PhoneBill.java" sourcepath="com/example/nedo/app/billing/PhoneBill.java" relSourcepath="java/com/example/nedo/app/billing/PhoneBill.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at PhoneBill.java:[line 311]</Message>
+    </SourceLine>
+    <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE" priority="2" rank="8" abbrev="STCAL" category="MT_CORRECTNESS" instanceHash="71afc4e773a9854adfd7947ea451b2b9" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Call to static DateFormat</ShortMessage>
+    <LongMessage>Call to method of static java.text.DateFormat in com.example.nedo.db.DBUtils.toDate(String)</LongMessage>
+    <Class classname="com.example.nedo.db.DBUtils" primary="true">
+      <SourceLine classname="com.example.nedo.db.DBUtils" start="18" end="108" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java">
+        <Message>At DBUtils.java:[lines 18-108]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.db.DBUtils</Message>
+    </Class>
+    <Method classname="com.example.nedo.db.DBUtils" name="toDate" signature="(Ljava/lang/String;)Ljava/sql/Date;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.nedo.db.DBUtils" start="41" end="43" startBytecode="0" endBytecode="107" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java"/>
+      <Message>In method com.example.nedo.db.DBUtils.toDate(String)</Message>
+    </Method>
+    <Method classname="java.text.SimpleDateFormat" name="parse" signature="(Ljava/lang/String;)Ljava/util/Date;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.text.SimpleDateFormat" sourcefile="SimpleDateFormat.java" sourcepath="java/text/SimpleDateFormat.java"/>
+      <Message>Called method java.text.SimpleDateFormat.parse(String)</Message>
+    </Method>
+    <Field classname="com.example.nedo.db.DBUtils" name="DF_DATE" signature="Ljava/text/DateFormat;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.nedo.db.DBUtils" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java">
+        <Message>In DBUtils.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.db.DBUtils.DF_DATE</Message>
+    </Field>
+    <SourceLine classname="com.example.nedo.db.DBUtils" primary="true" start="41" end="41" startBytecode="8" endBytecode="8" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java">
+      <Message>At DBUtils.java:[line 41]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE" priority="2" rank="8" abbrev="STCAL" category="MT_CORRECTNESS" instanceHash="a22958bf93ecad091d73e46784c27c30" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="366">
+    <ShortMessage>Call to static DateFormat</ShortMessage>
+    <LongMessage>Call to method of static java.text.DateFormat in com.example.nedo.db.DBUtils.toTimestamp(String)</LongMessage>
+    <Class classname="com.example.nedo.db.DBUtils" primary="true">
+      <SourceLine classname="com.example.nedo.db.DBUtils" start="18" end="108" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java">
+        <Message>At DBUtils.java:[lines 18-108]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.db.DBUtils</Message>
+    </Class>
+    <Method classname="com.example.nedo.db.DBUtils" name="toTimestamp" signature="(Ljava/lang/String;)Ljava/sql/Timestamp;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.nedo.db.DBUtils" start="49" end="51" startBytecode="0" endBytecode="107" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java"/>
+      <Message>In method com.example.nedo.db.DBUtils.toTimestamp(String)</Message>
+    </Method>
+    <Method classname="java.text.SimpleDateFormat" name="parse" signature="(Ljava/lang/String;)Ljava/util/Date;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.text.SimpleDateFormat" sourcefile="SimpleDateFormat.java" sourcepath="java/text/SimpleDateFormat.java"/>
+      <Message>Called method java.text.SimpleDateFormat.parse(String)</Message>
+    </Method>
+    <Field classname="com.example.nedo.db.DBUtils" name="DF_TIMESTAMP" signature="Ljava/text/DateFormat;" isStatic="true" primary="true">
+      <SourceLine classname="com.example.nedo.db.DBUtils" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java">
+        <Message>In DBUtils.java</Message>
+      </SourceLine>
+      <Message>Field com.example.nedo.db.DBUtils.DF_TIMESTAMP</Message>
+    </Field>
+    <SourceLine classname="com.example.nedo.db.DBUtils" primary="true" start="49" end="49" startBytecode="8" endBytecode="8" sourcefile="DBUtils.java" sourcepath="com/example/nedo/db/DBUtils.java" relSourcepath="java/com/example/nedo/db/DBUtils.java">
+      <Message>At DBUtils.java:[line 49]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_EXIT" priority="2" rank="16" abbrev="Dm" category="BAD_PRACTICE" instanceHash="701f37bb64512fd2dc1e111c0b40ca09" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="382">
+    <ShortMessage>Method invokes System.exit(...)</ShortMessage>
+    <LongMessage>com.example.nedo.online.AbstractOnlineApp.run() invokes System.exit(...), which shuts down the entire virtual machine</LongMessage>
+    <Class classname="com.example.nedo.online.AbstractOnlineApp" primary="true">
+      <SourceLine classname="com.example.nedo.online.AbstractOnlineApp" start="22" end="201" sourcefile="AbstractOnlineApp.java" sourcepath="com/example/nedo/online/AbstractOnlineApp.java" relSourcepath="java/com/example/nedo/online/AbstractOnlineApp.java">
+        <Message>At AbstractOnlineApp.java:[lines 22-201]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.AbstractOnlineApp</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.AbstractOnlineApp" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.AbstractOnlineApp" start="103" end="136" startBytecode="0" endBytecode="951" sourcefile="AbstractOnlineApp.java" sourcepath="com/example/nedo/online/AbstractOnlineApp.java" relSourcepath="java/com/example/nedo/online/AbstractOnlineApp.java"/>
+      <Message>In method com.example.nedo.online.AbstractOnlineApp.run()</Message>
+    </Method>
+    <SourceLine classname="com.example.nedo.online.AbstractOnlineApp" primary="true" start="126" end="126" startBytecode="277" endBytecode="277" sourcefile="AbstractOnlineApp.java" sourcepath="com/example/nedo/online/AbstractOnlineApp.java" relSourcepath="java/com/example/nedo/online/AbstractOnlineApp.java">
+      <Message>At AbstractOnlineApp.java:[line 126]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="NS_NON_SHORT_CIRCUIT" priority="1" rank="15" abbrev="NS" category="STYLE" instanceHash="920c20e991ecae36d902d3c7beefdf15" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Questionable use of non-short-circuit logic</ShortMessage>
+    <LongMessage>Questionable use of non-short-circuit logic in com.example.nedo.online.AbstractOnlineApp.run()</LongMessage>
+    <Class classname="com.example.nedo.online.AbstractOnlineApp" primary="true">
+      <SourceLine classname="com.example.nedo.online.AbstractOnlineApp" start="22" end="201" sourcefile="AbstractOnlineApp.java" sourcepath="com/example/nedo/online/AbstractOnlineApp.java" relSourcepath="java/com/example/nedo/online/AbstractOnlineApp.java">
+        <Message>At AbstractOnlineApp.java:[lines 22-201]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.AbstractOnlineApp</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.AbstractOnlineApp" name="run" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.AbstractOnlineApp" start="103" end="136" startBytecode="0" endBytecode="951" sourcefile="AbstractOnlineApp.java" sourcepath="com/example/nedo/online/AbstractOnlineApp.java" relSourcepath="java/com/example/nedo/online/AbstractOnlineApp.java"/>
+      <Message>In method com.example.nedo.online.AbstractOnlineApp.run()</Message>
+    </Method>
+    <SourceLine classname="com.example.nedo.online.AbstractOnlineApp" primary="true" start="129" end="129" startBytecode="70" endBytecode="70" sourcefile="AbstractOnlineApp.java" sourcepath="com/example/nedo/online/AbstractOnlineApp.java" relSourcepath="java/com/example/nedo/online/AbstractOnlineApp.java">
+      <Message>At AbstractOnlineApp.java:[line 129]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.AbstractOnlineApp" start="119" end="119" startBytecode="240" endBytecode="240" sourcefile="AbstractOnlineApp.java" sourcepath="com/example/nedo/online/AbstractOnlineApp.java" relSourcepath="java/com/example/nedo/online/AbstractOnlineApp.java" role="SOURCE_LINE_ANOTHER_INSTANCE">
+      <Message>Another occurrence at AbstractOnlineApp.java:[line 119]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="2d39911baf5c48b18ff21883bb84d284" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>new com.example.nedo.online.ContractKeyHolder(Config) may fail to clean up java.sql.ResultSet</LongMessage>
+    <Class classname="com.example.nedo.online.ContractKeyHolder" primary="true">
+      <SourceLine classname="com.example.nedo.online.ContractKeyHolder" start="23" end="90" sourcefile="ContractKeyHolder.java" sourcepath="com/example/nedo/online/ContractKeyHolder.java" relSourcepath="java/com/example/nedo/online/ContractKeyHolder.java">
+        <Message>At ContractKeyHolder.java:[lines 23-90]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.ContractKeyHolder</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.ContractKeyHolder" name="&lt;init&gt;" signature="(Lcom/example/nedo/app/Config;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.ContractKeyHolder" start="23" end="35" startBytecode="0" endBytecode="484" sourcefile="ContractKeyHolder.java" sourcepath="com/example/nedo/online/ContractKeyHolder.java" relSourcepath="java/com/example/nedo/online/ContractKeyHolder.java"/>
+      <Message>In method new com.example.nedo.online.ContractKeyHolder(Config)</Message>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet" start="4186" end="4287" sourcefile="ResultSet.java" sourcepath="java/sql/ResultSet.java">
+        <Message>At ResultSet.java:[lines 4186-4287]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.ResultSet</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.online.ContractKeyHolder" primary="true" start="28" end="28" startBytecode="34" endBytecode="34" sourcefile="ContractKeyHolder.java" sourcepath="com/example/nedo/online/ContractKeyHolder.java" relSourcepath="java/com/example/nedo/online/ContractKeyHolder.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at ContractKeyHolder.java:[line 28] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.ContractKeyHolder" start="29" end="29" startBytecode="41" endBytecode="41" sourcefile="ContractKeyHolder.java" sourcepath="com/example/nedo/online/ContractKeyHolder.java" relSourcepath="java/com/example/nedo/online/ContractKeyHolder.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at ContractKeyHolder.java:[line 29]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.ContractKeyHolder" start="34" end="34" startBytecode="91" endBytecode="91" sourcefile="ContractKeyHolder.java" sourcepath="com/example/nedo/online/ContractKeyHolder.java" relSourcepath="java/com/example/nedo/online/ContractKeyHolder.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at ContractKeyHolder.java:[line 34]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.ContractKeyHolder" start="35" end="35" startBytecode="175" endBytecode="175" sourcefile="ContractKeyHolder.java" sourcepath="com/example/nedo/online/ContractKeyHolder.java" relSourcepath="java/com/example/nedo/online/ContractKeyHolder.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at ContractKeyHolder.java:[line 35]</Message>
+    </SourceLine>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {ResultSet x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="2425c4881a10d80cdc1693f0dec45a15" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.online.HistoryInsertApp.getMaxStartTime() may fail to clean up java.sql.ResultSet</LongMessage>
+    <Class classname="com.example.nedo.online.HistoryInsertApp" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="22" end="123" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java">
+        <Message>At HistoryInsertApp.java:[lines 22-123]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.HistoryInsertApp</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.HistoryInsertApp" name="getMaxStartTime" signature="()J" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="52" end="60" startBytecode="0" endBytecode="214" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java"/>
+      <Message>In method com.example.nedo.online.HistoryInsertApp.getMaxStartTime()</Message>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet" start="4186" end="4287" sourcefile="ResultSet.java" sourcepath="java/sql/ResultSet.java">
+        <Message>At ResultSet.java:[lines 4186-4287]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.ResultSet</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" primary="true" start="54" end="54" startBytecode="15" endBytecode="15" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at HistoryInsertApp.java:[line 54] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="55" end="55" startBytecode="21" endBytecode="21" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryInsertApp.java:[line 55]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="56" end="56" startBytecode="30" endBytecode="30" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryInsertApp.java:[line 56]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="57" end="57" startBytecode="39" endBytecode="39" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryInsertApp.java:[line 57]</Message>
+    </SourceLine>
+    <String value="{Statement x 1,ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1,ResultSet x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="737cc73789afff22208c0cf60a7fd5e2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.online.HistoryInsertApp.getMaxStartTime() may fail to clean up java.sql.Statement</LongMessage>
+    <Class classname="com.example.nedo.online.HistoryInsertApp" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="22" end="123" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java">
+        <Message>At HistoryInsertApp.java:[lines 22-123]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.HistoryInsertApp</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.HistoryInsertApp" name="getMaxStartTime" signature="()J" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="52" end="60" startBytecode="0" endBytecode="214" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java"/>
+      <Message>In method com.example.nedo.online.HistoryInsertApp.getMaxStartTime()</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" primary="true" start="53" end="53" startBytecode="6" endBytecode="6" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at HistoryInsertApp.java:[line 53] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="54" end="54" startBytecode="12" endBytecode="12" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryInsertApp.java:[line 54]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="55" end="55" startBytecode="21" endBytecode="21" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryInsertApp.java:[line 55]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="56" end="56" startBytecode="30" endBytecode="30" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryInsertApp.java:[line 56]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="57" end="57" startBytecode="39" endBytecode="39" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryInsertApp.java:[line 57]</Message>
+    </SourceLine>
+    <String value="{Statement x 1,ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1,ResultSet x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="ODR_OPEN_DATABASE_RESOURCE" priority="2" rank="16" abbrev="ODR" category="BAD_PRACTICE" instanceHash="975b2dd7915f6291292c1e4245d32683" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to close database resource</ShortMessage>
+    <LongMessage>com.example.nedo.online.HistoryInsertApp.getMaxStartTime() may fail to close Statement</LongMessage>
+    <Class classname="com.example.nedo.online.HistoryInsertApp" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="22" end="123" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java">
+        <Message>At HistoryInsertApp.java:[lines 22-123]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.HistoryInsertApp</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.HistoryInsertApp" name="getMaxStartTime" signature="()J" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryInsertApp" start="52" end="60" startBytecode="0" endBytecode="29" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java"/>
+      <Message>In method com.example.nedo.online.HistoryInsertApp.getMaxStartTime()</Message>
+    </Method>
+    <Type descriptor="Ljava/sql/Statement;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Need to close java.sql.Statement </Message>
+    </Type>
+    <SourceLine classname="com.example.nedo.online.HistoryInsertApp" primary="true" start="53" end="53" startBytecode="6" endBytecode="6" sourcefile="HistoryInsertApp.java" sourcepath="com/example/nedo/online/HistoryInsertApp.java" relSourcepath="java/com/example/nedo/online/HistoryInsertApp.java">
+      <Message>At HistoryInsertApp.java:[line 53]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="7d78c028792c491e0ad33b545afa36a2" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.online.HistoryUpdateApp.getHistories(ContractKeyHolder$Key) may fail to clean up java.sql.ResultSet</LongMessage>
+    <Class classname="com.example.nedo.online.HistoryUpdateApp" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryUpdateApp" start="22" end="129" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java">
+        <Message>At HistoryUpdateApp.java:[lines 22-129]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.HistoryUpdateApp</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.HistoryUpdateApp" name="getHistories" signature="(Lcom/example/nedo/online/ContractKeyHolder$Key;)Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryUpdateApp" start="67" end="98" startBytecode="0" endBytecode="620" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java"/>
+      <Message>In method com.example.nedo.online.HistoryUpdateApp.getHistories(ContractKeyHolder$Key)</Message>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet" start="4186" end="4287" sourcefile="ResultSet.java" sourcepath="java/sql/ResultSet.java">
+        <Message>At ResultSet.java:[lines 4186-4287]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.ResultSet</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.online.HistoryUpdateApp" primary="true" start="81" end="81" startBytecode="53" endBytecode="53" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at HistoryUpdateApp.java:[line 81] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryUpdateApp" start="82" end="82" startBytecode="60" endBytecode="60" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryUpdateApp.java:[line 82]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryUpdateApp" start="96" end="96" startBytecode="207" endBytecode="207" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryUpdateApp.java:[line 96]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryUpdateApp" start="97" end="97" startBytecode="251" endBytecode="251" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryUpdateApp.java:[line 97]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.HistoryUpdateApp" start="98" end="98" startBytecode="258" endBytecode="258" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at HistoryUpdateApp.java:[line 98]</Message>
+    </SourceLine>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {ResultSet x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="4d9bcdd543fe6ef5a45efb331c094098" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should com.example.nedo.online.HistoryUpdateApp$Updater1 be a _static_ inner class?</LongMessage>
+    <Class classname="com.example.nedo.online.HistoryUpdateApp$Updater1" primary="true">
+      <SourceLine classname="com.example.nedo.online.HistoryUpdateApp$Updater1" start="148" end="154" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java">
+        <Message>At HistoryUpdateApp.java:[lines 148-154]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.HistoryUpdateApp$Updater1</Message>
+    </Class>
+    <SourceLine classname="com.example.nedo.online.HistoryUpdateApp$Updater1" start="148" end="154" sourcefile="HistoryUpdateApp.java" sourcepath="com/example/nedo/online/HistoryUpdateApp.java" relSourcepath="java/com/example/nedo/online/HistoryUpdateApp.java" synthetic="true">
+      <Message>At HistoryUpdateApp.java:[lines 148-154]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="5eda0dddb16fdc7316be5a5f48e5e61f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.online.MasterUpdateApp.getContracts(String) may fail to clean up java.sql.ResultSet</LongMessage>
+    <Class classname="com.example.nedo.online.MasterUpdateApp" primary="true">
+      <SourceLine classname="com.example.nedo.online.MasterUpdateApp" start="21" end="151" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java">
+        <Message>At MasterUpdateApp.java:[lines 21-151]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.MasterUpdateApp</Message>
+    </Class>
+    <Method classname="com.example.nedo.online.MasterUpdateApp" name="getContracts" signature="(Ljava/lang/String;)Ljava/util/List;" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.online.MasterUpdateApp" start="102" end="117" startBytecode="0" endBytecode="454" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java"/>
+      <Message>In method com.example.nedo.online.MasterUpdateApp.getContracts(String)</Message>
+    </Method>
+    <Class classname="java.sql.ResultSet" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.ResultSet" start="4186" end="4287" sourcefile="ResultSet.java" sourcepath="java/sql/ResultSet.java">
+        <Message>At ResultSet.java:[lines 4186-4287]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.ResultSet</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.online.MasterUpdateApp" primary="true" start="107" end="107" startBytecode="38" endBytecode="38" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at MasterUpdateApp.java:[line 107] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.MasterUpdateApp" start="108" end="108" startBytecode="45" endBytecode="45" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MasterUpdateApp.java:[line 108]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.MasterUpdateApp" start="116" end="116" startBytecode="121" endBytecode="121" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MasterUpdateApp.java:[line 116]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.online.MasterUpdateApp" start="117" end="117" startBytecode="165" endBytecode="165" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at MasterUpdateApp.java:[line 117]</Message>
+    </SourceLine>
+    <String value="{ResultSet x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {ResultSet x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SIC" category="PERFORMANCE" instanceHash="247cdf1fb2fe075a367317b426299aa7" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Should be a static inner class</ShortMessage>
+    <LongMessage>Should com.example.nedo.online.MasterUpdateApp$Updater1 be a _static_ inner class?</LongMessage>
+    <Class classname="com.example.nedo.online.MasterUpdateApp$Updater1" primary="true">
+      <SourceLine classname="com.example.nedo.online.MasterUpdateApp$Updater1" start="167" end="171" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java">
+        <Message>At MasterUpdateApp.java:[lines 167-171]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.online.MasterUpdateApp$Updater1</Message>
+    </Class>
+    <SourceLine classname="com.example.nedo.online.MasterUpdateApp$Updater1" start="167" end="171" sourcefile="MasterUpdateApp.java" sourcepath="com/example/nedo/online/MasterUpdateApp.java" relSourcepath="java/com/example/nedo/online/MasterUpdateApp.java" synthetic="true">
+      <Message>At MasterUpdateApp.java:[lines 167-171]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="4eb10a73068ba70e22f1040523c47811" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.testdata.CreateTestData.execute(Config) may fail to clean up java.sql.Statement</LongMessage>
+    <Class classname="com.example.nedo.testdata.CreateTestData" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="13" end="49" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java">
+        <Message>At CreateTestData.java:[lines 13-49]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.testdata.CreateTestData</Message>
+    </Class>
+    <Method classname="com.example.nedo.testdata.CreateTestData" name="execute" signature="(Lcom/example/nedo/app/Config;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="26" end="49" startBytecode="0" endBytecode="509" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java"/>
+      <Message>In method com.example.nedo.testdata.CreateTestData.execute(Config)</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="1" role="INT_OBLIGATIONS_REMAINING">
+      <Message>1 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" primary="true" start="40" end="40" startBytecode="93" endBytecode="93" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at CreateTestData.java:[line 40] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="41" end="41" startBytecode="100" endBytecode="100" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTestData.java:[line 41]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="42" end="42" startBytecode="110" endBytecode="110" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTestData.java:[line 42]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="44" end="44" startBytecode="154" endBytecode="154" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTestData.java:[line 44]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="46" end="46" startBytecode="172" endBytecode="172" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTestData.java:[line 46]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="47" end="47" startBytecode="180" endBytecode="180" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTestData.java:[line 47]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="48" end="48" startBytecode="184" endBytecode="184" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTestData.java:[line 48]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="49" end="49" startBytecode="224" endBytecode="224" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at CreateTestData.java:[line 49]</Message>
+    </SourceLine>
+    <String value="{Statement x 1}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 1}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="ODR_OPEN_DATABASE_RESOURCE" priority="2" rank="16" abbrev="ODR" category="BAD_PRACTICE" instanceHash="2f2073f29d536f9846681ed11b591fcc" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to close database resource</ShortMessage>
+    <LongMessage>com.example.nedo.testdata.CreateTestData.execute(Config) may fail to close Statement</LongMessage>
+    <Class classname="com.example.nedo.testdata.CreateTestData" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="13" end="49" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java">
+        <Message>At CreateTestData.java:[lines 13-49]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.testdata.CreateTestData</Message>
+    </Class>
+    <Method classname="com.example.nedo.testdata.CreateTestData" name="execute" signature="(Lcom/example/nedo/app/Config;)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.CreateTestData" start="26" end="49" startBytecode="0" endBytecode="104" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java"/>
+      <Message>In method com.example.nedo.testdata.CreateTestData.execute(Config)</Message>
+    </Method>
+    <Type descriptor="Ljava/sql/Statement;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Need to close java.sql.Statement </Message>
+    </Type>
+    <SourceLine classname="com.example.nedo.testdata.CreateTestData" primary="true" start="40" end="40" startBytecode="93" endBytecode="93" sourcefile="CreateTestData.java" sourcepath="com/example/nedo/testdata/CreateTestData.java" relSourcepath="java/com/example/nedo/testdata/CreateTestData.java">
+      <Message>At CreateTestData.java:[line 40]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="OBL_UNSATISFIED_OBLIGATION" priority="2" rank="20" abbrev="OBL" category="EXPERIMENTAL" instanceHash="9458de6be657c2d3c757e43662af9488" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to clean up stream or resource</ShortMessage>
+    <LongMessage>com.example.nedo.testdata.TestDataGenerator.generateContracts() may fail to clean up java.sql.Statement</LongMessage>
+    <Class classname="com.example.nedo.testdata.TestDataGenerator" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="54" end="471" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java">
+        <Message>At TestDataGenerator.java:[lines 54-471]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.testdata.TestDataGenerator</Message>
+    </Class>
+    <Method classname="com.example.nedo.testdata.TestDataGenerator" name="generateContracts" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="121" end="138" startBytecode="0" endBytecode="374" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java"/>
+      <Message>In method com.example.nedo.testdata.TestDataGenerator.generateContracts()</Message>
+    </Method>
+    <Class classname="java.sql.Statement" role="CLASS_REFTYPE">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Reference type java.sql.Statement</Message>
+    </Class>
+    <Int value="2" role="INT_OBLIGATIONS_REMAINING">
+      <Message>2 instances of obligation remaining</Message>
+    </Int>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" primary="true" start="122" end="122" startBytecode="9" endBytecode="9" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at TestDataGenerator.java:[line 122] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="123" end="123" startBytecode="15" endBytecode="15" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at TestDataGenerator.java:[line 123]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="125" end="125" startBytecode="24" endBytecode="24" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at TestDataGenerator.java:[line 125]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="125" end="125" startBytecode="27" endBytecode="27" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_OBLIGATION_CREATED">
+      <Message>Obligation to clean up resource created at TestDataGenerator.java:[line 125] is not discharged</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="126" end="126" startBytecode="33" endBytecode="33" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at TestDataGenerator.java:[line 126]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="128" end="128" startBytecode="36" endBytecode="36" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at TestDataGenerator.java:[line 128]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="136" end="136" startBytecode="94" endBytecode="94" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at TestDataGenerator.java:[line 136]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="137" end="137" startBytecode="99" endBytecode="99" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at TestDataGenerator.java:[line 137]</Message>
+    </SourceLine>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="138" end="138" startBytecode="134" endBytecode="134" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java" role="SOURCE_LINE_PATH_CONTINUES">
+      <Message>Path continues at TestDataGenerator.java:[line 138]</Message>
+    </SourceLine>
+    <String value="{Statement x 2}" role="STRING_REMAINING_OBLIGATIONS">
+      <Message>Remaining obligations: {Statement x 2}</Message>
+    </String>
+  </BugInstance>
+  <BugInstance type="ODR_OPEN_DATABASE_RESOURCE" priority="2" rank="16" abbrev="ODR" category="BAD_PRACTICE" instanceHash="6fc503d83f2c4e68b8ad31c4f7bc19b4" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Method may fail to close database resource</ShortMessage>
+    <LongMessage>com.example.nedo.testdata.TestDataGenerator.generateContracts() may fail to close Statement</LongMessage>
+    <Class classname="com.example.nedo.testdata.TestDataGenerator" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="54" end="471" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java">
+        <Message>At TestDataGenerator.java:[lines 54-471]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.testdata.TestDataGenerator</Message>
+    </Class>
+    <Method classname="com.example.nedo.testdata.TestDataGenerator" name="generateContracts" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="121" end="138" startBytecode="0" endBytecode="67" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java"/>
+      <Message>In method com.example.nedo.testdata.TestDataGenerator.generateContracts()</Message>
+    </Method>
+    <Type descriptor="Ljava/sql/Statement;" role="TYPE_CLOSEIT">
+      <SourceLine classname="java.sql.Statement" start="1096" end="1647" sourcefile="Statement.java" sourcepath="java/sql/Statement.java">
+        <Message>At Statement.java:[lines 1096-1647]</Message>
+      </SourceLine>
+      <Message>Need to close java.sql.Statement </Message>
+    </Type>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" primary="true" start="122" end="122" startBytecode="9" endBytecode="9" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java">
+      <Message>At TestDataGenerator.java:[line 122]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="RV_EXCEPTION_NOT_THROWN" priority="1" rank="1" abbrev="RV" category="CORRECTNESS" instanceHash="5f8ff60f3307e5d42a11a6955fb887c2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="440">
+    <ShortMessage>Exception created and dropped rather than thrown</ShortMessage>
+    <LongMessage>new RuntimeException(String) not thrown in new com.example.nedo.testdata.TestDataGenerator(Config, int)</LongMessage>
+    <Class classname="com.example.nedo.testdata.TestDataGenerator" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="54" end="471" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java">
+        <Message>At TestDataGenerator.java:[lines 54-471]</Message>
+      </SourceLine>
+      <Message>In class com.example.nedo.testdata.TestDataGenerator</Message>
+    </Class>
+    <Method classname="com.example.nedo.testdata.TestDataGenerator" name="&lt;init&gt;" signature="(Lcom/example/nedo/app/Config;I)V" isStatic="false" primary="true">
+      <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" start="83" end="93" startBytecode="0" endBytecode="244" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java"/>
+      <Message>In method new com.example.nedo.testdata.TestDataGenerator(Config, int)</Message>
+    </Method>
+    <Method classname="java.lang.RuntimeException" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.RuntimeException" start="62" end="63" startBytecode="0" endBytecode="61" sourcefile="RuntimeException.java" sourcepath="java/lang/RuntimeException.java"/>
+      <Message>Called method new RuntimeException(String)</Message>
+    </Method>
+    <SourceLine classname="com.example.nedo.testdata.TestDataGenerator" primary="true" start="86" end="86" startBytecode="76" endBytecode="76" sourcefile="TestDataGenerator.java" sourcepath="com/example/nedo/testdata/TestDataGenerator.java" relSourcepath="java/com/example/nedo/testdata/TestDataGenerator.java">
+      <Message>At TestDataGenerator.java:[line 86]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="MALICIOUS_CODE">
+    <Description>Malicious code vulnerability</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="CORRECTNESS">
+    <Description>Correctness</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="EXPERIMENTAL">
+    <Description>Experimental</Description>
+  </BugCategory>
+  <BugCategory category="MT_CORRECTNESS">
+    <Description>Multithreaded correctness</Description>
+  </BugCategory>
+  <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="EI_EXPOSE_REP" abbrev="EI" category="MALICIOUS_CODE" cweid="374">
+    <ShortDescription>May expose internal representation by returning reference to mutable object</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="ODR_OPEN_DATABASE_RESOURCE" abbrev="ODR" category="BAD_PRACTICE">
+    <ShortDescription>Method may fail to close database resource</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates a database resource (such as a database connection
+or row set), does not assign it to any
+fields, pass it to other methods, or return it, and does not appear to close
+the object on all paths out of the method.&nbsp; Failure to
+close database resources on all paths out of a method may
+result in poor performance, and could cause the application to
+have problems communicating with the database.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="UUF_UNUSED_FIELD" abbrev="UuF" category="PERFORMANCE">
+    <ShortDescription>Unused field</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This field is never used.&nbsp; Consider removing it from the class.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="SIC_INNER_SHOULD_BE_STATIC" abbrev="SIC" category="PERFORMANCE">
+    <ShortDescription>Should be a static inner class</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE" abbrev="STCAL" category="MT_CORRECTNESS">
+    <ShortDescription>Call to static DateFormat</ShortDescription>
+    <Details><![CDATA[
+
+<p>As the JavaDoc states, DateFormats are inherently unsafe for multithreaded use.
+The detector has found a call to an instance of DateFormat that has been obtained via a static
+field. This looks suspicious.</p>
+<p>For more information on this see <a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6231579">JDK Bug #6231579</a>
+and <a href="http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6178997">JDK Bug #6178997</a>.</p>
+
+]]></Details>
+  </BugPattern>
+  <BugPattern type="NS_NON_SHORT_CIRCUIT" abbrev="NS" category="STYLE">
+    <ShortDescription>Questionable use of non-short-circuit logic</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This code seems to be using non-short-circuit logic (e.g., &amp;
+or |)
+rather than short-circuit logic (&amp;&amp; or ||).
+Non-short-circuit logic causes both sides of the expression
+to be evaluated even when the result can be inferred from
+knowing the left-hand side. This can be less efficient and
+can result in errors if the left-hand side guards cases
+when evaluating the right-hand side can generate an error.
+
+<p>See <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-15.html#jls-15.22.2">the Java
+Language Specification</a> for details.
+
+</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_EXIT" abbrev="Dm" category="BAD_PRACTICE" cweid="382">
+    <ShortDescription>Method invokes System.exit(...)</ShortDescription>
+    <Details><![CDATA[
+
+  <p> Invoking System.exit shuts down the entire Java virtual machine. This
+   should only been done when it is appropriate. Such calls make it
+   hard or impossible for your code to be invoked by other code.
+   Consider throwing a RuntimeException instead.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="OBL_UNSATISFIED_OBLIGATION" abbrev="OBL" category="EXPERIMENTAL">
+    <ShortDescription>Method may fail to clean up stream or resource</ShortDescription>
+    <Details><![CDATA[
+          
+          <p>
+          This method may fail to clean up (close, dispose of) a stream,
+          database object, or other
+          resource requiring an explicit cleanup operation.
+          </p>
+
+          <p>
+          In general, if a method opens a stream or other resource,
+          the method should use a try/finally block to ensure that
+          the stream or resource is cleaned up before the method
+          returns.
+          </p>
+
+          <p>
+          This bug pattern is essentially the same as the
+          OS_OPEN_STREAM and ODR_OPEN_DATABASE_RESOURCE
+          bug patterns, but is based on a different
+          (and hopefully better) static analysis technique.
+          We are interested is getting feedback about the
+          usefulness of this bug pattern.
+          For sending feedback, check:
+          </p>
+          <ul>
+            <li><a href="https://github.com/spotbugs/spotbugs/blob/master/CONTRIBUTING.md">contributing guideline</a></li>
+            <li><a href="https://github.com/spotbugs/discuss/issues?q=">malinglist</a></li>
+          </ul>
+
+          <p>
+          In particular,
+          the false-positive suppression heuristics for this
+          bug pattern have not been extensively tuned, so
+          reports about false positives are helpful to us.
+          </p>
+
+          <p>
+          See Weimer and Necula, <i>Finding and Preventing Run-Time Error Handling Mistakes</i>, for
+          a description of the analysis technique.
+          </p>
+          
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="OBL_UNSATISFIED_OBLIGATION_EXCEPTION_EDGE" abbrev="OBL" category="EXPERIMENTAL">
+    <ShortDescription>Method may fail to clean up stream or resource on checked exception</ShortDescription>
+    <Details><![CDATA[
+          
+          <p>
+          This method may fail to clean up (close, dispose of) a stream,
+          database object, or other
+          resource requiring an explicit cleanup operation.
+          </p>
+
+          <p>
+          In general, if a method opens a stream or other resource,
+          the method should use a try/finally block to ensure that
+          the stream or resource is cleaned up before the method
+          returns.
+          </p>
+
+          <p>
+          This bug pattern is essentially the same as the
+          OS_OPEN_STREAM and ODR_OPEN_DATABASE_RESOURCE
+          bug patterns, but is based on a different
+          (and hopefully better) static analysis technique.
+          We are interested is getting feedback about the
+          usefulness of this bug pattern.
+          For sending feedback, check:
+          </p>
+          <ul>
+            <li><a href="https://github.com/spotbugs/spotbugs/blob/master/CONTRIBUTING.md">contributing guideline</a></li>
+            <li><a href="https://github.com/spotbugs/discuss/issues?q=">malinglist</a></li>
+          </ul>
+
+          <p>
+          In particular,
+          the false-positive suppression heuristics for this
+          bug pattern have not been extensively tuned, so
+          reports about false positives are helpful to us.
+          </p>
+
+          <p>
+          See Weimer and Necula, <i>Finding and Preventing Run-Time Error Handling Mistakes</i>, for
+          a description of the analysis technique.
+          </p>
+          
+      ]]></Details>
+  </BugPattern>
+  <BugPattern type="OS_OPEN_STREAM" abbrev="OS" category="BAD_PRACTICE">
+    <ShortDescription>Method may fail to close stream</ShortDescription>
+    <Details><![CDATA[
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+
+    ]]></Details>
+  </BugPattern>
+  <BugPattern type="RV_EXCEPTION_NOT_THROWN" abbrev="RV" category="CORRECTNESS">
+    <ShortDescription>Exception created and dropped rather than thrown</ShortDescription>
+    <Details><![CDATA[
+
+   <p> This code creates an exception (or error) object, but doesn't do anything with it. For example,
+something like </p>
+<pre><code>if (x &lt; 0) {
+    new IllegalArgumentException("x must be nonnegative");
+}
+</code></pre>
+<p>It was probably the intent of the programmer to throw the created exception:</p>
+<pre><code>if (x &lt; 0) {
+    throw new IllegalArgumentException("x must be nonnegative");
+}
+</code></pre>
+
+    ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="OS">
+    <Description>Stream not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="EI">
+    <Description>Method returning array may expose internal representation</Description>
+  </BugCode>
+  <BugCode abbrev="RV" cweid="440">
+    <Description>Bad use of return value from method</Description>
+  </BugCode>
+  <BugCode abbrev="STCAL" cweid="366">
+    <Description>Static use of type Calendar or DateFormat</Description>
+  </BugCode>
+  <BugCode abbrev="NS">
+    <Description>Suspicious use of non-short-circuit boolean operator</Description>
+  </BugCode>
+  <BugCode abbrev="UuF">
+    <Description>Unused field</Description>
+  </BugCode>
+  <BugCode abbrev="OBL">
+    <Description>Unsatisfied obligation to clean up stream or resource</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="ODR">
+    <Description>Database resource not closed on all paths</Description>
+  </BugCode>
+  <BugCode abbrev="SIC">
+    <Description>Inner class could be made static</Description>
+  </BugCode>
+  <BugCode abbrev="EI2">
+    <Description>Storing reference to mutable object</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Wed, 30 Jun 2021 13:43:55 +0900" total_classes="45" referenced_classes="140" total_bugs="33" total_size="1826" num_packages="5" java_version="11.0.8" vm_version="11.0.8+10-post-Ubuntu-0ubuntu118.04.1" cpu_seconds="7.76" clock_seconds="1.71" peak_mbytes="284.39" alloc_mbytes="512.00" gc_seconds="0.05" priority_2="31" priority_1="2">
+    <FileStats path="com/example/nedo/app/Config.java" bugCount="1" size="266" bugHash="aa6650bcee5b4a61f8b9ef3b4e05d6da"/>
+    <FileStats path="com/example/nedo/app/CreateTable.java" bugCount="1" size="57" bugHash="904f8765fd86796c928954e9998b9a8f"/>
+    <FileStats path="com/example/nedo/app/ExecutableCommand.java" bugCount="0" size="2"/>
+    <FileStats path="com/example/nedo/app/Main.java" bugCount="0" size="54"/>
+    <FileStats path="com/example/nedo/app/ORA08177.java" bugCount="0" size="35"/>
+    <FileStats path="com/example/nedo/app/OnlineAppBench.java" bugCount="4" size="105" bugHash="d7c6929906ce729fb642ae5254ae115d"/>
+    <FileStats path="com/example/nedo/app/ThreadBench.java" bugCount="0" size="24"/>
+    <FileStats path="com/example/nedo/app/billing/BillingCalculator.java" bugCount="0" size="5"/>
+    <FileStats path="com/example/nedo/app/billing/CalculationTarget.java" bugCount="4" size="32" bugHash="c6388421dead500234ee19ed3d2aae76"/>
+    <FileStats path="com/example/nedo/app/billing/CalculationTask.java" bugCount="2" size="94" bugHash="0708753f1bf416c5ef2138074d322d9d"/>
+    <FileStats path="com/example/nedo/app/billing/CalculationTaskResult.java" bugCount="3" size="6" bugHash="76d8193bddb326fe3cc32c807c4ff15c"/>
+    <FileStats path="com/example/nedo/app/billing/CallChargeCalculator.java" bugCount="0" size="2"/>
+    <FileStats path="com/example/nedo/app/billing/PhoneBill.java" bugCount="1" size="163" bugHash="858bd1924c5672f233cb02b1d93f1e99"/>
+    <FileStats path="com/example/nedo/app/billing/SimpleBillingCalculator.java" bugCount="0" size="16"/>
+    <FileStats path="com/example/nedo/app/billing/SimpleCallChargeCalculator.java" bugCount="0" size="7"/>
+    <FileStats path="com/example/nedo/db/Billing.java" bugCount="0" size="56"/>
+    <FileStats path="com/example/nedo/db/Contract.java" bugCount="0" size="61"/>
+    <FileStats path="com/example/nedo/db/DBUtils.java" bugCount="2" size="44" bugHash="5a31d04c7283c80b82ff154674d1ab95"/>
+    <FileStats path="com/example/nedo/db/Duration.java" bugCount="0" size="33"/>
+    <FileStats path="com/example/nedo/db/History.java" bugCount="0" size="83"/>
+    <FileStats path="com/example/nedo/online/AbstractOnlineApp.java" bugCount="2" size="88" bugHash="e326af427648f49b73587855c3a71214"/>
+    <FileStats path="com/example/nedo/online/ContractKeyHolder.java" bugCount="1" size="38" bugHash="6b43646837500df95138318cde750df4"/>
+    <FileStats path="com/example/nedo/online/HistoryInsertApp.java" bugCount="3" size="83" bugHash="7a8780f32d440445533a9d69345bcc73"/>
+    <FileStats path="com/example/nedo/online/HistoryUpdateApp.java" bugCount="2" size="94" bugHash="f8c6ef5f4a5330f0f91c658f38340f6f"/>
+    <FileStats path="com/example/nedo/online/MasterInsertApp.java" bugCount="0" size="24"/>
+    <FileStats path="com/example/nedo/online/MasterUpdateApp.java" bugCount="2" size="103" bugHash="f51c4ccd9f7dcb7c4d938a218e521074"/>
+    <FileStats path="com/example/nedo/testdata/CallTimeGenerator.java" bugCount="0" size="2"/>
+    <FileStats path="com/example/nedo/testdata/CreateTestData.java" bugCount="2" size="30" bugHash="9e884227b819cc6b8750ea01af3f89a8"/>
+    <FileStats path="com/example/nedo/testdata/LogNormalCallTimeGenerator.java" bugCount="0" size="13"/>
+    <FileStats path="com/example/nedo/testdata/TestDataGenerator.java" bugCount="3" size="196" bugHash="28388e72ac3726f2730a0681a53e9008"/>
+    <FileStats path="com/example/nedo/testdata/UniformCallTimeGenerator.java" bugCount="0" size="10"/>
+    <PackageStats package="com.example.nedo.app" total_bugs="6" total_types="11" total_size="543" priority_2="6">
+      <ClassStats class="com.example.nedo.app.Config" sourceFile="Config.java" interface="false" size="244" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.app.Config$DistributionFunction" sourceFile="Config.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.Config$TransactionScope" sourceFile="Config.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.CreateTable" sourceFile="CreateTable.java" interface="false" size="57" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.app.ExecutableCommand" sourceFile="ExecutableCommand.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.Main" sourceFile="Main.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.Main$1" sourceFile="Main.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.Main$Command" sourceFile="Main.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.ORA08177" sourceFile="ORA08177.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.OnlineAppBench" sourceFile="OnlineAppBench.java" interface="false" size="105" bugs="4" priority_2="4"/>
+      <ClassStats class="com.example.nedo.app.ThreadBench" sourceFile="ThreadBench.java" interface="false" size="24" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.nedo.app.billing" total_bugs="10" total_types="8" total_size="325" priority_2="10">
+      <ClassStats class="com.example.nedo.app.billing.BillingCalculator" sourceFile="BillingCalculator.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.billing.CalculationTarget" sourceFile="CalculationTarget.java" interface="false" size="32" bugs="4" priority_2="4"/>
+      <ClassStats class="com.example.nedo.app.billing.CalculationTask" sourceFile="CalculationTask.java" interface="false" size="94" bugs="2" priority_2="2"/>
+      <ClassStats class="com.example.nedo.app.billing.CalculationTaskResult" sourceFile="CalculationTaskResult.java" interface="false" size="6" bugs="3" priority_2="3"/>
+      <ClassStats class="com.example.nedo.app.billing.CallChargeCalculator" sourceFile="CallChargeCalculator.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.billing.PhoneBill" sourceFile="PhoneBill.java" interface="false" size="163" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.app.billing.SimpleBillingCalculator" sourceFile="SimpleBillingCalculator.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="com.example.nedo.app.billing.SimpleCallChargeCalculator" sourceFile="SimpleCallChargeCalculator.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.nedo.db" total_bugs="2" total_types="5" total_size="277" priority_2="2">
+      <ClassStats class="com.example.nedo.db.Billing" sourceFile="Billing.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="com.example.nedo.db.Contract" sourceFile="Contract.java" interface="false" size="61" bugs="0"/>
+      <ClassStats class="com.example.nedo.db.DBUtils" sourceFile="DBUtils.java" interface="false" size="44" bugs="2" priority_2="2"/>
+      <ClassStats class="com.example.nedo.db.Duration" sourceFile="Duration.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="com.example.nedo.db.History" sourceFile="History.java" interface="false" size="83" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.nedo.online" total_bugs="10" total_types="15" total_size="430" priority_2="9" priority_1="1">
+      <ClassStats class="com.example.nedo.online.AbstractOnlineApp" sourceFile="AbstractOnlineApp.java" interface="false" size="88" bugs="2" priority_2="1" priority_1="1"/>
+      <ClassStats class="com.example.nedo.online.ContractKeyHolder" sourceFile="ContractKeyHolder.java" interface="false" size="33" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.online.ContractKeyHolder$Key" sourceFile="ContractKeyHolder.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="com.example.nedo.online.HistoryInsertApp" sourceFile="HistoryInsertApp.java" interface="false" size="51" bugs="3" priority_2="3"/>
+      <ClassStats class="com.example.nedo.online.HistoryInsertApp$1" sourceFile="HistoryInsertApp.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="com.example.nedo.online.HistoryInsertApp$Key" sourceFile="HistoryInsertApp.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="com.example.nedo.online.HistoryUpdateApp" sourceFile="HistoryUpdateApp.java" interface="false" size="76" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.online.HistoryUpdateApp$Updater" sourceFile="HistoryUpdateApp.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.example.nedo.online.HistoryUpdateApp$Updater1" sourceFile="HistoryUpdateApp.java" interface="false" size="8" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.online.HistoryUpdateApp$Updater2" sourceFile="HistoryUpdateApp.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.example.nedo.online.MasterInsertApp" sourceFile="MasterInsertApp.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="com.example.nedo.online.MasterUpdateApp" sourceFile="MasterUpdateApp.java" interface="false" size="84" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.online.MasterUpdateApp$Updater" sourceFile="MasterUpdateApp.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.example.nedo.online.MasterUpdateApp$Updater1" sourceFile="MasterUpdateApp.java" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="com.example.nedo.online.MasterUpdateApp$Updater2" sourceFile="MasterUpdateApp.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.example.nedo.testdata" total_bugs="5" total_types="6" total_size="251" priority_2="4" priority_1="1">
+      <ClassStats class="com.example.nedo.testdata.CallTimeGenerator" sourceFile="CallTimeGenerator.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="com.example.nedo.testdata.CreateTestData" sourceFile="CreateTestData.java" interface="false" size="30" bugs="2" priority_2="2"/>
+      <ClassStats class="com.example.nedo.testdata.LogNormalCallTimeGenerator" sourceFile="LogNormalCallTimeGenerator.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="com.example.nedo.testdata.TestDataGenerator" sourceFile="TestDataGenerator.java" interface="false" size="192" bugs="3" priority_2="2" priority_1="1"/>
+      <ClassStats class="com.example.nedo.testdata.TestDataGenerator$1" sourceFile="TestDataGenerator.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.example.nedo.testdata.UniformCallTimeGenerator" sourceFile="UniformCallTimeGenerator.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="370" invocations="934" avgMicrosecondsPerInvocation="396" maxMicrosecondsPerInvocation="10166" standardDeviationMicrosecondsPerInvocation="887"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="67" invocations="209" avgMicrosecondsPerInvocation="324" maxMicrosecondsPerInvocation="4184" standardDeviationMicrosecondsPerInvocation="535"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="66" invocations="140" avgMicrosecondsPerInvocation="472" maxMicrosecondsPerInvocation="3962" standardDeviationMicrosecondsPerInvocation="810"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="59" invocations="140" avgMicrosecondsPerInvocation="424" maxMicrosecondsPerInvocation="4221" standardDeviationMicrosecondsPerInvocation="738"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="52" invocations="939" avgMicrosecondsPerInvocation="56" maxMicrosecondsPerInvocation="17872" standardDeviationMicrosecondsPerInvocation="582"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="52" invocations="213" avgMicrosecondsPerInvocation="246" maxMicrosecondsPerInvocation="2467" standardDeviationMicrosecondsPerInvocation="353"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="51" invocations="536" avgMicrosecondsPerInvocation="95" maxMicrosecondsPerInvocation="2337" standardDeviationMicrosecondsPerInvocation="151"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="48" invocations="226" avgMicrosecondsPerInvocation="216" maxMicrosecondsPerInvocation="6242" standardDeviationMicrosecondsPerInvocation="496"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="46" invocations="209" avgMicrosecondsPerInvocation="224" maxMicrosecondsPerInvocation="2931" standardDeviationMicrosecondsPerInvocation="347"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="44" invocations="223" avgMicrosecondsPerInvocation="201" maxMicrosecondsPerInvocation="1980" standardDeviationMicrosecondsPerInvocation="304"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="34" invocations="213" avgMicrosecondsPerInvocation="160" maxMicrosecondsPerInvocation="5916" standardDeviationMicrosecondsPerInvocation="412"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="32" invocations="190" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="1755" standardDeviationMicrosecondsPerInvocation="256"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="29" invocations="890" avgMicrosecondsPerInvocation="32" maxMicrosecondsPerInvocation="683" standardDeviationMicrosecondsPerInvocation="60"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="17" invocations="140" avgMicrosecondsPerInvocation="123" maxMicrosecondsPerInvocation="1031" standardDeviationMicrosecondsPerInvocation="185"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="16" invocations="45" avgMicrosecondsPerInvocation="369" maxMicrosecondsPerInvocation="3394" standardDeviationMicrosecondsPerInvocation="689"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="16" invocations="140" avgMicrosecondsPerInvocation="117" maxMicrosecondsPerInvocation="1149" standardDeviationMicrosecondsPerInvocation="173"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="15" invocations="213" avgMicrosecondsPerInvocation="72" maxMicrosecondsPerInvocation="822" standardDeviationMicrosecondsPerInvocation="111"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="15" invocations="140" avgMicrosecondsPerInvocation="108" maxMicrosecondsPerInvocation="1383" standardDeviationMicrosecondsPerInvocation="195"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="15" invocations="45" avgMicrosecondsPerInvocation="333" maxMicrosecondsPerInvocation="3157" standardDeviationMicrosecondsPerInvocation="606"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SwitchFallthrough" totalMilliseconds="14" invocations="45" avgMicrosecondsPerInvocation="332" maxMicrosecondsPerInvocation="8010" standardDeviationMicrosecondsPerInvocation="1201"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="14" invocations="189" avgMicrosecondsPerInvocation="78" maxMicrosecondsPerInvocation="737" standardDeviationMicrosecondsPerInvocation="98"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="14" invocations="141" avgMicrosecondsPerInvocation="102" maxMicrosecondsPerInvocation="652" standardDeviationMicrosecondsPerInvocation="123"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="12" invocations="140" avgMicrosecondsPerInvocation="87" maxMicrosecondsPerInvocation="1817" standardDeviationMicrosecondsPerInvocation="201"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="12" invocations="45" avgMicrosecondsPerInvocation="271" maxMicrosecondsPerInvocation="1844" standardDeviationMicrosecondsPerInvocation="341"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="11" invocations="45" avgMicrosecondsPerInvocation="254" maxMicrosecondsPerInvocation="1719" standardDeviationMicrosecondsPerInvocation="385"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="11" invocations="140" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="853" standardDeviationMicrosecondsPerInvocation="140"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="11" invocations="140" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="736" standardDeviationMicrosecondsPerInvocation="125"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

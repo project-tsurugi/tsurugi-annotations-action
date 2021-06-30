@@ -9513,13 +9513,13 @@ class SpotbugsChecker extends abstract_checker_1.default {
                 const javaDir = yield this.getJavaDir(bugCollection.Project.SrcDir);
                 if (Array.isArray(bugCollection.BugInstance)) {
                     for (const bugInstance of bugCollection.BugInstance) {
-                        annotations.push(yield this.createAnnotation(bugInstance, javaDir));
+                        yield this.parseBugInstance(bugInstance, annotations, javaDir);
                     }
                 }
                 else {
                     if (bugCollection.BugInstance) {
                         const bugInstance = bugCollection.BugInstance;
-                        annotations.push(yield this.createAnnotation(bugInstance, javaDir));
+                        yield this.parseBugInstance(bugInstance, annotations, javaDir);
                     }
                 }
             }
@@ -9541,14 +9541,30 @@ class SpotbugsChecker extends abstract_checker_1.default {
         });
     }
     /* eslint-disable @typescript-eslint/no-explicit-any */
-    createAnnotation(bugInstance, javaDir) {
+    parseBugInstance(bugInstance, annotations, javaDir) {
         return __awaiter(this, void 0, void 0, function* () {
             /* eslint-enable */
-            const path = `${javaDir}/${bugInstance.SourceLine._attributes.sourcepath}`;
-            const start_line = Number(bugInstance.SourceLine._attributes.start || 1);
-            const end_line = Number(bugInstance.SourceLine._attributes.end ||
-                bugInstance.SourceLine._attributes.start ||
-                1);
+            if (Array.isArray(bugInstance.SourceLine)) {
+                for (const sourceLine of bugInstance.SourceLine) {
+                    if (sourceLine._attributes.primary) {
+                        annotations.push(yield this.createAnnotation(bugInstance, sourceLine, javaDir));
+                        break;
+                    }
+                }
+            }
+            else {
+                const sourceLine = bugInstance.SourceLine;
+                annotations.push(yield this.createAnnotation(bugInstance, sourceLine, javaDir));
+            }
+        });
+    }
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    createAnnotation(bugInstance, sourceLine, javaDir) {
+        return __awaiter(this, void 0, void 0, function* () {
+            /* eslint-enable */
+            const path = `${javaDir}/${sourceLine._attributes.sourcepath}`;
+            const start_line = Number(sourceLine._attributes.start || 1);
+            const end_line = Number(sourceLine._attributes.end || sourceLine._attributes.start || 1);
             const annotation_level = bugInstance._attributes.rank < 10 ? 'failure' : 'warning';
             const message = bugInstance.LongMessage._text;
             const title = `${bugInstance._attributes.type} (Confidence:${bugInstance._attributes.priority}, Rank:${bugInstance._attributes.rank})`;

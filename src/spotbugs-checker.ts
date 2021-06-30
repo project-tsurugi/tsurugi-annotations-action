@@ -59,12 +59,12 @@ class SpotbugsChecker extends Checker {
 
       if (Array.isArray(bugCollection.BugInstance)) {
         for (const bugInstance of bugCollection.BugInstance) {
-          annotations.push(await this.createAnnotation(bugInstance, javaDir))
+          await this.parseBugInstance(bugInstance, annotations, javaDir)
         }
       } else {
         if (bugCollection.BugInstance) {
           const bugInstance = bugCollection.BugInstance
-          annotations.push(await this.createAnnotation(bugInstance, javaDir))
+          await this.parseBugInstance(bugInstance, annotations, javaDir)
         }
       }
     }
@@ -89,14 +89,40 @@ class SpotbugsChecker extends Checker {
   }
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  async createAnnotation(bugInstance: any, javaDir: string): Promise<any> {
+  async parseBugInstance(
+    bugInstance: any,
+    annotations: any,
+    javaDir: string
+  ): Promise<any> {
     /* eslint-enable */
-    const path = `${javaDir}/${bugInstance.SourceLine._attributes.sourcepath}`
-    const start_line = Number(bugInstance.SourceLine._attributes.start || 1)
+    if (Array.isArray(bugInstance.SourceLine)) {
+      for (const sourceLine of bugInstance.SourceLine) {
+        if (sourceLine._attributes.primary) {
+          annotations.push(
+            await this.createAnnotation(bugInstance, sourceLine, javaDir)
+          )
+          break
+        }
+      }
+    } else {
+      const sourceLine = bugInstance.SourceLine
+      annotations.push(
+        await this.createAnnotation(bugInstance, sourceLine, javaDir)
+      )
+    }
+  }
+
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  async createAnnotation(
+    bugInstance: any,
+    sourceLine: any,
+    javaDir: string
+  ): Promise<any> {
+    /* eslint-enable */
+    const path = `${javaDir}/${sourceLine._attributes.sourcepath}`
+    const start_line = Number(sourceLine._attributes.start || 1)
     const end_line = Number(
-      bugInstance.SourceLine._attributes.end ||
-        bugInstance.SourceLine._attributes.start ||
-        1
+      sourceLine._attributes.end || sourceLine._attributes.start || 1
     )
     const annotation_level: string =
       bugInstance._attributes.rank < 10 ? 'failure' : 'warning'
