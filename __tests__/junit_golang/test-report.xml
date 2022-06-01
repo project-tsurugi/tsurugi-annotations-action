@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="9" failures="0" time="0.004" name="remotecli/cmd/upload">
+		<properties>
+			<property name="go.version" value="go1.17.10"></property>
+			<property name="coverage.statements.pct" value="29.2"></property>
+		</properties>
+		<testcase classname="upload" name="Test_upload_cli" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_setUpCli" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_setUpCli_case" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_setUpCli_case/normal" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_setUpCli_case/invalid" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_runCli" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_runCli/invalid_subcomand" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_runCli/normal" time="0.000"></testcase>
+		<testcase classname="upload" name="Test_runCli/lack_subcommand" time="0.000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.002" name="remotecli/common/cli">
+		<properties>
+			<property name="go.version" value="go1.17.10"></property>
+			<property name="coverage.statements.pct" value="13.3"></property>
+		</properties>
+		<testcase classname="cli" name="Test_printVersion" time="0.000"></testcase>
+	</testsuite>
+	<testsuite tests="7" failures="0" time="0.507" name="remotecli/common/client">
+		<properties>
+			<property name="go.version" value="go1.17.10"></property>
+			<property name="coverage.statements.pct" value="43.0"></property>
+		</properties>
+		<testcase classname="client" name="Test_Auth_Api" time="0.000"></testcase>
+		<testcase classname="client" name="TestApi_Get_MockResponse" time="0.500"></testcase>
+		<testcase classname="client" name="TestApi_Get_MockResponse/long_response_time" time="0.500"></testcase>
+		<testcase classname="client" name="TestApi_Get_MockResponse/normal" time="0.000"></testcase>
+		<testcase classname="client" name="TestApi_Get_MockResponse/invalid_token" time="0.000"></testcase>
+		<testcase classname="client" name="TestApi_Get_MockResponse/internal_server_error_response" time="0.000"></testcase>
+		<testcase classname="client" name="TestApi_Get_MockResponse/plain_text_response" time="0.000"></testcase>
+	</testsuite>
+</testsuites>
