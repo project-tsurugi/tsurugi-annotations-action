@@ -68,13 +68,13 @@ class JUnitChecker extends Checker {
     reportItems: any
   ): Promise<any> {
     /* eslint-enable */
-    reportItems.numTests += Number(testsuite._attributes.tests)
-    reportItems.numErrors += Number(testsuite._attributes.errors)
-    reportItems.numFailures += Number(testsuite._attributes.failures)
+    reportItems.numTests += Number(testsuite._attributes.tests || 0)
+    reportItems.numErrors += Number(testsuite._attributes.errors || 0)
+    reportItems.numFailures += Number(testsuite._attributes.failures || 0)
     reportItems.numSkipped += testsuite._attributes.skipped
-      ? Number(testsuite._attributes.skipped)
-      : Number(testsuite._attributes.disabled)
-    reportItems.testTimes += Number(testsuite._attributes.time)
+      ? Number(testsuite._attributes.skipped || 0)
+      : Number(testsuite._attributes.disabled || 0)
+    reportItems.testTimes += Number(testsuite._attributes.time || 0)
 
     if (Array.isArray(testsuite.testcase)) {
       for (const testcase of testsuite.testcase) {

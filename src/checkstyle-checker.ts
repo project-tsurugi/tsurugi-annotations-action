@@ -82,7 +82,7 @@ class CheckstyleChecker extends Checker {
       `${process.env.GITHUB_WORKSPACE}`.length + 1
     )
 
-    const line = Number(error._attributes.line)
+    const line = Number(error._attributes.line || 1)
     const start_line = line
     const end_line = line
 

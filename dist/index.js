@@ -8944,7 +8944,7 @@ class CheckstyleChecker extends abstract_checker_1.default {
             /* eslint-enable */
             const fileName = `${file._attributes.name}`;
             const path = fileName.substring(`${process.env.GITHUB_WORKSPACE}`.length + 1);
-            const line = Number(error._attributes.line);
+            const line = Number(error._attributes.line || 1);
             const start_line = line;
             const end_line = line;
             const severity = error._attributes.severity;
@@ -9374,13 +9374,13 @@ class JUnitChecker extends abstract_checker_1.default {
     parseTestsuite(testsuite, annotations, reportItems) {
         return __awaiter(this, void 0, void 0, function* () {
             /* eslint-enable */
-            reportItems.numTests += Number(testsuite._attributes.tests);
-            reportItems.numErrors += Number(testsuite._attributes.errors);
-            reportItems.numFailures += Number(testsuite._attributes.failures);
+            reportItems.numTests += Number(testsuite._attributes.tests || 0);
+            reportItems.numErrors += Number(testsuite._attributes.errors || 0);
+            reportItems.numFailures += Number(testsuite._attributes.failures || 0);
             reportItems.numSkipped += testsuite._attributes.skipped
-                ? Number(testsuite._attributes.skipped)
-                : Number(testsuite._attributes.disabled);
-            reportItems.testTimes += Number(testsuite._attributes.time);
+                ? Number(testsuite._attributes.skipped || 0)
+                : Number(testsuite._attributes.disabled || 0);
+            reportItems.testTimes += Number(testsuite._attributes.time || 0);
             if (Array.isArray(testsuite.testcase)) {
                 for (const testcase of testsuite.testcase) {
                     yield this.parseTestCase(testcase, annotations);
@@ -9508,7 +9508,7 @@ class SpotbugsChecker extends abstract_checker_1.default {
         return __awaiter(this, void 0, void 0, function* () {
             /* eslint-enable */
             const findBugsSummary = bugCollection.FindBugsSummary;
-            reportItems.totalBugs += Number(findBugsSummary._attributes.total_bugs);
+            reportItems.totalBugs += Number(findBugsSummary._attributes.total_bugs || 0);
             if (reportItems.totalBugs > 0) {
                 const javaDir = yield this.getJavaDir(bugCollection.Project.SrcDir);
                 if (Array.isArray(bugCollection.BugInstance)) {

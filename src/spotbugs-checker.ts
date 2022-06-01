@@ -52,7 +52,7 @@ class SpotbugsChecker extends Checker {
   ): Promise<any> {
     /* eslint-enable */
     const findBugsSummary = bugCollection.FindBugsSummary
-    reportItems.totalBugs += Number(findBugsSummary._attributes.total_bugs)
+    reportItems.totalBugs += Number(findBugsSummary._attributes.total_bugs || 0)
 
     if (reportItems.totalBugs > 0) {
       const javaDir = await this.getJavaDir(bugCollection.Project.SrcDir)
