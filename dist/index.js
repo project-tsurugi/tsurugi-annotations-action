@@ -2043,6 +2043,7 @@ function main() {
             }
             if (ghaWarningMessage) {
                 core.exportVariable('GHA_WARNING_MESSAGE', ghaWarningMessage);
+                yield core.summary.addCodeBlock(ghaWarningMessage).write();
             }
         }
         catch (error) {

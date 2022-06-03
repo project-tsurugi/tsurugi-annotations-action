@@ -93,6 +93,7 @@ async function main(): Promise<void> {
     }
     if (ghaWarningMessage) {
       core.exportVariable('GHA_WARNING_MESSAGE', ghaWarningMessage)
+      await core.summary.addCodeBlock(ghaWarningMessage).write()
     }
   } catch (error) {
     core.setFailed(error.message)
