@@ -25,8 +25,8 @@
   "author": "project-tsurugi",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "1.2.6",
-    "@actions/github": "4.0.0",
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
     "@actions/glob": "^0.1.0",
     "@types/xml-js": "^1.0.0",
     "xml-js": "^1.6.11"
