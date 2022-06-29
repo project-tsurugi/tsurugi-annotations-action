@@ -109,7 +109,7 @@ async function main(): Promise<void> {
           if (github.context.eventName === 'pull_request') {
             checkName = `${checkName}-pr`
           }
-          octokit.checks.create({
+          const res = await octokit.checks.create({
             owner: github.context.repo.owner,
             repo: github.context.repo.repo,
             name: checkName,
@@ -122,12 +122,14 @@ async function main(): Promise<void> {
               annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
             }
           })
+          await core.summary
+            .addLink(checker.result, res.data.html_url as string)
+            .write()
         }
       }
     }
     if (ghaWarningMessage) {
       core.exportVariable('GHA_WARNING_MESSAGE', ghaWarningMessage)
-      await core.summary.addCodeBlock(ghaWarningMessage).write()
     }
   } catch (error) {
     core.setFailed(error.message)

@@ -2058,7 +2058,7 @@ function main() {
                         if (github.context.eventName === 'pull_request') {
                             checkName = `${checkName}-pr`;
                         }
-                        octokit.checks.create({
+                        const res = yield octokit.checks.create({
                             owner: github.context.repo.owner,
                             repo: github.context.repo.repo,
                             name: checkName,
@@ -2071,12 +2071,14 @@ function main() {
                                 annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
                             }
                         });
+                        yield core.summary
+                            .addLink(checker.result, res.data.html_url)
+                            .write();
                     }
                 }
             }
             if (ghaWarningMessage) {
                 core.exportVariable('GHA_WARNING_MESSAGE', ghaWarningMessage);
-                yield core.summary.addCodeBlock(ghaWarningMessage).write();
             }
         }
         catch (error) {
