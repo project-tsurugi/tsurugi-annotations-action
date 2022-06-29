@@ -1971,14 +1971,47 @@ function main() {
     var _a, _b, _c;
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const checkers = [
-                new ctest_checker_1.default(),
-                new clang_tidy_checker_1.default(),
-                new doxygen_checker_1.default(),
-                new junit_checker_1.default(),
-                new spotbugs_checker_1.default(),
-                new checkstyle_checker_1.default()
-            ];
+            let checkers;
+            const checkerInput = core.getInput('checker');
+            if (checkerInput == null ||
+                checkerInput === 'null' ||
+                checkerInput === '') {
+                checkers = [
+                    new ctest_checker_1.default(),
+                    new clang_tidy_checker_1.default(),
+                    new doxygen_checker_1.default(),
+                    new junit_checker_1.default(),
+                    new spotbugs_checker_1.default(),
+                    new checkstyle_checker_1.default()
+                ];
+            }
+            else {
+                checkers = [];
+                for (const checker of checkerInput.split(',')) {
+                    switch (checker) {
+                        case 'ctest':
+                            checkers.push(new ctest_checker_1.default());
+                            break;
+                        case 'clang_tidy':
+                            checkers.push(new clang_tidy_checker_1.default());
+                            break;
+                        case 'doxygen':
+                            checkers.push(new doxygen_checker_1.default());
+                            break;
+                        case 'junit':
+                            checkers.push(new junit_checker_1.default());
+                            break;
+                        case 'spotbugs':
+                            checkers.push(new spotbugs_checker_1.default());
+                            break;
+                        case 'checkstyle':
+                            checkers.push(new checkstyle_checker_1.default());
+                            break;
+                        default:
+                            throw new Error(`invalid checker: ${checker}`);
+                    }
+                }
+            }
             const MAX_ANNOTATIONS_PER_REQUEST = 50;
             const accessToken = (_a = process.env.GITHUB_TOKEN) !== null && _a !== void 0 ? _a : core.getInput('github_token');
             const checksCreate = core.getInput('checks_create');

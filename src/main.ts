@@ -10,14 +10,48 @@ import CheckstyleChecker from './checkstyle-checker'
 
 async function main(): Promise<void> {
   try {
-    const checkers: Checker[] = [
-      new CTestChecker(),
-      new ClangTidyChecker(),
-      new DoxygenChecker(),
-      new JUnitChecker(),
-      new SpotbugsChecker(),
-      new CheckstyleChecker()
-    ]
+    let checkers: Checker[]
+    const checkerInput = core.getInput('checker')
+    if (
+      checkerInput == null ||
+      checkerInput === 'null' ||
+      checkerInput === ''
+    ) {
+      checkers = [
+        new CTestChecker(),
+        new ClangTidyChecker(),
+        new DoxygenChecker(),
+        new JUnitChecker(),
+        new SpotbugsChecker(),
+        new CheckstyleChecker()
+      ]
+    } else {
+      checkers = []
+      for (const checker of checkerInput.split(',')) {
+        switch (checker) {
+          case 'ctest':
+            checkers.push(new CTestChecker())
+            break
+          case 'clang_tidy':
+            checkers.push(new ClangTidyChecker())
+            break
+          case 'doxygen':
+            checkers.push(new DoxygenChecker())
+            break
+          case 'junit':
+            checkers.push(new JUnitChecker())
+            break
+          case 'spotbugs':
+            checkers.push(new SpotbugsChecker())
+            break
+          case 'checkstyle':
+            checkers.push(new CheckstyleChecker())
+            break
+          default:
+            throw new Error(`invalid checker: ${checker}`)
+        }
+      }
+    }
 
     const MAX_ANNOTATIONS_PER_REQUEST = 50
     const accessToken =

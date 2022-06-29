@@ -41,6 +41,9 @@ inputs:
   matrix:
     description: 'matrix context'
     required: false
+  checker:
+    description: 'enabled checker list (comma separated string)'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
