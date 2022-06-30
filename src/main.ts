@@ -56,7 +56,6 @@ async function main(): Promise<void> {
     const MAX_ANNOTATIONS_PER_REQUEST = 50
     const accessToken =
       process.env.GITHUB_TOKEN ?? core.getInput('github_token')
-    const checksCreate = core.getInput('checks_create')
 
     const octokit = github.getOctokit(accessToken)
     const sha =
@@ -72,60 +71,30 @@ async function main(): Promise<void> {
       if (annotations.length) {
         ghaWarningMessage += `${checker.result} `
 
-        if (checksCreate === 'update') {
-          let checkSummary = checker.summary
-          if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
-            checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`
-          }
-          // FIXME check_name is invalid when matrix build
-          const req = {
-            ...github.context.repo,
-            ref: sha,
-            check_name: `${process.env.GITHUB_JOB}`
-          }
-          const res = await octokit.checks.listForRef(req)
-          if (res.data.check_runs[0]) {
-            const check_run_id = res.data.check_runs[0].id
-            const update_req = Object.assign({}, github.context.repo, {
-              check_run_id,
-              output: {
-                title: checker.result,
-                summary: checkSummary,
-                annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
-              }
-            })
-            await octokit.checks.update(update_req)
-          } else {
-            core.warning(
-              'Failed to checks.update due to fail to get check runs.'
-            )
-          }
-        } else {
-          let checkSummary = checker.summary
-          if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
-            checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`
-          }
-          let checkName = checker.name
-          if (github.context.eventName === 'pull_request') {
-            checkName = `${checkName}-pr`
-          }
-          const res = await octokit.checks.create({
-            owner: github.context.repo.owner,
-            repo: github.context.repo.repo,
-            name: checkName,
-            head_sha: sha,
-            status: 'completed',
-            conclusion: annotations.length === 0 ? 'success' : 'failure',
-            output: {
-              title: checker.result,
-              summary: checkSummary,
-              annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
-            }
-          })
-          await core.summary
-            .addLink(checker.result, res.data.html_url as string)
-            .write()
+        let checkSummary = checker.summary
+        if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
+          checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`
         }
+        let checkName = checker.name
+        if (github.context.eventName === 'pull_request') {
+          checkName = `${checkName}-pr`
+        }
+        const res = await octokit.checks.create({
+          owner: github.context.repo.owner,
+          repo: github.context.repo.repo,
+          name: checkName,
+          head_sha: sha,
+          status: 'completed',
+          conclusion: annotations.length === 0 ? 'success' : 'failure',
+          output: {
+            title: checker.result,
+            summary: checkSummary,
+            annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
+          }
+        })
+        await core.summary
+          .addLink(checker.result, res.data.html_url as string)
+          .write()
       }
     }
     if (ghaWarningMessage) {

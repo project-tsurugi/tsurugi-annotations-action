@@ -2014,7 +2014,6 @@ function main() {
             }
             const MAX_ANNOTATIONS_PER_REQUEST = 50;
             const accessToken = (_a = process.env.GITHUB_TOKEN) !== null && _a !== void 0 ? _a : core.getInput('github_token');
-            const checksCreate = core.getInput('checks_create');
             const octokit = github.getOctokit(accessToken);
             const sha = (_c = (_b = github.context.payload.pull_request) === null || _b === void 0 ? void 0 : _b.head.sha) !== null && _c !== void 0 ? _c : github.context.sha;
             let ghaWarningMessage = '';
@@ -2025,56 +2024,30 @@ function main() {
                 core.info(checker.result);
                 if (annotations.length) {
                     ghaWarningMessage += `${checker.result} `;
-                    if (checksCreate === 'update') {
-                        let checkSummary = checker.summary;
-                        if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
-                            checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`;
-                        }
-                        // FIXME check_name is invalid when matrix build
-                        const req = Object.assign(Object.assign({}, github.context.repo), { ref: sha, check_name: `${process.env.GITHUB_JOB}` });
-                        const res = yield octokit.checks.listForRef(req);
-                        if (res.data.check_runs[0]) {
-                            const check_run_id = res.data.check_runs[0].id;
-                            const update_req = Object.assign({}, github.context.repo, {
-                                check_run_id,
-                                output: {
-                                    title: checker.result,
-                                    summary: checkSummary,
-                                    annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
-                                }
-                            });
-                            yield octokit.checks.update(update_req);
-                        }
-                        else {
-                            core.warning('Failed to checks.update due to fail to get check runs.');
-                        }
+                    let checkSummary = checker.summary;
+                    if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
+                        checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`;
                     }
-                    else {
-                        let checkSummary = checker.summary;
-                        if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
-                            checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`;
-                        }
-                        let checkName = checker.name;
-                        if (github.context.eventName === 'pull_request') {
-                            checkName = `${checkName}-pr`;
-                        }
-                        const res = yield octokit.checks.create({
-                            owner: github.context.repo.owner,
-                            repo: github.context.repo.repo,
-                            name: checkName,
-                            head_sha: sha,
-                            status: 'completed',
-                            conclusion: annotations.length === 0 ? 'success' : 'failure',
-                            output: {
-                                title: checker.result,
-                                summary: checkSummary,
-                                annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
-                            }
-                        });
-                        yield core.summary
-                            .addLink(checker.result, res.data.html_url)
-                            .write();
+                    let checkName = checker.name;
+                    if (github.context.eventName === 'pull_request') {
+                        checkName = `${checkName}-pr`;
                     }
+                    const res = yield octokit.checks.create({
+                        owner: github.context.repo.owner,
+                        repo: github.context.repo.repo,
+                        name: checkName,
+                        head_sha: sha,
+                        status: 'completed',
+                        conclusion: annotations.length === 0 ? 'success' : 'failure',
+                        output: {
+                            title: checker.result,
+                            summary: checkSummary,
+                            annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
+                        }
+                    });
+                    yield core.summary
+                        .addLink(checker.result, res.data.html_url)
+                        .write();
                 }
             }
             if (ghaWarningMessage) {
