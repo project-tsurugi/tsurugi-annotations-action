@@ -69,8 +69,6 @@ async function main(): Promise<void> {
       core.info(checker.result)
 
       if (annotations.length) {
-        ghaWarningMessage += `${checker.result} `
-
         let checkSummary = checker.summary
         if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
           checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`
@@ -92,9 +90,9 @@ async function main(): Promise<void> {
             annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
           }
         })
-        await core.summary
-          .addLink(checker.result, res.data.html_url as string)
-          .write()
+        const checkUrl = res.data.html_url
+        await core.summary.addLink(checker.result, checkUrl as string).write()
+        ghaWarningMessage += `\n- *<${checkUrl}?check_suite_focus=true|${checker.result}>*`
       }
     }
     if (ghaWarningMessage) {

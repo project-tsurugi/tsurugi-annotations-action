@@ -2023,7 +2023,6 @@ function main() {
                 const annotations = yield checker.parse();
                 core.info(checker.result);
                 if (annotations.length) {
-                    ghaWarningMessage += `${checker.result} `;
                     let checkSummary = checker.summary;
                     if (annotations.length > MAX_ANNOTATIONS_PER_REQUEST) {
                         checkSummary += `\n(show only the first ${MAX_ANNOTATIONS_PER_REQUEST} annotations)`;
@@ -2045,9 +2044,9 @@ function main() {
                             annotations: annotations.slice(0, MAX_ANNOTATIONS_PER_REQUEST)
                         }
                     });
-                    yield core.summary
-                        .addLink(checker.result, res.data.html_url)
-                        .write();
+                    const checkUrl = res.data.html_url;
+                    yield core.summary.addLink(checker.result, checkUrl).write();
+                    ghaWarningMessage += `\n- *<${checkUrl}?check_suite_focus=true|${checker.result}>*`;
                 }
             }
             if (ghaWarningMessage) {
