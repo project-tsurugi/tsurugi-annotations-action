@@ -99,7 +99,7 @@ async function main(): Promise<void> {
       core.exportVariable('GHA_WARNING_MESSAGE', ghaWarningMessage)
     }
   } catch (error) {
-    core.setFailed(error.message)
+    core.setFailed(error.stack)
   }
 }
 
