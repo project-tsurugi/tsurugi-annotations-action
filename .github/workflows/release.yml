@@ -57,12 +57,3 @@ jobs:
           asset_path: ./dist.tar.gz
           asset_name: dist.tar.gz
           asset_content_type: application/gzip
-
-      - uses: 8398a7/action-slack@v3
-        with:
-          text: Released ${{ github.ref }} - ${{ steps.upload-release-asset.outputs.browser_download_url }}
-          status: ${{ job.status }}
-          fields: repo,message
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always()
