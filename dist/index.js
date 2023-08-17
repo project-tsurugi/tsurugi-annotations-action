@@ -2281,6 +2281,9 @@ function main() {
             }
             if (ghaWarningMessage) {
                 core.exportVariable('GHA_WARNING_MESSAGE', ghaWarningMessage);
+                if ('true' == core.getInput('strict')) {
+                    core.setFailed(ghaWarningMessage);
+                }
             }
         }
         catch (error) {

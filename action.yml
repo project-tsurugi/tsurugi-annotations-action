@@ -6,6 +6,10 @@ inputs:
     description: Use this if you wish to use a different GitHub token than the one provided by the workflow.
     required: true
     default: ${{ github.token }}
+  strict:
+    description: If annotation exists, set action to fail.
+    required: true
+    default: true
   clang_tidy_input:
     description: 'input file of generating Clang-Tidy annotation'
     required: true
