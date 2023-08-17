@@ -4,7 +4,7 @@ on: [pull_request, push]
 jobs:
   build:
     runs-on: [self-hosted, docker]
-    container: node:14
+    container: node:16
 
     steps:
       - name: Checkout
