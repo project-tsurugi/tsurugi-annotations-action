@@ -1,6 +1,6 @@
 {
   "name": "tsurugi-annotations-action",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "description": "Generate check-run annotations from outputs of static analysis tools",
   "main": "lib/main.js",
