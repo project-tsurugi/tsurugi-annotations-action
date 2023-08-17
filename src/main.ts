@@ -97,7 +97,7 @@ async function main(): Promise<void> {
     }
     if (ghaWarningMessage) {
       core.exportVariable('GHA_WARNING_MESSAGE', ghaWarningMessage)
-      if ('true' == core.getInput('strict')) {
+      if ('true' === core.getInput('strict')) {
         core.setFailed(ghaWarningMessage)
       }
     }
