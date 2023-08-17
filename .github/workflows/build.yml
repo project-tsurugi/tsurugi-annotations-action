@@ -4,14 +4,18 @@ on: [pull_request, push]
 jobs:
   build:
     runs-on: [self-hosted, docker]
-    container: node:16
+    container:
+      image:  ghcr.io/project-tsurugi/oltp-sandbox:ubuntu-22.04
+      credentials:
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GHCR_PAT }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - run: npm install
       - run: npm run build
       - run: npm run lint
-      - run: npm run pack
+      # - run: npm run pack
       - run: npm test
