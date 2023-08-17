@@ -35,7 +35,9 @@ abstract class Checker {
       core.info(`[${this.name}] files: ${this.files}`)
       return true
     } else {
-      core.info(`[${this.name}] ${this.input} file does not exist: ${patterns}`)
+      core.debug(
+        `[${this.name}] ${this.input} file does not exist: ${patterns}`
+      )
       return false
     }
   }
