@@ -70,7 +70,7 @@ With configurations
 | `checkstyle_input` | bool    | `build/reports/checkstyle/main.xml`     | input file of generating SpotBugs annotation. |
 | `junit_test_src_dir` | bool    | `src/test/java`     | test source root directory. |
 | `matrix` | bool    | `false`     | matrix context. |
-| `checker` | bool    | `` (Search for all supporting tool outputs) | enabled checker list (comma separated string) |
+| `checker` | string  | empty string (Search for all supporting tool outputs) | enabled checker list (comma separated string) |
 
 ## License
 
