@@ -62,13 +62,13 @@ With configurations
 |--------------------|---------|-------------|------------------------------------|
 | `github_token`     | string  | `${{ github.token }}`  | Use this if you wish to use a different GitHub token than the one provided by the workflow. |
 | `strict`           | bool    | `true`      | If annotation exists, set action to fail. |
-| `clang_tidy_input` | bool    | `build/clang-tidy.log`      | input file of generating Clang-Tidy annotation. |
-| `ctest_input`      | bool    | `build/**/*_gtest_result.xml`      | input file of generating CTest annotation. |
-| `doxygen_input`    | bool    | `build/doxygen-error.log`      | input file of generating Doxygen annotation. |
-| `junit_input`      | bool    | `build/test-results/**/TEST-*.xml`      | input file of generating JUnit annotation. |
-| `spotbugs_input`   | bool    | `build/reports/spotbugs/main/*.xml`     | input file of generating SpotBugs annotation. |
-| `checkstyle_input` | bool    | `build/reports/checkstyle/main.xml`     | input file of generating SpotBugs annotation. |
-| `junit_test_src_dir` | bool    | `src/test/java`     | test source root directory. |
+| `clang_tidy_input` | string    | `build/clang-tidy.log`      | input file of generating Clang-Tidy annotation. |
+| `ctest_input`      | string    | `build/**/*_gtest_result.xml`      | input file of generating CTest annotation. |
+| `doxygen_input`    | string    | `build/doxygen-error.log`      | input file of generating Doxygen annotation. |
+| `junit_input`      | string    | `build/test-results/**/TEST-*.xml`      | input file of generating JUnit annotation. |
+| `spotbugs_input`   | string    | `build/reports/spotbugs/main/*.xml`     | input file of generating SpotBugs annotation. |
+| `checkstyle_input` | string    | `build/reports/checkstyle/main.xml`     | input file of generating SpotBugs annotation. |
+| `junit_test_src_dir` | string    | `src/test/java`     | test source root directory. |
 | `matrix` | bool    | `false`     | matrix context. |
 | `checker` | string  | empty string (Search for all supporting tool outputs) | enabled checker list (comma separated string) |
 
