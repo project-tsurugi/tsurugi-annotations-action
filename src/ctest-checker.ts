@@ -21,7 +21,7 @@ class CTestChecker extends JUnitChecker {
     let message = failureMessage.substr(firstLineIndex)
 
     if (!path) {
-      path = 'unknouwn file'
+      path = 'unknown file'
     }
     if (isNaN(warnLine)) {
       warnLine = 1
