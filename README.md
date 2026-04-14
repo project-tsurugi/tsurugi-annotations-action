@@ -25,7 +25,7 @@ Simple usage
 ```yaml
     steps:
       - name: Verify
-        uses: project-tsurugi/tsurugi-annotations-action@v1
+        uses: project-tsurugi/tsurugi-annotations-action@v2
 ```
 
 With configurations
@@ -33,7 +33,7 @@ With configurations
     steps:
 
       - name: Verify
-        uses: project-tsurugi/tsurugi-annotations-action@v1
+        uses: project-tsurugi/tsurugi-annotations-action@v2
         if: always()
         with:
           junit_input: 'java/cost-accounting-benchmark/build/test-results/**/TEST-*.xml'

@@ -22,7 +22,7 @@ abstract class Checker {
   }
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  abstract async parse(): Promise<any>
+  abstract parse(): Promise<any>
   /* eslint-enable */
 
   async doIf(): Promise<boolean> {

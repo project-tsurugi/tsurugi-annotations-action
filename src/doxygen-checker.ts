@@ -2,7 +2,7 @@ import * as fs from 'fs'
 import Checker from './abstract-checker'
 
 class DoxygenChecker extends Checker {
-  private resultMessage: string = ''
+  private resultMessage = ''
 
   get checkerName(): string {
     return 'Doxygen'
@@ -22,7 +22,7 @@ class DoxygenChecker extends Checker {
     const annotations: any[] = []
     /* eslint-enable */
     for (const inputFile of this.files) {
-      const lines = fs.readFileSync(inputFile, 'UTF-8').split(/\r?\n/)
+      const lines = fs.readFileSync(inputFile, 'utf8').split(/\r?\n/)
       for (const line of lines) {
         const result = line.match(
           /^\s*(?:\d+%)?([^%]*?):(\d+):(?:(\d+):)?(?:(?:\{\d+:\d+-\d+:\d+\})+:)?\s*(warning|[^[\]]*error):\s*(.*?)$/
