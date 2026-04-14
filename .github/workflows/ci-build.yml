@@ -21,7 +21,7 @@ jobs:
 
       - name: Install
         run: |
-          npm install
+          npm ci --no-audit --no-fund
 
       - name: Build
         run: |

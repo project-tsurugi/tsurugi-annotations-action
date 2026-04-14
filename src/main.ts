@@ -77,7 +77,7 @@ async function main(): Promise<void> {
         if (github.context.eventName === 'pull_request') {
           checkName = `${checkName}-pr`
         }
-        const res = await octokit.checks.create({
+        const res = await octokit.rest.checks.create({
           owner: github.context.repo.owner,
           repo: github.context.repo.repo,
           name: checkName,
@@ -91,8 +91,10 @@ async function main(): Promise<void> {
           }
         })
         const checkUrl = res.data.html_url
-        await core.summary.addLink(checker.result, checkUrl as string).write()
-        ghaWarningMessage += `\n- *<${checkUrl}?check_suite_focus=true|${checker.result}>*`
+        if (typeof checkUrl === 'string') {
+          await core.summary.addLink(checker.result, checkUrl).write()
+          ghaWarningMessage += `\n- *<${checkUrl}?check_suite_focus=true|${checker.result}>*`
+        }
       }
     }
     if (ghaWarningMessage) {
@@ -102,7 +104,11 @@ async function main(): Promise<void> {
       }
     }
   } catch (error) {
-    core.setFailed(error.stack)
+    if (error instanceof Error) {
+      core.setFailed(error.stack ?? error.message)
+    } else {
+      core.setFailed(String(error))
+    }
   }
 }
 

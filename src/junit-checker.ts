@@ -4,8 +4,8 @@ import xmljs from 'xml-js'
 import Checker from './abstract-checker'
 
 class JUnitChecker extends Checker {
-  private resultMessage: string = ''
-  private summaryMessage: string = ''
+  private resultMessage = ''
+  private summaryMessage = ''
 
   get checkerName(): string {
     return 'JUnit'
@@ -33,7 +33,7 @@ class JUnitChecker extends Checker {
     }
 
     for (const inputFile of this.files) {
-      const xml = fs.readFileSync(inputFile, 'UTF-8')
+      const xml = fs.readFileSync(inputFile, 'utf8')
       const xmljsOption = {compact: true, instructionHasAttributes: true}
       const json = JSON.parse(xmljs.xml2json(xml, xmljsOption))
       let testsuite
